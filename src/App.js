@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 class App extends Component {
   render() {
+    // Function is run by GoogleLogin component below on success or failure
+    const responseGoogle = response => {
+      console.log(response);
+    };
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className='App'>
+        <GoogleLogin
+          clientId='797274764544-8k4ne4k38ulf5elhdbg19ojti4ee1vra.apps.googleusercontent.com'
+          buttonText='Login'
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+        />
+
+        <GoogleLogout buttonText='Logout' onLogoutSuccess={responseGoogle} />
+        <Navbar />
       </div>
     );
   }
