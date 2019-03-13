@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/App.css';
 import Navbar from './components/Navbar';
+import Timeline from './components/Timeline';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
 
         <GoogleLogout buttonText='Logout' onLogoutSuccess={responseGoogle} />
         <Navbar />
+        <Timeline />
       </div>
     );
   }
