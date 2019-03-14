@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state);
     // Function is run by GoogleLogin component below on success or failure
     const responseGoogle = response => {
       console.log(response);
