@@ -5,6 +5,22 @@ import Timeline from './components/Timeline';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 class App extends Component {
+  state = {
+    originalMemories: [],
+    memories: []
+  };
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/posts')
+      .then(r => r.json())
+      .then(posts =>
+        this.setState({
+          originalMemories: posts,
+          memories: posts
+        })
+      );
+  }
+
   render() {
     // Function is run by GoogleLogin component below on success or failure
     const responseGoogle = response => {
@@ -22,7 +38,7 @@ class App extends Component {
 
         <GoogleLogout buttonText='Logout' onLogoutSuccess={responseGoogle} />
         <Navbar />
-        <Timeline />
+        <Timeline memories={this.state.memories} />
       </div>
     );
   }
