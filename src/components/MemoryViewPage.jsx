@@ -1,5 +1,6 @@
 import React from 'react';
 import MemoryCard from './MemoryCard';
+import '../css/MemoryViewPage.css';
 
 import { Card } from 'semantic-ui-react';
 
@@ -11,7 +12,7 @@ function MemoryViewPage(props) {
   };
 
   return (
-    <Card.Group itemsPerRow={4} className='memoryCardContainer'>
+    <Card.Group itemsPerRow={4} id='memoryCardContainer'>
       {renderMemoryCards()}
     </Card.Group>
   );

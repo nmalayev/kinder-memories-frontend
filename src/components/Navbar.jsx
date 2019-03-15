@@ -49,34 +49,28 @@ class Navbar extends Component {
     const { activeItem } = this.state;
 
     return (
-      <div>
-        <Menu pointing>
-          <Menu.Item
-            name='timeline'
-            active={activeItem === 'timeline'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name='memories'
-            active={activeItem === 'memories'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name='new-memory'
-            active={activeItem === 'new-memory'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Menu position='right'>
-            <Menu.Item>
-              <Input icon='search' placeholder='Search...' />
-            </Menu.Item>
-          </Menu.Menu>
-        </Menu>
-
-        {/* <Segment>
-          <img src='/images/wireframe/paragraph.png' />
-        </Segment> */}
-      </div>
+      <Menu pointing className='ui fixed top sticky' size='massive'>
+        <Menu.Item
+          name='timeline'
+          active={activeItem === 'timeline'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='memories'
+          active={activeItem === 'memories'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name='new-memory'
+          active={activeItem === 'new-memory'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Menu position='right'>
+          <Menu.Item>
+            <Input icon='search' placeholder='Search...' />
+          </Menu.Item>
+        </Menu.Menu>
+      </Menu>
     );
   }
 }

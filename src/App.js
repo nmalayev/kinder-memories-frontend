@@ -37,9 +37,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
-    // Function is run by GoogleLogin component below on success or failure
-
     return (
       <div className='App'>
         <Navbar />
