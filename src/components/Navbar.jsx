@@ -1,10 +1,31 @@
 import React from 'react';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
+  const responseGoogle = response => {
+    console.log(response);
+  };
   return (
     <div className='Navbar'>
-      <button>Add Memory</button>
-      <button>View All Memories</button>
+      <GoogleLogin
+        clientId='797274764544-8k4ne4k38ulf5elhdbg19ojti4ee1vra.apps.googleusercontent.com'
+        buttonText='Login'
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+      />
+
+      <GoogleLogout buttonText='Logout' onLogoutSuccess={responseGoogle} />
+      <NavLink to='/new-memory' activeClassName='active'>
+        New Memory
+      </NavLink>
+      <NavLink to='/memories' activeClassName='active'>
+        All Memories
+      </NavLink>
+      <NavLink to='/timeline' activeClassName='active'>
+        Timeline
+      </NavLink>
+
       <input />
     </div>
   );

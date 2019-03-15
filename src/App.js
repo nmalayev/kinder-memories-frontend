@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import './css/App.css';
 import Navbar from './components/Navbar';
 import Timeline from './components/Timeline';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import MemoryForm from './components/MemoryForm';
+import MemoryViewPage from './components/MemoryViewPage';
+
+import { Route } from 'react-router-dom';
+
+import './css/App.css';
 
 class App extends Component {
   state = {
@@ -35,22 +39,23 @@ class App extends Component {
   render() {
     console.log(this.state);
     // Function is run by GoogleLogin component below on success or failure
-    const responseGoogle = response => {
-      console.log(response);
-    };
 
     return (
       <div className='App'>
-        <GoogleLogin
-          clientId='797274764544-8k4ne4k38ulf5elhdbg19ojti4ee1vra.apps.googleusercontent.com'
-          buttonText='Login'
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-        />
-
-        <GoogleLogout buttonText='Logout' onLogoutSuccess={responseGoogle} />
         <Navbar />
-        <Timeline memories={this.state.memories} />
+        <Route
+          path='/timeline'
+          render={props => (
+            <Timeline {...props} memories={this.state.memories} />
+          )}
+        />
+        <Route path='/new-memory' render={props => <MemoryForm {...props} />} />
+        <Route
+          path='/memories'
+          render={props => (
+            <MemoryViewPage {...props} memories={this.state.memories} />
+          )}
+        />
       </div>
     );
   }
