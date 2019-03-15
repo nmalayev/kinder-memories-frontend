@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../css/Timeline.css';
-import MemoryCard from './MemoryCard';
+import TimelineCard from './TimelineCard';
 
 export class Timeline extends Component {
   timelineFunctionality = () => {
@@ -92,7 +92,7 @@ export class Timeline extends Component {
 
   renderMemoryCards = () => {
     return this.props.memories.map(mem => {
-      return <MemoryCard key={mem.id} memory={mem} />;
+      return <TimelineCard key={mem.id} memory={mem} />;
     });
   };
 

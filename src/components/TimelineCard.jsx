@@ -1,8 +1,7 @@
 import React from 'react';
-import { Card } from 'semantic-ui-react';
 import moment from 'moment';
 
-function MemoryCard(props) {
+function TimelineCard(props) {
   const memoryTypeRender = () => {
     if (props.memory.post_type === 'photo') {
       return <img src={props.memory.photo} alt='' />;
@@ -38,12 +37,13 @@ function MemoryCard(props) {
   };
 
   return (
-    <Card raised>
-      <div>
-        <div>
-          {calcMemoryAge()}
-          {moment(props.memory.memory_date).format('MMM Do YYYY')}
-        </div>
+    <div className='cd-timeline__block js-cd-block'>
+      <div className='cd-timeline__img cd-timeline__img--picture js-cd-img'>
+        <img src='img/cd-icon-picture.svg' alt='' />
+      </div>
+
+      <div className='cd-timeline__content js-cd-content'>
+        <div>{calcMemoryAge()}</div>
         <hr />
         <h2>{props.memory.title}</h2>
         <div>{memoryTypeRender()}</div>
@@ -53,11 +53,16 @@ function MemoryCard(props) {
             Posted by {props.memory.user.name} on{' '}
             {moment(props.memory.created_at).format('MMMM Do YYYY')}
           </h4>
-          <a href='#0'>Read more</a>
+          <a href='#0' className='cd-timeline__read-more'>
+            Read more
+          </a>
         </div>
+        <span className='cd-timeline__date'>
+          {moment(props.memory.memory_date).format('MMM Do YYYY')}
+        </span>
       </div>
-    </Card>
+    </div>
   );
 }
 
-export default MemoryCard;
+export default TimelineCard;
