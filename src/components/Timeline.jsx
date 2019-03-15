@@ -92,7 +92,7 @@ export class Timeline extends Component {
 
   renderMemoryCards = () => {
     return this.props.memories.map(mem => {
-      return <MemoryCard memory={mem} />;
+      return <MemoryCard key={mem.id} memory={mem} />;
     });
   };
 

@@ -13,12 +13,23 @@ class App extends Component {
   componentDidMount() {
     fetch('http://localhost:3001/api/v1/posts')
       .then(r => r.json())
-      .then(posts =>
+      .then(posts => {
+        // Sorting the API data chronologically by memory date to place on timeline
+        let timeSorted = posts.sort((memA, memB) => {
+          if (memA.memory_date > memB.memory_date) {
+            return 1;
+          }
+          if (memA.memory_date < memB.memory_date) {
+            return -1;
+          }
+          return 0;
+        });
+
         this.setState({
-          originalMemories: posts,
-          memories: posts
-        })
-      );
+          originalMemories: timeSorted,
+          memories: timeSorted
+        });
+      });
   }
 
   render() {

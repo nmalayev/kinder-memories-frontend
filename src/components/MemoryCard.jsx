@@ -4,7 +4,7 @@ import moment from 'moment';
 function MemoryCard(props) {
   const memoryTypeRender = () => {
     if (props.memory.post_type === 'photo') {
-      return <img src={props.memory.photo} alt='photo' />;
+      return <img src={props.memory.photo} alt='' />;
     } else if (props.memory.post_type === 'letter') {
       return <p>{props.memory.letter}</p>;
     } else if (props.memory.post_type === 'video') {
@@ -39,7 +39,7 @@ function MemoryCard(props) {
   return (
     <div className='cd-timeline__block js-cd-block'>
       <div className='cd-timeline__img cd-timeline__img--picture js-cd-img'>
-        <img src='img/cd-icon-picture.svg' alt='Picture' />
+        <img src='img/cd-icon-picture.svg' alt='' />
       </div>
 
       <div className='cd-timeline__content js-cd-content'>
