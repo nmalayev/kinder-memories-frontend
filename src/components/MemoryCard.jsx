@@ -2,7 +2,6 @@ import React from 'react';
 import moment from 'moment';
 
 function MemoryCard(props) {
-  console.log('MemoryCard', props);
   const memoryTypeRender = () => {
     if (props.memory.post_type === 'photo') {
       return <img src={props.memory.photo} alt='photo' />;
@@ -11,10 +10,29 @@ function MemoryCard(props) {
     } else if (props.memory.post_type === 'video') {
       return (
         <video width='420'>
-          <source src={props.memory.video} type='video/mp4' />
-          {/* <source src='mov_bbb.ogg' type='video/ogg' /> */}
+          <source src={props.memory.video + '.mp4'} type='video/mp4' />
+          <source src={props.memory.video} type='video/ogg' />
         </video>
       );
+    }
+  };
+
+  const calcMemoryAge = () => {
+    let memoryDate = moment(props.memory.memory_date);
+    let birthday = moment(props.memory.timeline.birthday);
+
+    let years = memoryDate.diff(birthday, 'year');
+    birthday.add(years, 'years');
+
+    let months = memoryDate.diff(birthday, 'months');
+    birthday.add(months, 'months');
+
+    if (years > 0 && years < 2) {
+      return <h3>{years + ' year ' + months + ' months '}</h3>;
+    } else if (years > 0 && years > 2) {
+      return <h3>{years + ' years ' + months + ' months '}</h3>;
+    } else {
+      return <h3>{months + ' months '}</h3>;
     }
   };
 
@@ -25,22 +43,10 @@ function MemoryCard(props) {
       </div>
 
       <div className='cd-timeline__content js-cd-content'>
-        <div>
-          <h3>Timeline Date</h3>
-          <h3>Timeline Age</h3>
-        </div>
+        <div>{calcMemoryAge()}</div>
         <hr />
         <h2>{props.memory.title}</h2>
-        <div>
-          {/* <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto,
-            optio, dolorum provident rerum aut hic quasi placeat iure tempora
-            laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis
-            qui ut.
-          </p> */}
-          {memoryTypeRender()}
-        </div>
-
+        <div>{memoryTypeRender()}</div>
         <hr />
         <div>
           <h4>
@@ -51,17 +57,12 @@ function MemoryCard(props) {
             Read more
           </a>
         </div>
-        <span className='cd-timeline__date'>Jan 14</span>
+        <span className='cd-timeline__date'>
+          {moment(props.memory.memory_date).format('MMM Do YYYY')}
+        </span>
       </div>
     </div>
   );
 }
 
 export default MemoryCard;
-
-// t.string "post_type"
-// t.string "title"
-// t.text "description"
-// t.text "letter", default: ""
-// t.bigint "timeline_id"
-// t.string "poster"
