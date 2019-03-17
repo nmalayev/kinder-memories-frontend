@@ -42,6 +42,8 @@ class Navbar extends Component {
 
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name });
+    if (name === 'new-memory') {
+    }
     this.props.history.push(`/${name}`);
   };
 

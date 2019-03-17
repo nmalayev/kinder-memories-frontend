@@ -8,13 +8,13 @@ Primary style
   box-sizing: border-box;
 }
 
-html {
+/* html {
   font-size: 62.5%;
-}
+} */
 
 body {
-  font-size: 1.6rem;
-  font-family: 'Droid Serif', serif;
+  /* font-size: 1.6rem; */
+  /* font-family: 'Droid Serif', serif; */
   color: #7f8c97;
   background-color: #e9f0f5;
 }

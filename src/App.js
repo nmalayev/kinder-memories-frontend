@@ -4,14 +4,16 @@ import Timeline from './components/Timeline';
 import MemoryForm from './components/MemoryForm';
 import MemoryViewPage from './components/MemoryViewPage';
 
-import { Route } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
 import './css/App.css';
 
 class App extends Component {
   state = {
     originalMemories: [],
-    memories: []
+    memories: [],
+    showAddModal: true,
+    childName: ''
   };
 
   componentDidMount() {
@@ -31,22 +33,43 @@ class App extends Component {
 
         this.setState({
           originalMemories: timeSorted,
-          memories: timeSorted
+          memories: timeSorted,
+          childName: posts[0].timeline.name
         });
       });
   }
 
+  handleNewMemorySubmit = e => {
+    e.preventDefault();
+    this.setState({
+      showAddModal: !this.state.showAddModal
+    });
+    this.props.history.push('/timeline');
+  };
+
   render() {
+    console.log(this.state);
     return (
       <div className='App'>
         <Navbar />
+        <Redirect from='/' to='/timeline' />
         <Route
           path='/timeline'
           render={props => (
             <Timeline {...props} memories={this.state.memories} />
           )}
         />
-        <Route path='/new-memory' render={props => <MemoryForm {...props} />} />
+        <Route
+          path='/new-memory'
+          render={props => (
+            <MemoryForm
+              {...props}
+              showAddModal={this.state.showAddModal ? true : true} // Hacky way to always pass true, but flip false upon form submit
+              handleSubmit={this.handleNewMemorySubmit}
+              childName={this.state.childName}
+            />
+          )}
+        />
         <Route
           path='/memories'
           render={props => (
@@ -58,4 +81,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
