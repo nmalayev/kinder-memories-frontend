@@ -54,6 +54,7 @@ function MemoryCard(props) {
         </div>
         <hr />
         <h2>{props.memory.title}</h2>
+        <p>{props.memory.description}</p>
         <div>{memoryTypeRender()}</div>
         <hr />
         <div>

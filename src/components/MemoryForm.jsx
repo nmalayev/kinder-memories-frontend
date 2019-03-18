@@ -66,7 +66,6 @@ class MemoryForm extends Component {
                   label='Attach photo/video'
                   type='file'
                   name='file'
-                  // accept='video/*,image/*'
                 />
               </Form.Group>
               <Form.Button>Submit</Form.Button>
