@@ -48,38 +48,41 @@ class App extends Component {
   }
 
   handleAddFormChange = (e, { value }) => {
-    this.setState({ [e.target.name]: value }, () => console.log(this.state));
+    this.setState({ [e.target.name]: value });
   };
 
   handleAddFormSelectChange = (e, { value }) => {
-    this.setState({ newMemType: value }, () => console.log(this.state));
+    this.setState({ newMemType: value });
   };
 
   handleNewMemorySubmit = e => {
     e.preventDefault();
+    e.persist();
+    console.log(
+      e.target.file.files[0],
+      this.state.newMemType,
+      this.state.newMemTitle
+    );
+
+    let formData = new FormData();
+    formData.append('post_type', this.state.newMemType);
+    formData.append('title', this.state.newMemTitle);
+    formData.append('description', this.state.newMemDescription);
+    formData.append('memory_date', this.state.newMemDate);
+    formData.append('file', e.target.file.files[0]);
+
     fetch('http://localhost:3001/api/v1/posts', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify({
-        post_type: this.state.newMemType,
-        title: this.state.newMemTitle,
-        description: this.state.newMemDescription,
-        memory_date: this.state.newMemDate
-      })
+      body: formData
     }) // end of fetch
       .then(r => r.json())
       .then(mem => {
-        this.setState(
-          {
-            memories: this.sortMemories([...this.state.memories, mem]),
-            showAddModal: !this.state.showAddModal,
-            newMemType: ''
-          },
-          () => console.log('app', this.state)
-        );
+        console.log(mem);
+        this.setState({
+          memories: this.sortMemories([...this.state.memories, mem]),
+          showAddModal: !this.state.showAddModal,
+          newMemType: ''
+        });
       });
 
     this.props.history.push('/timeline');

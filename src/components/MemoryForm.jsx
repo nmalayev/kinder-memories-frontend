@@ -62,6 +62,12 @@ class MemoryForm extends Component {
                   name='newMemDate'
                   onChange={this.props.handleChange}
                 />
+                <Form.Input
+                  label='Attach photo/video'
+                  type='file'
+                  name='file'
+                  // accept='video/*,image/*'
+                />
               </Form.Group>
               <Form.Button>Submit</Form.Button>
             </Form>

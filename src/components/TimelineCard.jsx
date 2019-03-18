@@ -4,22 +4,17 @@ import moment from 'moment';
 function TimelineCard(props) {
   const memoryTypeRender = () => {
     if (props.memory.post_type === 'photo') {
-      return <img src={props.memory.photo} alt='' />;
+      return (
+        <img src={'http://localhost:3001' + props.memory.file_url} alt='' />
+      );
     } else if (props.memory.post_type === 'letter') {
       return <p>{props.memory.letter}</p>;
     } else if (props.memory.post_type === 'video') {
       return (
-        <iframe src='https://www.youtube.com/watch?v=0FQ6WGJkLPs' />
-        // <video controls={true}>
-        //   <source
-        //     src='https://www.youtube.com/watch?v=0FQ6WGJkLPs&html5=True'
-        //     type='video/mp4'
-        //   />
-        //   <source
-        //     src='https://www.youtube.com/watch?v=0FQ6WGJkLPs&html5=True'
-        //     type='video/ogg'
-        //   />
-        // </video>
+        <video controls={true}>
+          <source src={props.memory.file_url} type='video/mp4' />
+          <source src={props.memory.file_url} type='video/ogg' />
+        </video>
       );
     }
   };
