@@ -45,7 +45,7 @@ function TimelineCard(props) {
   };
 
   return (
-    <div className='cd-timeline__block js-cd-block'>
+    <div className='cd-timeline__block js-cd-block' id={props.memory.id}>
       <div className='cd-timeline__img cd-timeline__img--picture js-cd-img'>
         <img src='img/cd-icon-picture.svg' alt='' />
       </div>
