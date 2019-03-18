@@ -8,6 +8,18 @@ const options = [
   { key: 'letter', text: 'Letter', value: 'letter' }
 ];
 
+// Impory cloudinary code form script in index.html
+const cloudinary = window.cloudinary;
+const myWidget = cloudinary.createUploadWidget(
+  {
+    cloudName: 'dfotztxvl',
+    uploadPreset: 'vifbs3aj'
+  },
+  (error, result) => {
+    console.log(error, result);
+  }
+);
+
 class MemoryForm extends Component {
   state = { newMemType: '', newMemDescription: '' };
 
@@ -16,6 +28,7 @@ class MemoryForm extends Component {
   };
 
   render() {
+    console.log(cloudinary);
     const { value } = this.state;
     return (
       <Modal open={this.props.showAddModal}>
@@ -62,6 +75,14 @@ class MemoryForm extends Component {
                   name='newMemDate'
                   onChange={this.props.handleChange}
                 />
+
+                <Button
+                  id='upload_widget'
+                  className='cloudinary-button'
+                  onClick={() => myWidget.open()}
+                >
+                  Upload
+                </Button>
               </Form.Group>
               <Form.Button>Submit</Form.Button>
             </Form>

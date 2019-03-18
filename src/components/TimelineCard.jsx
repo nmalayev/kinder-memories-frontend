@@ -4,7 +4,13 @@ import moment from 'moment';
 function TimelineCard(props) {
   const memoryTypeRender = () => {
     if (props.memory.post_type === 'photo') {
-      return <img src={props.memory.photo} alt='' />;
+      // return <img src={props.memory.photo} alt='' />;
+      return (
+        <img
+          src='https://res.cloudinary.com/dfotztxvl/image/upload/c_limit,h_60,w_90/v1552922630/iijhlwlqmeupr3unb5xv.png'
+          alt=''
+        />
+      );
     } else if (props.memory.post_type === 'letter') {
       return <p>{props.memory.letter}</p>;
     } else if (props.memory.post_type === 'video') {
