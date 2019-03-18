@@ -13,7 +13,23 @@ class App extends Component {
     originalMemories: [],
     memories: [],
     showAddModal: true,
-    childName: ''
+    childName: '',
+    newMemTitle: '',
+    newMemDescription: '',
+    newMemType: '',
+    newMemDate: ''
+  };
+
+  sortMemories = memories => {
+    return memories.sort((memA, memB) => {
+      if (memA.memory_date > memB.memory_date) {
+        return 1;
+      }
+      if (memA.memory_date < memB.memory_date) {
+        return -1;
+      }
+      return 0;
+    });
   };
 
   componentDidMount() {
@@ -21,15 +37,7 @@ class App extends Component {
       .then(r => r.json())
       .then(posts => {
         // Sorting the API data chronologically by memory date to place on timeline
-        let timeSorted = posts.sort((memA, memB) => {
-          if (memA.memory_date > memB.memory_date) {
-            return 1;
-          }
-          if (memA.memory_date < memB.memory_date) {
-            return -1;
-          }
-          return 0;
-        });
+        let timeSorted = this.sortMemories(posts);
 
         this.setState({
           originalMemories: timeSorted,
@@ -39,16 +47,47 @@ class App extends Component {
       });
   }
 
+  handleAddFormChange = (e, { value }) => {
+    this.setState({ [e.target.name]: value }, () => console.log(this.state));
+  };
+
+  handleAddFormSelectChange = (e, { value }) => {
+    this.setState({ newMemType: value }, () => console.log(this.state));
+  };
+
   handleNewMemorySubmit = e => {
     e.preventDefault();
+    fetch('http://localhost:3001/api/v1/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        post_type: this.state.newMemType,
+        title: this.state.newMemTitle,
+        description: this.state.newMemDescription,
+        memory_date: this.state.newMemDate
+      })
+    }) // end of fetch
+      .then(r => r.json())
+      .then(mem => {
+        let newMemories = this.sortMemories([...this.state.memories, mem]);
+
+        this.setState({
+          memories: newMemories
+        });
+      });
+
+    // Hide new memory modal upon submission and clear newMemType
     this.setState({
-      showAddModal: !this.state.showAddModal
+      showAddModal: !this.state.showAddModal,
+      newMemType: ''
     });
     this.props.history.push('/timeline');
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className='App'>
         <Navbar />
@@ -65,8 +104,14 @@ class App extends Component {
             <MemoryForm
               {...props}
               showAddModal={this.state.showAddModal ? true : true} // Hacky way to always pass true, but flip false upon form submit
+              handleChange={this.handleAddFormChange}
+              handleSelectChange={this.handleAddFormSelectChange}
               handleSubmit={this.handleNewMemorySubmit}
               childName={this.state.childName}
+              newMemTitle={this.state.newMemTitle}
+              newMemDescription={this.state.newMemDescription}
+              newMemType={this.state.newMemType}
+              newMemDate={this.state.newMemDat}
             />
           )}
         />

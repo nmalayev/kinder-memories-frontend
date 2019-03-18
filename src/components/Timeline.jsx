@@ -97,7 +97,6 @@ export class Timeline extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <section className='cd-timeline js-cd-timeline'>
         <div className='cd-timeline__container'>{this.renderMemoryCards()}</div>
