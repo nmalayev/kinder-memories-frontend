@@ -9,10 +9,17 @@ function TimelineCard(props) {
       return <p>{props.memory.letter}</p>;
     } else if (props.memory.post_type === 'video') {
       return (
-        <video width='420'>
-          <source src={props.memory.video + '.mp4'} type='video/mp4' />
-          <source src={props.memory.video} type='video/ogg' />
-        </video>
+        <iframe src='https://www.youtube.com/watch?v=0FQ6WGJkLPs' />
+        // <video controls={true}>
+        //   <source
+        //     src='https://www.youtube.com/watch?v=0FQ6WGJkLPs&html5=True'
+        //     type='video/mp4'
+        //   />
+        //   <source
+        //     src='https://www.youtube.com/watch?v=0FQ6WGJkLPs&html5=True'
+        //     type='video/ogg'
+        //   />
+        // </video>
       );
     }
   };

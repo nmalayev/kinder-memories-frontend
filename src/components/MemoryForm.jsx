@@ -27,7 +27,7 @@ class MemoryForm extends Component {
     return (
       <Modal open={this.props.showAddModal}>
         <Modal.Header>New Memory</Modal.Header>
-        <button onClick={() => this.props.history.goBack()}>Go Back</button>
+        <Button onClick={() => this.props.history.goBack()}>Go Back</Button>
         <Modal.Content image>
           {/* <Image
             wrapped

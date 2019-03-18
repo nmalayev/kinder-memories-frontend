@@ -72,18 +72,26 @@ class App extends Component {
     }) // end of fetch
       .then(r => r.json())
       .then(mem => {
-        let newMemories = this.sortMemories([...this.state.memories, mem]);
+        // let newMemories = [...this.state.memories, mem];
+        // let newSortedMemories = this.sortMemories(newMemories);
+        // console.log('newMemories', newMemories);
+        // console.log('newSortedMemories', newSortedMemories);
 
-        this.setState({
-          memories: newMemories
-        });
+        this.setState(
+          {
+            memories: this.sortMemories([...this.state.memories, mem]),
+            showAddModal: !this.state.showAddModal,
+            newMemType: ''
+          },
+          () => console.log('app', this.state)
+        );
       });
 
     // Hide new memory modal upon submission and clear newMemType
-    this.setState({
-      showAddModal: !this.state.showAddModal,
-      newMemType: ''
-    });
+    // this.setState({
+    //   showAddModal: !this.state.showAddModal,
+    //   newMemType: ''
+    // });
     this.props.history.push('/timeline');
   };
 
