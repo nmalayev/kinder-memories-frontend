@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Timeline from './components/Timeline';
 import MemoryForm from './components/MemoryForm';
 import MemoryViewPage from './components/MemoryViewPage';
+import SideBar from './components/SideBar';
 
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
@@ -94,6 +95,7 @@ class App extends Component {
           handleSearch={this.handleSearch}
           searchQuery={this.state.searchQuery}
         />
+        <SideBar />
         <Redirect from='/' to='/timeline' />
         <Route
           path='/timeline'
