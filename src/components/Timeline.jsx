@@ -91,13 +91,24 @@ export class Timeline extends Component {
   }
 
   renderMemoryCards = () => {
-    return this.props.memories.map(mem => {
+    const { searchQuery, memories } = this.props;
+    if (searchQuery) {
+      return memories
+        .filter(mem =>
+          mem.description.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+        .map(mem => {
+          return <TimelineCard key={mem.id} memory={mem} />;
+        });
+    }
+
+    return memories.map(mem => {
       return <TimelineCard key={mem.id} memory={mem} />;
     });
   };
 
   render() {
-    console.log('timeline memories', this.props.memories);
+    console.log(this.props);
     return (
       <section className='cd-timeline js-cd-timeline'>
         <div className='cd-timeline__container'>{this.renderMemoryCards()}</div>

@@ -17,7 +17,8 @@ class App extends Component {
     newMemTitle: '',
     newMemDescription: '',
     newMemType: '',
-    newMemDate: ''
+    newMemDate: '',
+    searchQuery: ''
   };
 
   sortMemories = memories => {
@@ -47,6 +48,10 @@ class App extends Component {
       });
   }
 
+  handleSearch = (e, { value }) => {
+    this.setState({ searchQuery: value });
+  };
+
   handleAddFormChange = (e, { value }) => {
     this.setState({ [e.target.name]: value });
   };
@@ -57,12 +62,6 @@ class App extends Component {
 
   handleNewMemorySubmit = e => {
     e.preventDefault();
-    e.persist();
-    console.log(
-      e.target.file.files[0],
-      this.state.newMemType,
-      this.state.newMemTitle
-    );
 
     let formData = new FormData();
     formData.append('post_type', this.state.newMemType);
@@ -91,12 +90,19 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <Navbar />
+        <Navbar
+          handleSearch={this.handleSearch}
+          searchQuery={this.state.searchQuery}
+        />
         <Redirect from='/' to='/timeline' />
         <Route
           path='/timeline'
           render={props => (
-            <Timeline {...props} memories={this.state.memories} />
+            <Timeline
+              {...props}
+              memories={this.state.memories}
+              searchQuery={this.state.searchQuery}
+            />
           )}
         />
         <Route
@@ -119,7 +125,11 @@ class App extends Component {
         <Route
           path='/memories'
           render={props => (
-            <MemoryViewPage {...props} memories={this.state.memories} />
+            <MemoryViewPage
+              {...props}
+              searchQuery={this.state.searchQuery}
+              memories={this.state.memories}
+            />
           )}
         />
       </div>
