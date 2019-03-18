@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Button,
-  Header,
-  Image,
-  Modal,
-  Form,
-  Dropdown
-} from 'semantic-ui-react';
+import { Button, Header, Image, Modal, Form } from 'semantic-ui-react';
 import '../css/MemoryForm.css';
 
 const options = [
