@@ -5,14 +5,22 @@ import moment from 'moment';
 function MemoryCard(props) {
   const memoryTypeRender = () => {
     if (props.memory.post_type === 'photo') {
-      return <img src={props.memory.photo} alt='' />;
+      return (
+        <img src={'http://localhost:3001' + props.memory.file_url} alt='' />
+      );
     } else if (props.memory.post_type === 'letter') {
-      return <p>{props.memory.letter}</p>;
+      return <p>{'http://localhost:3001' + props.memory.file_url}</p>;
     } else if (props.memory.post_type === 'video') {
       return (
         <video width='420'>
-          <source src={props.memory.video + '.mp4'} type='video/mp4' />
-          <source src={props.memory.video} type='video/ogg' />
+          <source
+            src={'http://localhost:3001' + props.memory.file_url}
+            type='video/mp4'
+          />
+          <source
+            src={'http://localhost:3001' + props.memory.file_url}
+            type='video/ogg'
+          />
         </video>
       );
     }

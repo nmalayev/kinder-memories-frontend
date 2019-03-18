@@ -11,9 +11,15 @@ function TimelineCard(props) {
       return <p>{props.memory.letter}</p>;
     } else if (props.memory.post_type === 'video') {
       return (
-        <video controls={true}>
-          <source src={props.memory.file_url} type='video/mp4' />
-          <source src={props.memory.file_url} type='video/ogg' />
+        <video controls={true} width='500'>
+          <source
+            src={'http://localhost:3001' + props.memory.file_url}
+            type='video/mp4'
+          />
+          <source
+            src={'http://localhost:3001' + props.memory.file_url}
+            type='video/ogg'
+          />
         </video>
       );
     }
