@@ -9,14 +9,7 @@ const options = [
 ];
 
 class MemoryForm extends Component {
-  state = { newMemType: '', newMemDescription: '' };
-
-  handleChange = (e, { value }) => {
-    this.setState({ [e.target.name]: value }, () => console.log(this.state));
-  };
-
   render() {
-    const { value } = this.state;
     return (
       <Modal open={this.props.showAddModal}>
         <Modal.Header>New Memory</Modal.Header>
