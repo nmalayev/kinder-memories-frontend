@@ -18,7 +18,8 @@ class App extends Component {
     newMemTitle: '',
     newMemDescription: '',
     newMemType: '',
-    newMemDate: ''
+    newMemDate: '',
+    newMemLetter: ''
   };
 
   sortMemories = memories => {
@@ -74,9 +75,11 @@ class App extends Component {
     formData.append('title', this.state.newMemTitle);
     formData.append('description', this.state.newMemDescription);
     formData.append('memory_date', this.state.newMemDate);
-    // if (e.target.file) {
-    formData.append('file', e.target.file.files[0]);
-    // }
+    formData.append('letter', this.state.newMemLetter);
+
+    if (e.target.file) {
+      formData.append('file', e.target.file.files[0]);
+    }
 
     fetch('http://localhost:3001/api/v1/posts', {
       method: 'POST',

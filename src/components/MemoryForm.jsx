@@ -14,6 +14,7 @@ class MemoryForm extends Component {
       <Modal open={this.props.showAddModal}>
         <Modal.Header>New Memory</Modal.Header>
         <Button onClick={() => this.props.history.goBack()}>Go Back</Button>
+
         <Modal.Content image>
           {/* <Image
             wrapped
@@ -22,45 +23,61 @@ class MemoryForm extends Component {
           /> */}
           <Modal.Description>
             <Header>Add New Memory</Header>
+
             <Form onSubmit={this.props.handleSubmit}>
-              <Form.Group widths='equal'>
+              {/* <Form.Group widths='equal'> */}
+              <Form.Select
+                fluid
+                selection
+                label='Memory Type'
+                name='newMemType'
+                options={options}
+                placeholder='Type'
+                onChange={this.props.handleSelectChange}
+                value={this.props.newMemType}
+              />
+              <Form.Input
+                label='Date of Memory'
+                type='date'
+                name='newMemDate'
+                onChange={this.props.handleChange}
+              />
+              <Form.Input
+                fluid
+                label='Title'
+                placeholder='Title'
+                name='newMemTitle'
+                onChange={this.props.handleChange}
+              />
+              <Form.TextArea
+                label='Description'
+                placeholder={`Tell us more about your memory of ${
+                  this.props.childName
+                }...`}
+                name='newMemDescription'
+                onChange={this.props.handleChange}
+              />
+
+              {this.props.newMemType === 'photo' ||
+              this.props.newMemType === 'video' ? (
                 <Form.Input
-                  fluid
-                  label='Title'
-                  placeholder='Title'
-                  name='newMemTitle'
-                  onChange={this.props.handleChange}
-                />
-                <Form.TextArea
-                  label='Description'
-                  placeholder={`Tell us more about your memory of ${
-                    this.props.childName
-                  }...`}
-                  name='newMemDescription'
-                  onChange={this.props.handleChange}
-                />
-                <Form.Select
-                  fluid
-                  selection
-                  label='Memory Type'
-                  name='newMemType'
-                  options={options}
-                  placeholder='Type'
-                  onChange={this.props.handleSelectChange}
-                  value={this.props.newMemType}
-                />
-                <Form.Input
-                  label='Date of Memory'
-                  type='date'
-                  name='newMemDate'
-                  onChange={this.props.handleChange}
-                />
-                <Form.Input
-                  label='Attach photo/video'
+                  label={`Attach ${this.props.newMemType}`}
                   type='file'
                   name='file'
+                  accept={
+                    this.props.newMemType === 'photo' ? 'image/*' : 'video/*'
+                  }
                 />
-              </Form.Group>
+              ) : null}
+              {this.props.newMemType === 'letter' ? (
+                <Form.TextArea
+                  label='Letter'
+                  placeholder={`Write a note for ${this.props.childName}...`}
+                  name='newMemLetter'
+                  onChange={this.props.handleChange}
+                />
+              ) : null}
+              {/* </Form.Group> */}
               <Form.Button>Submit</Form.Button>
             </Form>
           </Modal.Description>
