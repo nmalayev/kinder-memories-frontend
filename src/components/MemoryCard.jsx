@@ -50,6 +50,8 @@ function MemoryCard(props) {
     <Card raised>
       <div>
         <div>
+          <h4>{props.memory.post_type}</h4>
+          <h4>{props.memory.user.relation}</h4>
           {calcMemoryAge()}
           {/* utcOffset below adds 1 hour to time that is sent to API because default is midnight, and moment.js parses it as day before on frontend. */}
           {moment(props.memory.memory_date)

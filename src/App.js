@@ -83,9 +83,17 @@ class App extends Component {
   };
 
   handleSidebarSortMemPoster = (e, { value }) => {
-    this.setState({ memPoster: value }, () =>
-      console.log('sidebar', this.state)
-    );
+    if (value === 'everyone') {
+      this.setState({ memories: this.state.originalMemories });
+    } else {
+      const filteredMemories = this.state.originalMemories.filter(
+        mem => mem.user.relation === value
+      );
+      this.setState({ memories: filteredMemories });
+    }
+    // this.setState({ memPoster: value }, () =>
+    //   console.log('sidebar', this.state)
+    // );
   };
   handleSidebarSortTimeSort = (e, { value }) => {
     // this.setState({ timeSort: value }, () =>

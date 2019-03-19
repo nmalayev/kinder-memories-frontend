@@ -51,6 +51,9 @@ function TimelineCard(props) {
       </div>
 
       <div className='cd-timeline__content js-cd-content'>
+        <h4>{props.memory.post_type}</h4>
+        <h4>{props.memory.user.relation}</h4>
+
         <div>{calcMemoryAge()}</div>
         <hr />
         <h2>{props.memory.title}</h2>
