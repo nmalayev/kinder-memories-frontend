@@ -74,7 +74,9 @@ class App extends Component {
     formData.append('title', this.state.newMemTitle);
     formData.append('description', this.state.newMemDescription);
     formData.append('memory_date', this.state.newMemDate);
+    // if (e.target.file) {
     formData.append('file', e.target.file.files[0]);
+    // }
 
     fetch('http://localhost:3001/api/v1/posts', {
       method: 'POST',
@@ -84,6 +86,7 @@ class App extends Component {
       .then(mem => {
         console.log(mem);
         this.setState({
+          originalMemories: this.sortMemories([...this.state.memories, mem]),
           memories: this.sortMemories([...this.state.memories, mem]),
           showAddModal: !this.state.showAddModal,
           newMemType: ''
@@ -101,7 +104,7 @@ class App extends Component {
           searchQuery={this.state.searchQuery}
         />
         <SideBar />
-        <Redirect from='/' to='/timelinbe' />
+        <Redirect from='/' to='/timeline' />
         <Route
           path='/timeline'
           render={props => (

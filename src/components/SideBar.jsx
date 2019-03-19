@@ -45,22 +45,22 @@ const timeSortOptions = [
 const typeSortOptions = [
   {
     key: 'all',
-    text: 'all',
+    text: 'All',
     value: 'all'
   },
   {
     key: 'photo',
-    text: 'photo',
+    text: 'Photo',
     value: 'photo'
   },
   {
     key: 'video',
-    text: 'video',
+    text: 'Video',
     value: 'video'
   },
   {
     key: 'letter',
-    text: 'letter',
+    text: 'Letter',
     value: 'letter'
   }
 ];

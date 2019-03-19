@@ -36,6 +36,7 @@ class Navbar extends Component {
         <Menu.Menu position='right'>
           <Menu.Item>
             <Input
+              clearable
               onChange={_.debounce(this.props.handleSearch, 500)}
               icon='search'
               placeholder='Search...'
