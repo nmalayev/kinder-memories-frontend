@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
 import moment from 'moment';
+import 'moment-timezone';
 
 function MemoryCard(props) {
   const memoryTypeRender = () => {
@@ -50,7 +51,10 @@ function MemoryCard(props) {
       <div>
         <div>
           {calcMemoryAge()}
-          {moment(props.memory.memory_date).format('MMM Do YYYY')}
+          {/* utcOffset below adds 1 hour to time that is sent to API because default is midnight, and moment.js parses it as day before on frontend. */}
+          {moment(props.memory.memory_date)
+            .utcOffset('+0100')
+            .format('MMM Do YYYY')}
         </div>
         <hr />
         <h2>{props.memory.title}</h2>

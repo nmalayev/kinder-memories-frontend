@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Menu, Segment, Search } from 'semantic-ui-react';
+import { Input, Menu } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
@@ -36,11 +36,9 @@ class Navbar extends Component {
         <Menu.Menu position='right'>
           <Menu.Item>
             <Input
-              clearable
               onChange={_.debounce(this.props.handleSearch, 500)}
               icon='search'
               placeholder='Search...'
-              showNoResults={false}
             />
           </Menu.Item>
         </Menu.Menu>

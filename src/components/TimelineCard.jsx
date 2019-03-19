@@ -68,7 +68,10 @@ function TimelineCard(props) {
           </a>
         </div>
         <span className='cd-timeline__date'>
-          {moment(props.memory.memory_date).format('MMM Do YYYY')}
+          {/* utcOffset below adds 1 hour to time that is sent to API because default is midnight, and moment.js parses it as day before on frontend. */}
+          {moment(props.memory.memory_date)
+            .utcOffset('+0100')
+            .format('MMM Do YYYY')}
         </span>
       </div>
     </div>
