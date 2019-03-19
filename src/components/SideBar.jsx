@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Dropdown } from 'semantic-ui-react';
+import { Dropdown, Select, Form } from 'semantic-ui-react';
 import '../css/SideBar.css';
 
 const memoryPosterOptions = [
@@ -66,12 +66,17 @@ const typeSortOptions = [
 ];
 
 export default class MenuExampleVerticalText extends Component {
-  state = { activeItem: 'closest' };
-
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { activeItem } = this.state;
+    const {
+      memPoster,
+      timeSort,
+      memType,
+      handleSidebarSortMemPoster,
+      handleSidebarSortTimeSort,
+      handleSidebarSortTypeSort
+    } = this.props;
 
     return (
       <div id='sidebar'>
@@ -81,6 +86,9 @@ export default class MenuExampleVerticalText extends Component {
           inline
           options={memoryPosterOptions}
           defaultValue={memoryPosterOptions[0].value}
+          onChange={handleSidebarSortMemPoster}
+          // value={memPoster}
+          // placeholder='Choose relation'
         />
         <br />
         {/* </span> */}
@@ -90,6 +98,9 @@ export default class MenuExampleVerticalText extends Component {
           inline
           options={timeSortOptions}
           defaultValue={timeSortOptions[0].value}
+          onChange={handleSidebarSortTimeSort}
+          // value={timeSort}
+          // placeholder='Select time order'
         />
         <br />
         Show{' '}
@@ -97,6 +108,9 @@ export default class MenuExampleVerticalText extends Component {
           inline
           options={typeSortOptions}
           defaultValue={typeSortOptions[0].value}
+          onChange={handleSidebarSortTypeSort}
+          // placeholder='Select memory type'
+          // value={memType}
         />
         memories
         {/* </span> */}

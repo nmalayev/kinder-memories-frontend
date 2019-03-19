@@ -37,9 +37,9 @@ function MemoryCard(props) {
     let months = memoryDate.diff(birthday, 'months');
     birthday.add(months, 'months');
 
-    if (years > 0 && years < 2) {
+    if (years === 1) {
       return <h3>{years + ' Year, ' + months + ' Months '}</h3>;
-    } else if (years > 0 && years > 2) {
+    } else if (years > 1) {
       return <h3>{years + ' Years, ' + months + ' Months '}</h3>;
     } else {
       return <h3>{months + ' Months '}</h3>;

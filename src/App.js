@@ -20,6 +20,9 @@ class App extends Component {
     newMemType: '',
     newMemDate: '',
     newMemLetter: ''
+    // memPoster: '',
+    // timeSort: '',
+    // memType: ''
   };
 
   sortMemories = memories => {
@@ -29,6 +32,18 @@ class App extends Component {
       }
       if (memA.memory_date < memB.memory_date) {
         return -1;
+      }
+      return 0;
+    });
+  };
+
+  reverseTimeSortMemories = memories => {
+    return memories.sort((memA, memB) => {
+      if (memA.memory_date > memB.memory_date) {
+        return -1;
+      }
+      if (memA.memory_date < memB.memory_date) {
+        return 1;
       }
       return 0;
     });
@@ -65,6 +80,46 @@ class App extends Component {
 
   handleAddFormSelectChange = (e, { value }) => {
     this.setState({ newMemType: value });
+  };
+
+  handleSidebarSortMemPoster = (e, { value }) => {
+    this.setState({ memPoster: value }, () =>
+      console.log('sidebar', this.state)
+    );
+  };
+  handleSidebarSortTimeSort = (e, { value }) => {
+    // this.setState({ timeSort: value }, () =>
+    //   console.log('sidebar', this.state)
+    // );
+    if (value === 'reverseChrono') {
+      this.setState({
+        memories: this.reverseTimeSortMemories(this.state.memories)
+      });
+    }
+    if (value === 'chrono') {
+      this.setState({ memories: this.sortMemories(this.state.memories) });
+    }
+  };
+  handleSidebarSortTypeSort = (e, { value }) => {
+    if (value === 'all') {
+      this.setState({ memories: this.state.originalMemories });
+    } else if (value === 'photo') {
+      const photoMemories = this.state.originalMemories.filter(
+        mem => mem.post_type === value
+      );
+      this.setState({ memories: this.sortMemories(photoMemories) });
+    } else if (value === 'video') {
+      const videoMemories = this.state.originalMemories.filter(
+        mem => mem.post_type === value
+      );
+      this.setState({ memories: this.sortMemories(videoMemories) });
+    } else if (value === 'letter') {
+      const letterMemories = this.state.originalMemories.filter(
+        mem => mem.post_type === value
+      );
+      this.setState({ memories: this.sortMemories(letterMemories) });
+    }
+    // this.setState({ memType: value }, () => console.log('sidebar', this.state));
   };
 
   handleNewMemorySubmit = e => {
@@ -106,8 +161,15 @@ class App extends Component {
           handleSearch={this.handleSearch}
           searchQuery={this.state.searchQuery}
         />
-        <SideBar />
-        <Redirect from='/' to='/timeline' />
+        <SideBar
+          memPoster={this.state.memPoster}
+          timeSort={this.state.timeSort}
+          memType={this.state.memType}
+          handleSidebarSortMemPoster={this.handleSidebarSortMemPoster}
+          handleSidebarSortTimeSort={this.handleSidebarSortTimeSort}
+          handleSidebarSortTypeSort={this.handleSidebarSortTypeSort}
+        />
+        {/* <Redirect from='/' to='/timeline' /> */}
         <Route
           path='/timeline'
           render={props => (
