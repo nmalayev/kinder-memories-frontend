@@ -42,6 +42,28 @@ const timeSortOptions = [
     value: 'reverseChrono'
   }
 ];
+const typeSortOptions = [
+  {
+    key: 'all',
+    text: 'all',
+    value: 'all'
+  },
+  {
+    key: 'photo',
+    text: 'photo',
+    value: 'photo'
+  },
+  {
+    key: 'video',
+    text: 'video',
+    value: 'video'
+  },
+  {
+    key: 'letter',
+    text: 'letter',
+    value: 'letter'
+  }
+];
 
 export default class MenuExampleVerticalText extends Component {
   state = { activeItem: 'closest' };
@@ -69,6 +91,14 @@ export default class MenuExampleVerticalText extends Component {
           options={timeSortOptions}
           defaultValue={timeSortOptions[0].value}
         />
+        <br />
+        Show{' '}
+        <Dropdown
+          inline
+          options={typeSortOptions}
+          defaultValue={typeSortOptions[0].value}
+        />
+        memories
         {/* </span> */}
       </div>
     );

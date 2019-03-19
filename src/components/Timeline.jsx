@@ -91,17 +91,7 @@ export class Timeline extends Component {
   }
 
   renderMemoryCards = () => {
-    const { searchQuery, memories } = this.props;
-    if (searchQuery) {
-      return memories
-        .filter(mem =>
-          mem.description.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-        .map(mem => {
-          return <TimelineCard key={mem.id} memory={mem} />;
-        });
-    }
-
+    const { memories } = this.props;
     return memories.map(mem => {
       return <TimelineCard key={mem.id} memory={mem} />;
     });

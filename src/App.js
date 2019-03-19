@@ -18,8 +18,7 @@ class App extends Component {
     newMemTitle: '',
     newMemDescription: '',
     newMemType: '',
-    newMemDate: '',
-    searchQuery: ''
+    newMemDate: ''
   };
 
   sortMemories = memories => {
@@ -50,7 +49,13 @@ class App extends Component {
   }
 
   handleSearch = (e, { value }) => {
-    this.setState({ searchQuery: value });
+    // this.setState({ searchQuery: value });
+    let sortedMemories = this.state.originalMemories.filter(mem =>
+      mem.description.toLowerCase().includes(value)
+    );
+    this.setState({
+      memories: sortedMemories
+    });
   };
 
   handleAddFormChange = (e, { value }) => {
@@ -96,15 +101,11 @@ class App extends Component {
           searchQuery={this.state.searchQuery}
         />
         <SideBar />
-        <Redirect from='/' to='/timeline' />
+        <Redirect from='/' to='/timelinbe' />
         <Route
           path='/timeline'
           render={props => (
-            <Timeline
-              {...props}
-              memories={this.state.memories}
-              searchQuery={this.state.searchQuery}
-            />
+            <Timeline {...props} memories={this.state.memories} />
           )}
         />
         <Route
@@ -127,11 +128,7 @@ class App extends Component {
         <Route
           path='/memories'
           render={props => (
-            <MemoryViewPage
-              {...props}
-              searchQuery={this.state.searchQuery}
-              memories={this.state.memories}
-            />
+            <MemoryViewPage {...props} memories={this.state.memories} />
           )}
         />
       </div>

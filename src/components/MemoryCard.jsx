@@ -12,7 +12,7 @@ function MemoryCard(props) {
       return <p>{'http://localhost:3001' + props.memory.file_url}</p>;
     } else if (props.memory.post_type === 'video') {
       return (
-        <video width='420'>
+        <video controls={true} width='500'>
           <source
             src={'http://localhost:3001' + props.memory.file_url}
             type='video/mp4'
