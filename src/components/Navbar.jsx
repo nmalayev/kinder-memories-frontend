@@ -17,7 +17,11 @@ class Navbar extends Component {
     const { activeItem } = this.state;
 
     return (
-      <Menu pointing className='ui fixed top sticky' size='massive'>
+      <Menu
+        pointing
+        className='ui top fixed inverted teal icon menu main'
+        size='massive'
+      >
         <Menu.Item
           name='timeline'
           active={activeItem === 'timeline'}
@@ -30,10 +34,20 @@ class Navbar extends Component {
         />
         <Menu.Item
           name='new-memory'
-          active={activeItem === 'new-memory'}
+          // active={activeItem === 'new-memory'}
           onClick={this.handleItemClick}
         />
         <Menu.Menu position='right'>
+          <Menu.Item
+            name='login'
+            active={activeItem === 'login'}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            name='sign-up'
+            active={activeItem === 'sign-up'}
+            onClick={this.handleItemClick}
+          />
           <Menu.Item>
             <Input
               onChange={_.debounce(this.props.handleSearch, 500)}

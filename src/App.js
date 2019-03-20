@@ -3,11 +3,12 @@ import Navbar from './components/Navbar';
 import Timeline from './components/Timeline';
 import MemoryForm from './components/MemoryForm';
 import MemoryViewPage from './components/MemoryViewPage';
-import SideBar from './components/SideBar';
+import SortAndFilter from './components/SortAndFilter';
 
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
 import './css/App.css';
+import Login from './components/Login';
 
 class App extends Component {
   state = {
@@ -197,20 +198,22 @@ class App extends Component {
   };
 
   render() {
+    console.log('this.props', this.props);
     return (
       <div className='App'>
-        <Navbar
-          handleSearch={this.handleSearch}
-          searchQuery={this.state.searchQuery}
-        />
-        <SideBar
-          memPoster={this.state.memPoster}
-          timeSort={this.state.timeSort}
-          memType={this.state.memType}
-          handleSidebarSortMemPoster={this.handleSidebarSortMemPoster}
-          handleSidebarSortTimeSort={this.handleSidebarSortTimeSort}
-          handleSidebarSortTypeSort={this.handleSidebarSortTypeSort}
-        />
+        <Navbar handleSearch={this.handleSearch} />
+        {/* Only render the  */}
+        {this.props.location.pathname === '/timeline' ||
+        this.props.location.pathname === '/memories' ? (
+          <SortAndFilter
+            memPoster={this.state.memPoster}
+            timeSort={this.state.timeSort}
+            memType={this.state.memType}
+            handleSidebarSortMemPoster={this.handleSidebarSortMemPoster}
+            handleSidebarSortTimeSort={this.handleSidebarSortTimeSort}
+            handleSidebarSortTypeSort={this.handleSidebarSortTypeSort}
+          />
+        ) : null}
         {/* <Redirect from='/' to='/timeline' /> */}
         <Route
           path='/timeline'
@@ -220,6 +223,7 @@ class App extends Component {
             <Timeline {...props} memories={this.state.memories} />
           )}
         />
+        <Route path='/login' render={props => <Login {...props} />} />
         <Route
           path='/new-memory'
           render={props => (

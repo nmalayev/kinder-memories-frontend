@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Dropdown, Select, Form } from 'semantic-ui-react';
-import '../css/SideBar.css';
+import '../css/SortAndFilter.css';
 
 const memoryPosterOptions = [
   {
@@ -66,7 +66,7 @@ const typeSortOptions = [
   }
 ];
 
-export default class SideBar extends Component {
+export default class SortAndFilter extends Component {
   render() {
     const {
       memPoster,
@@ -78,7 +78,7 @@ export default class SideBar extends Component {
     } = this.props;
 
     return (
-      <div id='sidebar'>
+      <div className='main-body'>
         {/* <span> */}
         Show me memories by{' '}
         <Dropdown
