@@ -82,6 +82,11 @@ class App extends Component {
     this.setState({ newMemType: value });
   };
 
+  // FIX: fix handleSidebarSortMemPoster, handleSidebarSortTimeSort, handleSidebarSortTypeSort
+  // to only update state, and then create a new function that takes those three state values and
+  // chains filter, filter, and sort to create required memory array. That then gets invoked when
+  // passed down to as prop memories.
+
   handleSidebarSortMemPoster = (e, { value }) => {
     this.setState({
       memPoster: value
@@ -146,6 +151,8 @@ class App extends Component {
         mem => mem.post_type === value
       );
       this.setState({ memories: filteredMemories });
+    } else if (value === 'all' && this.state.memPoster === 'everyone') {
+      this.setState({ memories: this.state.originalMemories });
     } else {
       const filteredMemories = this.state.originalMemories.filter(
         mem =>
@@ -156,18 +163,6 @@ class App extends Component {
       });
     }
   };
-  // handleSidebarSortTypeSort = (e, { value }) => {
-  //   this.setState({ memType: value });
-
-  //   if (value === 'all') {
-  //     this.setState({ memories: this.state.originalMemories });
-  //   } else {
-  //     const filteredMemories = this.state.originalMemories.filter(
-  //       mem => mem.post_type === value
-  //     );
-  //     this.setState({ memories: this.sortMemories(filteredMemories) });
-  //   }
-  // };
 
   handleNewMemorySubmit = e => {
     e.preventDefault();
@@ -220,6 +215,8 @@ class App extends Component {
         <Route
           path='/timeline'
           render={props => (
+            // make memories = to some function that takes all three sort/filter states as args and
+            // runs through chained filter, filter, sort.
             <Timeline {...props} memories={this.state.memories} />
           )}
         />
