@@ -111,13 +111,21 @@ class App extends Component {
   handleSidebarSortTypeSort = (e, { value }) => {
     this.setState({ memType: value });
 
-    if (value === 'all') {
-      this.setState({ memories: this.state.originalMemories });
+    // If filtered by memory poster (this.state.memPoster is not empty string), filter the
+    // memories by type and by those belonging to the memory poster
+    if (value === 'all' && this.state.memPoster !== 'everyone') {
+      const filteredMemories = this.state.originalMemories.filter(
+        mem => mem.user.relation === this.state.memPoster
+      );
+      this.setState({ memories: filteredMemories });
     } else {
       const filteredMemories = this.state.originalMemories.filter(
-        mem => mem.post_type === value
+        mem =>
+          mem.post_type === value && mem.user.relation === this.state.memPoster
       );
-      this.setState({ memories: this.sortMemories(filteredMemories) });
+      this.setState({
+        memories: this.sortMemories(filteredMemories)
+      });
     }
   };
   // handleSidebarSortTypeSort = (e, { value }) => {
