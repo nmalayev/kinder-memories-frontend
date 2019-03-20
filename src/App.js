@@ -9,6 +9,7 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 
 import './css/App.css';
 import Login from './components/Login';
+import Signup from './components/Signup';
 
 class App extends Component {
   state = {
@@ -224,6 +225,7 @@ class App extends Component {
           )}
         />
         <Route path='/login' render={props => <Login {...props} />} />
+        <Route path='/sign-up' render={props => <Signup {...props} />} />
         <Route
           path='/new-memory'
           render={props => (

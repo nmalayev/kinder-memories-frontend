@@ -6,6 +6,7 @@ export class Login extends Component {
     return (
       <div>
         <Form>
+          <Form.Input label='Name' type='text' placeholder='Name' name='name' />
           <Form.Input
             label='Username'
             type='text'
@@ -19,7 +20,14 @@ export class Login extends Component {
             name='password'
             onChange=''
           />
-          <Button type='submit'>Login</Button>
+          <Form.Input
+            label='Confirm Password'
+            type='password'
+            placeholder='Confirm Password'
+            name='confirm-password'
+            onChange=''
+          />
+          <Button type='submit'>Sign Up</Button>
         </Form>
       </div>
     );

@@ -78,7 +78,7 @@ export default class SortAndFilter extends Component {
     } = this.props;
 
     return (
-      <div className='main-body'>
+      <div>
         {/* <span> */}
         Show me memories by{' '}
         <Dropdown
