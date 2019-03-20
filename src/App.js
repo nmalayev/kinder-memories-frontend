@@ -20,9 +20,9 @@ class App extends Component {
     newMemType: '',
     newMemDate: '',
     newMemLetter: '',
-    memPoster: '',
+    memPoster: 'everyone',
     timeSort: '',
-    memType: ''
+    memType: 'all'
   };
 
   sortMemories = memories => {
@@ -83,15 +83,38 @@ class App extends Component {
   };
 
   handleSidebarSortMemPoster = (e, { value }) => {
-    this.setState({ memPoster: value });
+    this.setState({
+      memPoster: value
+    });
 
+    // If filtered by memory type (this.state.memType), filter the
+    // memories by type and by those belonging to the memory poster
     if (value === 'everyone') {
-      this.setState({ memories: this.state.originalMemories });
+      this.setState({
+        memories: this.state.originalMemories
+      });
+    } else if (this.state.memType !== 'all') {
+      const filteredMemories = this.state.originalMemories.filter(
+        mem =>
+          mem.user.relation === value && mem.post_type === this.state.memType
+      );
+      this.setState({
+        memories: filteredMemories
+      });
+    } else if (this.state.memType === 'all') {
+      const filteredMemories = this.state.originalMemories.filter(
+        mem => mem.user.relation === value
+      );
+      this.setState({
+        memories: filteredMemories
+      });
     } else {
       const filteredMemories = this.state.originalMemories.filter(
         mem => mem.user.relation === value
       );
-      this.setState({ memories: filteredMemories });
+      this.setState({
+        memories: filteredMemories
+      });
     }
   };
 
@@ -111,11 +134,16 @@ class App extends Component {
   handleSidebarSortTypeSort = (e, { value }) => {
     this.setState({ memType: value });
 
-    // If filtered by memory poster (this.state.memPoster is not empty string), filter the
+    // If filtered by memory poster (this.state.memPoster), filter the
     // memories by type and by those belonging to the memory poster
     if (value === 'all' && this.state.memPoster !== 'everyone') {
       const filteredMemories = this.state.originalMemories.filter(
         mem => mem.user.relation === this.state.memPoster
+      );
+      this.setState({ memories: filteredMemories });
+    } else if (value !== 'all' && this.state.memPoster === 'everyone') {
+      const filteredMemories = this.state.originalMemories.filter(
+        mem => mem.post_type === value
       );
       this.setState({ memories: filteredMemories });
     } else {
