@@ -42,6 +42,7 @@ const timeSortOptions = [
     value: 'reverseChrono'
   }
 ];
+
 const typeSortOptions = [
   {
     key: 'all',
@@ -65,9 +66,7 @@ const typeSortOptions = [
   }
 ];
 
-export default class MenuExampleVerticalText extends Component {
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-
+export default class SideBar extends Component {
   render() {
     const {
       memPoster,

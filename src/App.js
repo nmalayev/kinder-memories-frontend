@@ -19,10 +19,10 @@ class App extends Component {
     newMemDescription: '',
     newMemType: '',
     newMemDate: '',
-    newMemLetter: ''
-    // memPoster: '',
-    // timeSort: '',
-    // memType: ''
+    newMemLetter: '',
+    memPoster: '',
+    timeSort: '',
+    memType: ''
   };
 
   sortMemories = memories => {
@@ -83,6 +83,8 @@ class App extends Component {
   };
 
   handleSidebarSortMemPoster = (e, { value }) => {
+    this.setState({ memPoster: value });
+
     if (value === 'everyone') {
       this.setState({ memories: this.state.originalMemories });
     } else {
@@ -91,14 +93,11 @@ class App extends Component {
       );
       this.setState({ memories: filteredMemories });
     }
-    // this.setState({ memPoster: value }, () =>
-    //   console.log('sidebar', this.state)
-    // );
   };
+
   handleSidebarSortTimeSort = (e, { value }) => {
-    // this.setState({ timeSort: value }, () =>
-    //   console.log('sidebar', this.state)
-    // );
+    this.setState({ timeSort: value });
+
     if (value === 'reverseChrono') {
       this.setState({
         memories: this.reverseTimeSortMemories(this.state.memories)
@@ -108,7 +107,10 @@ class App extends Component {
       this.setState({ memories: this.sortMemories(this.state.memories) });
     }
   };
+
   handleSidebarSortTypeSort = (e, { value }) => {
+    this.setState({ memType: value });
+
     if (value === 'all') {
       this.setState({ memories: this.state.originalMemories });
     } else {
@@ -117,8 +119,19 @@ class App extends Component {
       );
       this.setState({ memories: this.sortMemories(filteredMemories) });
     }
-    // this.setState({ memType: value }, () => console.log('sidebar', this.state));
   };
+  // handleSidebarSortTypeSort = (e, { value }) => {
+  //   this.setState({ memType: value });
+
+  //   if (value === 'all') {
+  //     this.setState({ memories: this.state.originalMemories });
+  //   } else {
+  //     const filteredMemories = this.state.originalMemories.filter(
+  //       mem => mem.post_type === value
+  //     );
+  //     this.setState({ memories: this.sortMemories(filteredMemories) });
+  //   }
+  // };
 
   handleNewMemorySubmit = e => {
     e.preventDefault();
