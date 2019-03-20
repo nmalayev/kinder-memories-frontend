@@ -111,21 +111,11 @@ class App extends Component {
   handleSidebarSortTypeSort = (e, { value }) => {
     if (value === 'all') {
       this.setState({ memories: this.state.originalMemories });
-    } else if (value === 'photo') {
-      const photoMemories = this.state.originalMemories.filter(
+    } else {
+      const filteredMemories = this.state.originalMemories.filter(
         mem => mem.post_type === value
       );
-      this.setState({ memories: this.sortMemories(photoMemories) });
-    } else if (value === 'video') {
-      const videoMemories = this.state.originalMemories.filter(
-        mem => mem.post_type === value
-      );
-      this.setState({ memories: this.sortMemories(videoMemories) });
-    } else if (value === 'letter') {
-      const letterMemories = this.state.originalMemories.filter(
-        mem => mem.post_type === value
-      );
-      this.setState({ memories: this.sortMemories(letterMemories) });
+      this.setState({ memories: this.sortMemories(filteredMemories) });
     }
     // this.setState({ memType: value }, () => console.log('sidebar', this.state));
   };

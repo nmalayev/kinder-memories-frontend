@@ -41,6 +41,10 @@ function MemoryCard(props) {
       return <h3>{years + ' Year, ' + months + ' Months '}</h3>;
     } else if (years > 1) {
       return <h3>{years + ' Years, ' + months + ' Months '}</h3>;
+    } else if (years < -1) {
+      return <h3>{years + ' Years, ' + Math.abs(months) + ' Months '}</h3>;
+    } else if (years === -1) {
+      return <h3>{years + ' Year, ' + Math.abs(months) + ' Months '}</h3>;
     } else {
       return <h3>{months + ' Months '}</h3>;
     }
