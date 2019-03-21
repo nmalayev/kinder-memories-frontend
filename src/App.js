@@ -213,6 +213,9 @@ class App extends Component {
 
     fetch('http://localhost:3001/api/v1/posts', {
       method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('token')
+      },
       body: formData
     }) // end of fetch
       .then(r => r.json())
@@ -252,14 +255,16 @@ class App extends Component {
           />
         ) : null}
         {/* <Redirect from='/' to='/timeline' /> */}
-        <Route
-          path='/timeline'
-          render={props => (
-            // make memories = to some function that takes all three sort/filter states as args and
-            // runs through chained filter, filter, sort.
-            <Timeline {...props} memories={this.state.memories} />
-          )}
-        />
+        {this.state.currentUser ? (
+          <Route
+            path='/timeline'
+            render={props => (
+              // make memories = to some function that takes all three sort/filter states as args and
+              // runs through chained filter, filter, sort.
+              <Timeline {...props} memories={this.state.memories} />
+            )}
+          />
+        ) : null}
         <Route
           path='/login'
           render={props => (

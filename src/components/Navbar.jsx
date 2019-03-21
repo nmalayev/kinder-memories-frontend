@@ -22,11 +22,13 @@ class Navbar extends Component {
         className='ui top fixed inverted teal icon menu main'
         size='massive'
       >
-        <Menu.Item
-          name='timeline'
-          active={activeItem === 'timeline'}
-          onClick={this.handleItemClick}
-        />
+        {this.props.currentUser ? (
+          <Menu.Item
+            name='timeline'
+            active={activeItem === 'timeline'}
+            onClick={this.handleItemClick}
+          />
+        ) : null}
         <Menu.Item
           name='memories'
           active={activeItem === 'memories'}
