@@ -37,20 +37,7 @@ class Navbar extends Component {
           // active={activeItem === 'new-memory'}
           onClick={this.handleItemClick}
         />
-        {!this.props.currentUser ? (
-          <Menu.Menu position='right'>
-            <Menu.Item
-              name='login'
-              active={activeItem === 'login'}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item
-              name='sign-up'
-              active={activeItem === 'sign-up'}
-              onClick={this.handleItemClick}
-            />
-          </Menu.Menu>
-        ) : (
+        {this.props.currentUser ? (
           <Menu.Menu position='right'>
             <Menu.Item name='logout' onClick={this.props.logout}>
               Logout
@@ -62,6 +49,19 @@ class Navbar extends Component {
                 placeholder='Search...'
               />
             </Menu.Item>
+          </Menu.Menu>
+        ) : (
+          <Menu.Menu position='right'>
+            <Menu.Item
+              name='login'
+              active={activeItem === 'login'}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Item
+              name='sign-up'
+              active={activeItem === 'sign-up'}
+              onClick={this.handleItemClick}
+            />
           </Menu.Menu>
         )}
       </Menu>

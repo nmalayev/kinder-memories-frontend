@@ -80,17 +80,18 @@ class App extends Component {
         });
       });
 
-    const userID = localStorage.getItem('user_id');
+    const token = localStorage.getItem('token');
 
-    if (userID) {
+    if (token) {
       fetch('http://localhost:3001/api/v1/auto_login', {
         method: 'GET',
         headers: {
-          Authorization: userID
+          Authorization: token
         }
       })
         .then(r => r.json())
         .then(response => {
+          console.log(response);
           this.setState({ currentUser: response });
         });
     }
