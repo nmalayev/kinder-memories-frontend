@@ -199,11 +199,12 @@ class App extends Component {
   };
 
   render() {
-    console.log('this.props', this.props);
     return (
       <div className='App'>
         <Navbar handleSearch={this.handleSearch} />
-        {/* Only render the  */}
+        {/* Only render the SortAndFilter component if the current path is
+        /timeline or /memories. Cleaner IMO than passing SortAndFilter component into both
+        Timeline and MemoryViewPage components, and then fixing props passing. */}
         {this.props.location.pathname === '/timeline' ||
         this.props.location.pathname === '/memories' ? (
           <SortAndFilter

@@ -8,26 +8,13 @@ const memoryPosterOptions = [
     text: 'Everyone',
     value: 'everyone'
   },
-  {
-    key: 'parent',
-    text: 'Parents',
-    value: 'parent'
-  },
-  {
-    key: 'grandparent',
-    text: 'Grandparents',
-    value: 'grandparent'
-  },
-  {
-    key: 'sibling',
-    text: 'Siblings',
-    value: 'sibling'
-  },
-  {
-    key: 'friend',
-    text: 'Friends',
-    value: 'friend'
-  }
+  { key: 'parent', text: 'Parents', value: 'parent' },
+  { key: 'grandparent', text: 'Grandparents', value: 'grandparent' },
+  { key: 'sibling', text: 'Grandparents', value: 'sibling' },
+  { key: 'friend', text: 'Friends', value: 'friend' },
+  { key: 'cousin', text: 'Cousins', value: 'cousin' },
+  { key: 'uncle', text: 'Uncles', value: 'uncle' },
+  { key: 'aunt', text: 'Aunts', value: 'aunt' }
 ];
 
 const timeSortOptions = [

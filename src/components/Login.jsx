@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 
-export class Login extends Component {
+class Login extends Component {
   render() {
     return (
       <div>
@@ -17,7 +17,7 @@ export class Login extends Component {
             type='password'
             placeholder='Password'
             name='password'
-            onChange=''
+            // onChange=''
           />
           <Button type='submit'>Login</Button>
         </Form>
