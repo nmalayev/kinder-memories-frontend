@@ -20,8 +20,7 @@ class SignupForm extends Component {
     relation: ''
   };
 
-  handleChange = (e, { name, value }) =>
-    this.setState({ [name]: value }, () => console.log(this.state));
+  handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
   handleSubmit = () => {
     const { name, username, password, relation } = this.state;
@@ -44,6 +43,7 @@ class SignupForm extends Component {
         if (response.errors) {
           alert(response.errors);
         } else {
+          this.props.setCurrentUser(response);
           this.props.history.push('/timeline');
         }
       });

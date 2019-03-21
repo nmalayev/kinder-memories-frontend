@@ -24,7 +24,22 @@ class App extends Component {
     newMemLetter: '',
     memPoster: 'everyone',
     timeSort: '',
-    memType: 'all'
+    memType: 'all',
+    currentUser: null
+  };
+
+  setCurrentUser = response => {
+    localStorage.setItem('token', response.jwt);
+    this.setState({ currentUser: response.user });
+  };
+
+  logout = () => {
+    localStorage.removeItem('token');
+    this.setState(
+      { currentUser: null },
+      () => this.props.history.push('/login')
+      // TODO: add callback function here to push to homepage/login screen after logout
+    );
   };
 
   sortMemories = memories => {
@@ -56,14 +71,29 @@ class App extends Component {
       .then(r => r.json())
       .then(posts => {
         // Sorting the API data chronologically by memory date to place on timeline
-        let timeSorted = this.sortMemories(posts);
+        let chronoSorted = this.sortMemories(posts);
 
         this.setState({
-          originalMemories: timeSorted,
-          memories: timeSorted,
+          originalMemories: chronoSorted,
+          memories: chronoSorted,
           childName: posts[0].timeline.name
         });
       });
+
+    const userID = localStorage.getItem('user_id');
+
+    if (userID) {
+      fetch('http://localhost:3001/api/v1/auto_login', {
+        method: 'GET',
+        headers: {
+          Authorization: userID
+        }
+      })
+        .then(r => r.json())
+        .then(response => {
+          this.setState({ currentUser: response });
+        });
+    }
   }
 
   handleSearch = (e, { value }) => {
@@ -186,7 +216,6 @@ class App extends Component {
     }) // end of fetch
       .then(r => r.json())
       .then(mem => {
-        console.log(mem);
         this.setState({
           originalMemories: this.sortMemories([...this.state.memories, mem]),
           memories: this.sortMemories([...this.state.memories, mem]),
@@ -199,9 +228,14 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.currentUser);
     return (
       <div className='App'>
-        <Navbar handleSearch={this.handleSearch} />
+        <Navbar
+          handleSearch={this.handleSearch}
+          currentUser={this.state.currentUser}
+          logout={this.logout}
+        />
         {/* Only render the SortAndFilter component if the current path is
         /timeline or /memories. Cleaner IMO than passing SortAndFilter component into both
         Timeline and MemoryViewPage components, and then fixing props passing. */}
@@ -225,8 +259,18 @@ class App extends Component {
             <Timeline {...props} memories={this.state.memories} />
           )}
         />
-        <Route path='/login' render={props => <LoginForm {...props} />} />
-        <Route path='/sign-up' render={props => <SignupForm {...props} />} />
+        <Route
+          path='/login'
+          render={props => (
+            <LoginForm {...props} setCurrentUser={this.setCurrentUser} />
+          )}
+        />
+        <Route
+          path='/sign-up'
+          render={props => (
+            <SignupForm {...props} setCurrentUser={this.setCurrentUser} />
+          )}
+        />
         <Route
           path='/new-memory'
           render={props => (

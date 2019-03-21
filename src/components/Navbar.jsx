@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Menu } from 'semantic-ui-react';
+import { Input, Menu, MenuHeader } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
@@ -37,25 +37,33 @@ class Navbar extends Component {
           // active={activeItem === 'new-memory'}
           onClick={this.handleItemClick}
         />
-        <Menu.Menu position='right'>
-          <Menu.Item
-            name='login'
-            active={activeItem === 'login'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name='sign-up'
-            active={activeItem === 'sign-up'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item>
-            <Input
-              onChange={_.debounce(this.props.handleSearch, 500)}
-              icon='search'
-              placeholder='Search...'
+        {!this.props.currentUser ? (
+          <Menu.Menu position='right'>
+            <Menu.Item
+              name='login'
+              active={activeItem === 'login'}
+              onClick={this.handleItemClick}
             />
-          </Menu.Item>
-        </Menu.Menu>
+            <Menu.Item
+              name='sign-up'
+              active={activeItem === 'sign-up'}
+              onClick={this.handleItemClick}
+            />
+          </Menu.Menu>
+        ) : (
+          <Menu.Menu position='right'>
+            <Menu.Item name='logout' onClick={this.props.logout}>
+              Logout
+            </Menu.Item>
+            <Menu.Item>
+              <Input
+                onChange={_.debounce(this.props.handleSearch, 500)}
+                icon='search'
+                placeholder='Search...'
+              />
+            </Menu.Item>
+          </Menu.Menu>
+        )}
       </Menu>
     );
   }

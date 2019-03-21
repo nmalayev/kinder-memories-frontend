@@ -7,12 +7,9 @@ class LoginForm extends Component {
     password: ''
   };
 
-  handleChange = (e, { name, value }) =>
-    this.setState({ [name]: value }, () => console.log(this.state));
+  handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
   handleSubmit = () => {
-    const { username, password } = this.state;
-
     fetch('http://localhost:3001/api/v1/login', {
       method: 'POST',
       headers: {
@@ -26,6 +23,7 @@ class LoginForm extends Component {
         if (response.errors) {
           alert(response.errors);
         } else {
+          this.props.setCurrentUser(response);
           this.props.history.push('/timeline');
         }
       });
