@@ -8,8 +8,8 @@ import SortAndFilter from './components/SortAndFilter';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
 import './css/App.css';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
 
 class App extends Component {
   state = {
@@ -225,8 +225,8 @@ class App extends Component {
             <Timeline {...props} memories={this.state.memories} />
           )}
         />
-        <Route path='/login' render={props => <Login {...props} />} />
-        <Route path='/sign-up' render={props => <Signup {...props} />} />
+        <Route path='/login' render={props => <LoginForm {...props} />} />
+        <Route path='/sign-up' render={props => <SignupForm {...props} />} />
         <Route
           path='/new-memory'
           render={props => (
