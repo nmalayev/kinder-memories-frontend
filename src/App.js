@@ -236,11 +236,13 @@ class App extends Component {
     console.log(this.state.currentUser);
     return (
       <div className='App'>
-        <Navbar
-          handleSearch={this.handleSearch}
-          currentUser={this.state.currentUser}
-          logout={this.logout}
-        />
+        {this.props.location.pathname === '/' ? null : (
+          <Navbar
+            handleSearch={this.handleSearch}
+            currentUser={this.state.currentUser}
+            logout={this.logout}
+          />
+        )}
         {/* Only render the SortAndFilter component if the current path is
         /timeline or /memories. Cleaner IMO than passing SortAndFilter component into both
         Timeline and MemoryViewPage components, and then fixing props passing. */}
