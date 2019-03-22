@@ -3,6 +3,8 @@ import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react';
 
 import backgroundVideo from '../baby_stock_video.mp4';
 import '../css/HomePage.css';
+import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
 
 function HomePage() {
   return (
@@ -35,13 +37,15 @@ function HomePage() {
 
         <Divider vertical>Or</Divider>
       </Segment>
+      {/* <LoginForm />
+      <SignupForm /> */}
       <div className='vidcontainer'>
-        <video loop autoPlay>
+        <video loop autoPlay muted>
           <source src={backgroundVideo} type='video/mp4' />
           <source src={backgroundVideo} type='video/ogg' />
         </video>
       </div>
-      <div className='overlay'>
+      <div className='credit'>
         <p>Stock footage provided by Videvo, downloaded from www.videvo.net</p>
       </div>
     </div>
