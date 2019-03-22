@@ -10,6 +10,7 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 import './css/App.css';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
+import HomePage from './components/HomePage';
 
 class App extends Component {
   state = {
@@ -269,6 +270,13 @@ class App extends Component {
           path='/login'
           render={props => (
             <LoginForm {...props} setCurrentUser={this.setCurrentUser} />
+          )}
+        />
+        <Route
+          path='/'
+          exact
+          render={props => (
+            <HomePage {...props} setCurrentUser={this.setCurrentUser} />
           )}
         />
         <Route
