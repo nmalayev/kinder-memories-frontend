@@ -1,8 +1,9 @@
-/* body {
+/* #root {
   margin: 0;
 } */
 
 .homepage {
+  margin-top: 0;
   z-index: 2;
   display: grid;
   height: 100vh;

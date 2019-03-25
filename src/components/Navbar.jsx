@@ -23,22 +23,25 @@ class Navbar extends Component {
         size='massive'
       >
         {this.props.currentUser ? (
-          <Menu.Item
-            name='timeline'
-            active={activeItem === 'timeline'}
-            onClick={this.handleItemClick}
-          />
+          <Menu.Menu>
+            <Menu.Item
+              name='timeline'
+              active={activeItem === 'timeline'}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Item
+              name='memories'
+              active={activeItem === 'memories'}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Item
+              name='new-memory'
+              // active={activeItem === 'new-memory'}
+              onClick={this.handleItemClick}
+            />
+          </Menu.Menu>
         ) : null}
-        <Menu.Item
-          name='memories'
-          active={activeItem === 'memories'}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name='new-memory'
-          // active={activeItem === 'new-memory'}
-          onClick={this.handleItemClick}
-        />
+
         {this.props.currentUser ? (
           <Menu.Menu position='right'>
             <Menu.Item name='logout' onClick={this.props.logout}>

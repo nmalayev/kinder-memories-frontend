@@ -21,10 +21,11 @@ function AccessDenied(props) {
       <br />
       <iframe
         src='https://giphy.com/embed/WAInq2ktLbAuQ'
-        width='480'
-        height='459'
+        width='960'
+        height='918'
         frameBorder='0'
         className='giphy-embed'
+        style={{ pointerEvents: 'none' }}
         allowFullScreen
       />
       <p>
