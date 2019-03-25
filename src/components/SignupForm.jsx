@@ -71,7 +71,7 @@ class SignupForm extends Component {
           />
           <Form.Input
             label='Username'
-            type='text'
+            type='email'
             placeholder='Username'
             name='username'
             onChange={this.handleChange}

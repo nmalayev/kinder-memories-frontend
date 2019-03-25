@@ -4,7 +4,7 @@
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 50vh;
+  grid-template-rows: 33.3vh;
   grid-template-areas:
     '. . . .'
     'form form form form'
@@ -15,10 +15,31 @@ label {
   color: whitesmoke !important;
   margin-bottom: 1rem !important;
   margin-top: 1.5rem !important;
+  display: block;
+  margin: 0 0 0.28571429rem 0;
+  font-size: 0.92857143em;
+  font-weight: 700;
+  text-transform: none;
+}
+
+#login-form button {
+  margin-top: 1.5rem;
+}
+
+#signup-form button {
+  margin-top: 1.5rem;
 }
 
 #signup-btn {
-  margin-top: 13px;
+  margin-top: 1.5rem;
+}
+#login-btn {
+  margin-top: 1.5rem;
+}
+
+#signup-form select {
+  margin: auto;
+  width: 40%;
 }
 
 #login-form input {

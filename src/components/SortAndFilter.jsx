@@ -65,41 +65,41 @@ export default class SortAndFilter extends Component {
     } = this.props;
 
     return (
-      <div>
-        {/* <span> */}
-        Show me memories by{' '}
-        <Dropdown
-          inline
-          options={memoryPosterOptions}
-          defaultValue={memoryPosterOptions[0].value}
-          onChange={handleSidebarSortMemPoster}
-          // value={memPoster}
-          // placeholder='Choose relation'
-        />
-        <br />
-        {/* </span> */}
-        {/* <span> */}
-        Sort by{' '}
-        <Dropdown
-          inline
-          options={timeSortOptions}
-          defaultValue={timeSortOptions[0].value}
-          onChange={handleSidebarSortTimeSort}
-          // value={timeSort}
-          // placeholder='Select time order'
-        />
-        <br />
-        Show{' '}
-        <Dropdown
-          inline
-          options={typeSortOptions}
-          defaultValue={typeSortOptions[0].value}
-          onChange={handleSidebarSortTypeSort}
-          // placeholder='Select memory type'
-          // value={memType}
-        />
-        memories
-        {/* </span> */}
+      <div id='sort-and-filter'>
+        <div className='dropdown-filter'>
+          {/* Show me memories by{' '} */}
+          <Dropdown
+            inline
+            options={memoryPosterOptions}
+            defaultValue={memoryPosterOptions[0].value}
+            onChange={handleSidebarSortMemPoster}
+            // value={memPoster}
+            // placeholder='Choose relation'
+          />
+        </div>
+        <div className='dropdown-filter'>
+          {/* Sort by{' '} */}
+          <Dropdown
+            inline
+            options={timeSortOptions}
+            defaultValue={timeSortOptions[0].value}
+            onChange={handleSidebarSortTimeSort}
+            // value={timeSort}
+            // placeholder='Select time order'
+          />
+        </div>
+        <div className='dropdown-filter'>
+          {/* Show{' '} */}
+          <Dropdown
+            inline
+            options={typeSortOptions}
+            defaultValue={typeSortOptions[0].value}
+            onChange={handleSidebarSortTypeSort}
+            // placeholder='Select memory type'
+            // value={memType}
+          />
+          {/* memories */}
+        </div>
       </div>
     );
   }
