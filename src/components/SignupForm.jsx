@@ -54,45 +54,44 @@ class SignupForm extends Component {
 
     return (
       <div>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} id='signup-form'>
           <Form.Input
-            fluid
             label='Name'
             type='text'
             placeholder='Name'
             name='name'
             onChange={this.handleChange}
             value={name}
+            transparent
           />
           <Form.Input
-            fluid
             label='Username'
             type='text'
             placeholder='Username'
             name='username'
             onChange={this.handleChange}
             value={username}
+            transparent
           />
           <Form.Input
-            fluid
             label='Password'
             type='password'
             placeholder='Password'
             name='password'
             onChange={this.handleChange}
             value={password}
+            transparent
           />
           <Form.Input
-            fluid
             label='Confirm Password'
             type='password'
             placeholder='Confirm Password'
             name='passwordConfirm'
             onChange={this.handleChange}
             value={passwordConfirm}
+            transparent
           />
           <Form.Select
-            fluid
             label='Relation'
             placeholder='Confirm Password'
             name='relation'
@@ -102,6 +101,10 @@ class SignupForm extends Component {
           />
           <Button
             type='submit'
+            icon='signup'
+            inverted
+            basic
+            color='grey'
             content={
               password === passwordConfirm ? 'Sign up' : "Passwords don't match"
             }
