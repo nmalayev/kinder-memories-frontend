@@ -5,12 +5,13 @@ import MemoryForm from './components/MemoryForm';
 import MemoryViewPage from './components/MemoryViewPage';
 import SortAndFilter from './components/SortAndFilter';
 
-import { Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 import './css/App.css';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import HomePage from './components/HomePage';
+import AccessDenied from './components/AccessDenied';
 
 class App extends Component {
   state = {
@@ -233,7 +234,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.currentUser);
+    console.log(this.props);
     return (
       <div className='App'>
         {this.props.location.pathname === '/' ? null : (
@@ -246,8 +247,10 @@ class App extends Component {
         {/* Only render the SortAndFilter component if the current path is
         /timeline or /memories. Cleaner IMO than passing SortAndFilter component into both
         Timeline and MemoryViewPage components, and then fixing props passing. */}
-        {this.props.location.pathname === '/timeline' ||
-        this.props.location.pathname === '/memories' ? (
+        {(this.props.location.pathname === '/timeline' &&
+          this.state.currentUser) ||
+        (this.props.location.pathname === '/memories' &&
+          this.state.currentUser) ? (
           <SortAndFilter
             memPoster={this.state.memPoster}
             timeSort={this.state.timeSort}
@@ -257,17 +260,46 @@ class App extends Component {
             handleSidebarSortTypeSort={this.handleSidebarSortTypeSort}
           />
         ) : null}
-        {/* <Redirect from='/' to='/timeline' /> */}
+        {/* Render /timeline, /new-memory, /memories only if currentUser present */}
         {this.state.currentUser ? (
-          <Route
-            path='/timeline'
-            render={props => (
-              // make memories = to some function that takes all three sort/filter states as args and
-              // runs through chained filter, filter, sort.
-              <Timeline {...props} memories={this.state.memories} />
-            )}
-          />
-        ) : null}
+          <Switch>
+            {/* <Redirect from='/' to='/timeline' /> */}
+            <Route
+              path='/timeline'
+              render={props => (
+                // make memories = to some function that takes all three sort/filter states as args and
+                // runs through chained filter, filter, sort.
+                <Timeline {...props} memories={this.state.memories} />
+              )}
+            />
+            <Route
+              path='/new-memory'
+              render={props => (
+                <MemoryForm
+                  {...props}
+                  showAddModal={this.state.showAddModal ? true : true} // Hacky way to always pass true, but flip false upon form submit
+                  handleChange={this.handleAddFormChange}
+                  handleSelectChange={this.handleAddFormSelectChange}
+                  handleSubmit={this.handleNewMemorySubmit}
+                  childName={this.state.childName}
+                  newMemTitle={this.state.newMemTitle}
+                  newMemDescription={this.state.newMemDescription}
+                  newMemType={this.state.newMemType}
+                  newMemDate={this.state.newMemDat}
+                />
+              )}
+            />
+            <Route
+              path='/memories'
+              render={props => (
+                <MemoryViewPage {...props} memories={this.state.memories} />
+              )}
+            />
+          </Switch>
+        ) : (
+          <AccessDenied history={this.props.history} />
+        )}
+
         <Route
           path='/login'
           render={props => (
@@ -285,29 +317,6 @@ class App extends Component {
           path='/sign-up'
           render={props => (
             <SignupForm {...props} setCurrentUser={this.setCurrentUser} />
-          )}
-        />
-        <Route
-          path='/new-memory'
-          render={props => (
-            <MemoryForm
-              {...props}
-              showAddModal={this.state.showAddModal ? true : true} // Hacky way to always pass true, but flip false upon form submit
-              handleChange={this.handleAddFormChange}
-              handleSelectChange={this.handleAddFormSelectChange}
-              handleSubmit={this.handleNewMemorySubmit}
-              childName={this.state.childName}
-              newMemTitle={this.state.newMemTitle}
-              newMemDescription={this.state.newMemDescription}
-              newMemType={this.state.newMemType}
-              newMemDate={this.state.newMemDat}
-            />
-          )}
-        />
-        <Route
-          path='/memories'
-          render={props => (
-            <MemoryViewPage {...props} memories={this.state.memories} />
           )}
         />
       </div>

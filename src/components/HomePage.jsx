@@ -9,7 +9,7 @@ import SignupForm from './SignupForm';
 function HomePage() {
   return (
     <div className='homepage'>
-      <Segment placeholder id='login-homepage'>
+      {/* <Segment placeholder id='login-homepage'>
         <Grid columns={2} relaxed='very' stackable>
           <Grid.Column>
             <Form>
@@ -36,9 +36,9 @@ function HomePage() {
         </Grid>
 
         <Divider vertical>Or</Divider>
-      </Segment>
-      {/* <LoginForm />
-      <SignupForm /> */}
+      </Segment> */}
+      <LoginForm />
+      <SignupForm />
       <div className='vidcontainer'>
         <video loop autoPlay muted>
           <source src={backgroundVideo} type='video/mp4' />
