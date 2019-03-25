@@ -46,7 +46,9 @@ function HomePage(props) {
           </Grid.Column>
         </Grid>
 
-        <Divider vertical>Or</Divider>
+        <Divider id='divider' vertical>
+          Or
+        </Divider>
       </Segment>
       <div className='vidcontainer'>
         <video loop autoPlay muted>
