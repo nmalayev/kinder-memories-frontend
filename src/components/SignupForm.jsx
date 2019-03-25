@@ -20,7 +20,12 @@ class SignupForm extends Component {
     relation: ''
   };
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value });
+  handleChange = e => {
+    e.persist();
+    this.setState({ [e.target.name]: e.target.value }, () =>
+      console.log(this.state)
+    );
+  };
 
   handleSubmit = () => {
     const { name, username, password, relation } = this.state;
@@ -91,14 +96,22 @@ class SignupForm extends Component {
             value={passwordConfirm}
             transparent
           />
-          <Form.Select
-            label='Relation'
-            placeholder='Confirm Password'
+          <label>Relation</label>
+          <select
             name='relation'
-            options={relationOptions}
+            required
             onChange={this.handleChange}
             value={relation}
-          />
+          >
+            <option value='parent'>Parent</option>
+            <option value='grandparent'>Grandparent</option>
+            <option value='sibling'>Sibling</option>
+            <option value='friend'>Friend</option>
+            <option value='cousin'>Cousin</option>
+            <option value='uncle'>Uncle</option>
+            <option value='aunt'>Aunt</option>
+          </select>
+
           <Button
             type='submit'
             icon='signup'

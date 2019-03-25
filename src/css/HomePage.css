@@ -14,6 +14,11 @@
 label {
   color: whitesmoke !important;
   margin-bottom: 1rem !important;
+  margin-top: 1.5rem !important;
+}
+
+#signup-btn {
+  margin-top: 13px;
 }
 
 #login-form input {
@@ -25,6 +30,27 @@ label {
 }
 
 #login-form input::placeholder {
+  color: white !important;
+}
+#signup-form input {
+  color: whitesmoke !important;
+  border: 0 !important;
+  outline: 0 !important;
+  border-bottom: 1px solid white !important;
+  padding-bottom: 0.5rem !important;
+}
+
+#signup-form select {
+  background-color: transparent !important;
+  border: 2 !important;
+  border-color: whitesmoke;
+  color: white;
+  /* outline: 0 !important;
+  border-bottom: 1px solid white !important;
+  padding-bottom: 0.5rem !important; */
+}
+
+#signup-form input::placeholder {
   color: white !important;
 }
 
@@ -55,9 +81,6 @@ label {
   font-size: 12px;
 }
 
-#signup-btn {
-  margin-top: 13px;
-}
 #login-homepage {
   justify-self: center;
   align-self: center;
