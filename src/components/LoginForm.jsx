@@ -36,7 +36,9 @@ class LoginForm extends Component {
       <div>
         <Form onSubmit={this.handleSubmit}>
           <Form.Input
-            fluid
+            // fluid
+            icon='user'
+            iconPosition='left'
             label='Username'
             type='text'
             placeholder='Username'
@@ -45,7 +47,9 @@ class LoginForm extends Component {
             value={username}
           />
           <Form.Input
-            fluid
+            // fluid
+            icon='lock'
+            iconPosition='left'
             label='Password'
             type='password'
             placeholder='Password'
@@ -56,6 +60,8 @@ class LoginForm extends Component {
           <Button
             type='submit'
             content='Login'
+            color='teal'
+            inverted
             disabled={username && password ? false : true}
           />
         </Form>

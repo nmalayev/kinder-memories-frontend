@@ -6,13 +6,13 @@ import '../css/HomePage.css';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 
-function HomePage() {
+function HomePage(props) {
   return (
     <div className='homepage'>
       <Segment placeholder id='login-homepage'>
         <Grid columns={2} relaxed='very' stackable>
           <Grid.Column>
-            <Form>
+            {/* <Form>
               <Form.Input
                 icon='user'
                 iconPosition='left'
@@ -24,10 +24,15 @@ function HomePage() {
                 iconPosition='left'
                 label='Password'
                 type='password'
+                placeholder='Password'
               />
 
-              <Button content='Login' primary />
-            </Form>
+              <Button content='Login' color='teal' inverted />
+            </Form> */}
+            <LoginForm
+              history={props.history}
+              setCurrentUser={props.setCurrentUser}
+            />
           </Grid.Column>
 
           <Grid.Column verticalAlign='middle'>

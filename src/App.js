@@ -5,7 +5,7 @@ import MemoryForm from './components/MemoryForm';
 import MemoryViewPage from './components/MemoryViewPage';
 import SortAndFilter from './components/SortAndFilter';
 
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
 import './css/App.css';
 import LoginForm from './components/LoginForm';
@@ -39,7 +39,7 @@ class App extends Component {
     localStorage.removeItem('token');
     this.setState(
       { currentUser: null },
-      () => this.props.history.push('/login')
+      () => this.props.history.push('/')
       // TODO: add callback function here to push to homepage/login screen after logout
     );
   };
@@ -93,7 +93,6 @@ class App extends Component {
       })
         .then(r => r.json())
         .then(response => {
-          console.log(response);
           this.setState({ currentUser: response });
         });
     }
@@ -234,7 +233,7 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log('current user', this.state.currentUser);
     return (
       <div className='App'>
         {this.props.location.pathname === '/' ? null : (
@@ -310,19 +309,23 @@ class App extends Component {
           }
         />
 
-        <Route
+        {/* <Route
           path='/login'
           render={props => (
             <LoginForm {...props} setCurrentUser={this.setCurrentUser} />
           )}
-        />
-        <Route
-          path='/'
-          exact
-          render={props => (
-            <HomePage {...props} setCurrentUser={this.setCurrentUser} />
-          )}
-        />
+        /> */}
+        {!this.state.currentUser ? (
+          <Route
+            path='/'
+            exact
+            render={props => (
+              <HomePage {...props} setCurrentUser={this.setCurrentUser} />
+            )}
+          />
+        ) : (
+          <Redirect from='/' to='/timeline' />
+        )}
         <Route
           path='/sign-up'
           render={props => (
