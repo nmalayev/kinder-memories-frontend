@@ -60,8 +60,8 @@ class LoginForm extends Component {
           <Button
             type='submit'
             content='Login'
-            color='teal'
             inverted
+            basic
             disabled={username && password ? false : true}
           />
         </Form>

@@ -36,14 +36,18 @@ function HomePage(props) {
           </Grid.Column>
 
           <Grid.Column verticalAlign='middle'>
-            <Button content='Sign up' icon='signup' size='big' />
+            <Button
+              content='Sign up'
+              icon='signup'
+              size='medium'
+              inverted
+              basic
+            />
           </Grid.Column>
         </Grid>
 
         <Divider vertical>Or</Divider>
       </Segment>
-      {/* <LoginForm />
-      <SignupForm /> */}
       <div className='vidcontainer'>
         <video loop autoPlay muted>
           <source src={backgroundVideo} type='video/mp4' />

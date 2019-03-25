@@ -236,6 +236,12 @@ class App extends Component {
     console.log('current user', this.state.currentUser);
     return (
       <div className='App'>
+        {/* <Navbar
+          handleSearch={this.handleSearch}
+          currentUser={this.state.currentUser}
+          logout={this.logout}
+        /> */}
+
         {this.props.location.pathname === '/' ? null : (
           <Navbar
             handleSearch={this.handleSearch}
@@ -259,7 +265,6 @@ class App extends Component {
             handleSidebarSortTypeSort={this.handleSidebarSortTypeSort}
           />
         ) : null}
-
         {/* <Redirect from='/' to='/timeline' /> */}
         <Route
           path='/timeline'
@@ -308,7 +313,6 @@ class App extends Component {
             )
           }
         />
-
         {/* <Route
           path='/login'
           render={props => (
