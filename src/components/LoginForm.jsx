@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Form } from 'semantic-ui-react';
-import '../css/LoginForm.css';
 
 class LoginForm extends Component {
   state = {
@@ -35,9 +34,8 @@ class LoginForm extends Component {
 
     return (
       <div>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} id='login-form'>
           <Form.Input
-            // fluid
             icon='user'
             iconPosition='left'
             label='Username'
@@ -46,9 +44,9 @@ class LoginForm extends Component {
             name='username'
             onChange={this.handleChange}
             value={username}
+            transparent
           />
           <Form.Input
-            // fluid
             icon='lock'
             iconPosition='left'
             label='Password'
@@ -57,12 +55,15 @@ class LoginForm extends Component {
             name='password'
             onChange={this.handleChange}
             value={password}
+            transparent
           />
           <Button
             type='submit'
             content='Login'
+            icon='check'
             inverted
             basic
+            color='grey'
             disabled={username && password ? false : true}
           />
         </Form>

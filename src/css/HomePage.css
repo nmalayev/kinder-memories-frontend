@@ -10,6 +10,24 @@
     'form form form form'
     'credit . . .';
 }
+
+label {
+  color: whitesmoke !important;
+  margin-bottom: 1rem !important;
+}
+
+#login-form input {
+  color: whitesmoke !important;
+  border: 0 !important;
+  outline: 0 !important;
+  border-bottom: 1px solid white !important;
+  padding-bottom: 0.5rem !important;
+}
+
+#login-form input::placeholder {
+  color: white !important;
+}
+
 .vidcontainer {
   position: fixed;
   height: auto;
@@ -37,10 +55,13 @@
   font-size: 12px;
 }
 
+#signup-btn {
+  margin-top: 13px;
+}
 #login-homepage {
   justify-self: center;
   align-self: center;
-  width: 50%;
+  width: 35%;
   grid-area: form;
   z-index: 3;
   background-color: rgba(34, 36, 38, 0.15);

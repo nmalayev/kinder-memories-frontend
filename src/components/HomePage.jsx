@@ -9,46 +9,24 @@ import SignupForm from './SignupForm';
 function HomePage(props) {
   return (
     <div className='homepage'>
-      <Segment placeholder id='login-homepage'>
-        <Grid columns={2} relaxed='very' stackable>
+      <Segment placeholder compact id='login-homepage'>
+        <Grid relaxed='very' stackable>
           <Grid.Column>
-            {/* <Form>
-              <Form.Input
-                icon='user'
-                iconPosition='left'
-                label='Username'
-                placeholder='Username'
-              />
-              <Form.Input
-                icon='lock'
-                iconPosition='left'
-                label='Password'
-                type='password'
-                placeholder='Password'
-              />
-
-              <Button content='Login' color='teal' inverted />
-            </Form> */}
             <LoginForm
               history={props.history}
               setCurrentUser={props.setCurrentUser}
             />
-          </Grid.Column>
-
-          <Grid.Column verticalAlign='middle'>
             <Button
+              id='signup-btn'
               content='Sign up'
               icon='signup'
-              size='medium'
+              size='small'
               inverted
+              color='grey'
               basic
             />
           </Grid.Column>
         </Grid>
-
-        <Divider id='divider' vertical>
-          Or
-        </Divider>
       </Segment>
       <div className='vidcontainer'>
         <video loop autoPlay muted>
