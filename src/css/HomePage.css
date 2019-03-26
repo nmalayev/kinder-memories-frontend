@@ -78,6 +78,10 @@ label {
   color: white;
 }
 
+#signup-form option {
+  text-align: center;
+}
+
 #signup-form input::placeholder {
   color: white !important;
 }

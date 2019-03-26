@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/AccessDenied.css';
 
 function AccessDenied(props) {
   console.log(props.history.location.pathname);
@@ -16,23 +17,18 @@ function AccessDenied(props) {
   };
 
   return (
-    <div>
+    <div id='access-denied'>
       <h1>Please log in to {errorMessage()}</h1>
       <br />
       <iframe
         src='https://giphy.com/embed/WAInq2ktLbAuQ'
-        width='960'
-        height='918'
+        width='700'
+        height='700'
         frameBorder='0'
         className='giphy-embed'
         style={{ pointerEvents: 'none' }}
         allowFullScreen
       />
-      <p>
-        <a href='https://giphy.com/gifs/computer-vintage-technology-WAInq2ktLbAuQ'>
-          via GIPHY
-        </a>
-      </p>
     </div>
   );
 }
