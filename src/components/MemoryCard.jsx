@@ -72,7 +72,7 @@ function MemoryCard(props) {
             Posted by {props.memory.user.name} on{' '}
             {moment(props.memory.created_at).format('MMMM Do YYYY')}
           </h4>
-          <a href='#0'>Read more</a>
+          {/* <a href='#0'>Read more</a> */}
         </div>
       </div>
     </Card>

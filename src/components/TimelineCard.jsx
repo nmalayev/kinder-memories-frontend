@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import logo from '../assets/logo.png';
 
 function TimelineCard(props) {
   const memoryTypeRender = () => {
@@ -25,6 +26,16 @@ function TimelineCard(props) {
     }
   };
 
+  const classNameRender = () => {
+    if (props.memory.post_type === 'photo') {
+      return 'cd-timeline__img--photo';
+    } else if (props.memory.post_type === 'letter') {
+      return 'cd-timeline__img--letter';
+    } else if (props.memory.post_type === 'video') {
+      return 'cd-timeline__img--video';
+    }
+  };
+
   const calcMemoryAge = () => {
     let memoryDate = moment(props.memory.memory_date);
     let birthday = moment(props.memory.timeline.birthday);
@@ -36,27 +47,27 @@ function TimelineCard(props) {
     birthday.add(months, 'months');
 
     if (years === 1) {
-      return <h3>{years + ' Year, ' + months + ' Months '}</h3>;
+      return <h4>Age: {years + ' Year, ' + months + ' Months '}</h4>;
     } else if (years > 1) {
-      return <h3>{years + ' Years, ' + months + ' Months '}</h3>;
+      return <h4>Age: {years + ' Years, ' + months + ' Months '}</h4>;
     } else if (years < -1) {
-      return <h3>{years + ' Years, ' + Math.abs(months) + ' Months '}</h3>;
+      return <h4>Age: {years + ' Years, ' + Math.abs(months) + ' Months '}</h4>;
     } else if (years === -1) {
-      return <h3>{years + ' Year, ' + Math.abs(months) + ' Months '}</h3>;
+      return <h4>Age: {years + ' Year, ' + Math.abs(months) + ' Months '}</h4>;
     } else {
-      return <h3>{months + ' Months '}</h3>;
+      return <h4>Age: {months + ' Months '}</h4>;
     }
   };
 
   return (
     <div className='cd-timeline__block js-cd-block' id={props.memory.id}>
-      <div className='cd-timeline__img cd-timeline__img--picture js-cd-img'>
-        <img src='/../assets/logo.png' alt='' />
+      <div className={`cd-timeline__img ${classNameRender()} js-cd-img`}>
+        <img src={logo} alt='' />
       </div>
 
       <div className='cd-timeline__content js-cd-content'>
-        <h4>{props.memory.post_type}</h4>
-        <h4>{props.memory.user.relation}</h4>
+        {/* <h4>{props.memory.post_type}</h4>
+        <h4>{props.memory.user.relation}</h4> */}
 
         <div>{calcMemoryAge()}</div>
         <hr />
@@ -70,9 +81,9 @@ function TimelineCard(props) {
             Posted by {props.memory.user.name} on{' '}
             {moment(props.memory.created_at).format('MMMM Do YYYY')}
           </h4>
-          <a href='#0' className='cd-timeline__read-more'>
+          {/* <a href='#0' className='cd-timeline__read-more'>
             Read more
-          </a>
+          </a> */}
         </div>
         <span className='cd-timeline__date'>
           {/* utcOffset below adds 1 hour to time that is sent to API because default is midnight, and moment.js parses it as day before on frontend. */}

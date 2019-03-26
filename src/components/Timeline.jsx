@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import '../css/Timeline.css';
 import TimelineCard from './TimelineCard';
 
@@ -98,10 +98,16 @@ export class Timeline extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
-      <section className='cd-timeline js-cd-timeline'>
-        <div className='cd-timeline__container'>{this.renderMemoryCards()}</div>
-      </section>
+      <Fragment>
+        <h1>{this.props.childName + "'s Memory Timeline"}</h1>
+        <section className='cd-timeline js-cd-timeline'>
+          <div className='cd-timeline__container'>
+            {this.renderMemoryCards()}
+          </div>
+        </section>
+      </Fragment>
     );
   }
 }

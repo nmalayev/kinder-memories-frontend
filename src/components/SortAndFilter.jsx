@@ -67,18 +67,7 @@ export default class SortAndFilter extends Component {
     return (
       <div id='sort-and-filter'>
         <div className='dropdown-filter'>
-          {/* Show me memories by{' '} */}
-          <Dropdown
-            inline
-            options={memoryPosterOptions}
-            defaultValue={memoryPosterOptions[0].value}
-            onChange={handleSidebarSortMemPoster}
-            // value={memPoster}
-            // placeholder='Choose relation'
-          />
-        </div>
-        <div className='dropdown-filter'>
-          {/* Sort by{' '} */}
+          Sort by{' '}
           <Dropdown
             inline
             options={timeSortOptions}
@@ -89,7 +78,19 @@ export default class SortAndFilter extends Component {
           />
         </div>
         <div className='dropdown-filter'>
-          {/* Show{' '} */}
+          Show me memories by{' '}
+          <Dropdown
+            inline
+            options={memoryPosterOptions}
+            defaultValue={memoryPosterOptions[0].value}
+            onChange={handleSidebarSortMemPoster}
+            // value={memPoster}
+            // placeholder='Choose relation'
+          />
+        </div>
+
+        <div className='dropdown-filter'>
+          Show{' '}
           <Dropdown
             inline
             options={typeSortOptions}
@@ -98,7 +99,7 @@ export default class SortAndFilter extends Component {
             // placeholder='Select memory type'
             // value={memType}
           />
-          {/* memories */}
+          memories
         </div>
       </div>
     );

@@ -268,6 +268,7 @@ class App extends Component {
                 {...props}
                 currentUser={this.state.currentUser}
                 memories={this.state.memories}
+                childName={this.state.childName}
               />
             ) : (
               <AccessDenied {...props} />

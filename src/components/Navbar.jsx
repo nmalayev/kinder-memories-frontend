@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Input, Menu, MenuHeader } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
-// import '../css/Navbar.css';
+import '../css/Navbar.css';
 
 class Navbar extends Component {
   state = { activeItem: 'timeline' };
@@ -22,8 +22,8 @@ class Navbar extends Component {
         pointing
         className='fixed'
         color='teal'
-        // inverted={true}
-        size='massive'
+        inverted
+        size='large'
       >
         {this.props.currentUser ? (
           <Menu.Menu>

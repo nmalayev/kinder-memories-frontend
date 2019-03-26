@@ -1,6 +1,12 @@
 #navbar {
   /* position: -webkit-sticky needed for Safari */
-  position: -webkit-sticky;
+  /* position: -webkit-sticky;
   position: sticky;
-  top: 7;
+  top: 7; */
+  /* background-color: #ff6200; */
+}
+
+#navbar div,
+#navbar a {
+  font-weight: bold;
 }

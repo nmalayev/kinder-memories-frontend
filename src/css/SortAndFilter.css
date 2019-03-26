@@ -1,16 +1,16 @@
 #sort-and-filter {
+  margin-left: 14rem;
+  margin-right: 14rem;
   display: flex;
-  background-color: pink;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  border-radius: 8px;
+  background-color: #00b5ad4f;
+  font-size: 20px;
+  color: grey;
+  padding: 1.5rem;
 }
 
-#sort-and-filter * {
-  margin: 2 0rem;
-}
-
-.dropdown-filter {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
+#sort-and-filter div[role='alert'] {
+  text-decoration: underline;
 }
