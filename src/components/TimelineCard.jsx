@@ -6,22 +6,30 @@ function TimelineCard(props) {
   const memoryTypeRender = () => {
     if (props.memory.post_type === 'photo') {
       return (
-        <img src={'http://localhost:3001' + props.memory.file_url} alt='' />
+        <div className='timeline-card-photo'>
+          <img src={'http://localhost:3001' + props.memory.file_url} alt='' />
+        </div>
       );
     } else if (props.memory.post_type === 'letter') {
-      return <p>{props.memory.letter}</p>;
+      return (
+        <div className='timeline-card-letter'>
+          <p>{props.memory.letter}</p>
+        </div>
+      );
     } else if (props.memory.post_type === 'video') {
       return (
-        <video controls={true} width='500'>
-          <source
-            src={'http://localhost:3001' + props.memory.file_url}
-            type='video/mp4'
-          />
-          <source
-            src={'http://localhost:3001' + props.memory.file_url}
-            type='video/ogg'
-          />
-        </video>
+        <div className='timeline-card-video'>
+          <video controls={true}>
+            <source
+              src={'http://localhost:3001' + props.memory.file_url}
+              type='video/mp4'
+            />
+            <source
+              src={'http://localhost:3001' + props.memory.file_url}
+              type='video/ogg'
+            />
+          </video>
+        </div>
       );
     }
   };
@@ -70,13 +78,13 @@ function TimelineCard(props) {
         <h4>{props.memory.user.relation}</h4> */}
 
         <div>{calcMemoryAge()}</div>
-        <hr />
+        {/* <hr /> */}
         <h2>{props.memory.title}</h2>
         <p>{props.memory.description}</p>
 
-        <div>{memoryTypeRender()}</div>
-        <hr />
-        <div>
+        {memoryTypeRender()}
+        {/* <hr /> */}
+        <div className='posted-date'>
           <h4>
             Posted by {props.memory.user.name} on{' '}
             {moment(props.memory.created_at).format('MMMM Do YYYY')}

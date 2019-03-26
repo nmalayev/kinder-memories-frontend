@@ -27,11 +27,22 @@ a {
 
 img {
   max-width: 100%;
+}
+
+.timeline-card-video video {
+  height: auto;
+  width: 100%;
   border-radius: 1em;
 }
 
-video {
-  border-radius: 1em;
+.timeline-card-video {
+  border-radius: 1rem;
+}
+
+.timeline-card-photo img {
+  border-radius: 1rem;
+  height: auto;
+  width: 100%;
 }
 
 h1,
@@ -112,6 +123,17 @@ header h1 {
 .cd-timeline__block {
   position: relative;
   margin: 2em 0;
+}
+
+.posted-date {
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-top: 1rem;
+}
+.posted-date h4 {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: whitesmoke;
 }
 
 .cd-timeline__block:after {

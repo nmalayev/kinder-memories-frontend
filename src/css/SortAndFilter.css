@@ -1,13 +1,13 @@
 #sort-and-filter {
-  margin-left: 14rem;
-  margin-right: 14rem;
+  margin-left: 22rem;
+  margin-right: 22rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   border-radius: 8px;
   background-color: #00b5ad4f;
   font-size: 20px;
-  color: grey;
+  color: rgb(138, 138, 138);
   padding: 1.5rem;
 }
 
