@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import logo from '../assets/logo.png';
+import { Icon } from 'semantic-ui-react';
 
 function TimelineCard(props) {
   const memoryTypeRender = () => {
@@ -34,13 +35,31 @@ function TimelineCard(props) {
     }
   };
 
-  const classNameRender = () => {
+  const timelineNodeIconRender = () => {
     if (props.memory.post_type === 'photo') {
-      return 'cd-timeline__img--photo';
+      return (
+        <div className='cd-timeline__img cd-timeline__img--photo js-cd-img'>
+          {/* <img src={logo} alt='' /> */}
+          {/* <i class='camera retro icon' /> */}
+          <Icon name='camera retro' inverted size='big' />
+        </div>
+      );
     } else if (props.memory.post_type === 'letter') {
-      return 'cd-timeline__img--letter';
+      return (
+        <div className='cd-timeline__img cd-timeline__img--letter js-cd-img'>
+          {/* <img src={logo} alt='' /> */}
+          {/* <i class='edit outline icon' /> */}
+          <Icon name='edit outline icon' inverted size='big' />
+        </div>
+      );
     } else if (props.memory.post_type === 'video') {
-      return 'cd-timeline__img--video';
+      return (
+        <div className='cd-timeline__img cd-timeline__img--video js-cd-img'>
+          {/* <img src={logo} alt='' /> */}
+          {/* <i class='video icon' /> */}
+          <Icon name='video icon' inverted size='big' />
+        </div>
+      );
     }
   };
 
@@ -69,23 +88,22 @@ function TimelineCard(props) {
 
   return (
     <div className='cd-timeline__block js-cd-block' id={props.memory.id}>
-      <div className={`cd-timeline__img ${classNameRender()} js-cd-img`}>
-        <img src={logo} alt='' />
-      </div>
+      {timelineNodeIconRender()}
 
       <div className='cd-timeline__content js-cd-content'>
         {/* <h4>{props.memory.post_type}</h4>
         <h4>{props.memory.user.relation}</h4> */}
 
-        <div>{calcMemoryAge()}</div>
+        {/* <div>{calcMemoryAge()}</div> */}
         {/* <hr /> */}
         <h2>{props.memory.title}</h2>
         <p>{props.memory.description}</p>
 
         {memoryTypeRender()}
         {/* <hr /> */}
-        <div className='posted-date'>
-          <h4>
+        <div className='card-footer'>
+          {calcMemoryAge()}
+          <h4 className='posted-date'>
             Posted by {props.memory.user.name} on{' '}
             {moment(props.memory.created_at).format('MMMM Do YYYY')}
           </h4>

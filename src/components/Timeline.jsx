@@ -101,7 +101,9 @@ export class Timeline extends Component {
     console.log(this.props);
     return (
       <Fragment>
-        <h1>{this.props.childName + "'s Memory Timeline"}</h1>
+        <h1 id='timeline-name'>
+          {this.props.childName + "'s Memory Timeline"}
+        </h1>
         <section className='cd-timeline js-cd-timeline'>
           <div className='cd-timeline__container'>
             {this.renderMemoryCards()}
