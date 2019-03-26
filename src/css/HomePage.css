@@ -6,9 +6,17 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 33.3vh;
   grid-template-areas:
-    '. . . .'
+    '. img img .'
     'form form form form'
     'credit . . .';
+}
+
+img {
+  /* display: block; */
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 3;
+  grid-area: img;
 }
 
 label {
@@ -106,4 +114,5 @@ label {
   grid-area: form;
   z-index: 3;
   background-color: rgba(34, 36, 38, 0.15);
+  margin-top: 2.5rem;
 }

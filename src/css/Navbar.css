@@ -1,5 +1,5 @@
 #navbar {
-  /* position: -webkit-sticky needed for SFari */
+  /* position: -webkit-sticky needed for Safari */
   position: -webkit-sticky;
   position: sticky;
   top: 0;
