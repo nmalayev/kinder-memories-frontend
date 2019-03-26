@@ -103,6 +103,10 @@ class SignupForm extends Component {
             onChange={this.handleChange}
             value={relation}
           >
+            <option value='' disabled selected>
+              How are you related?
+            </option>
+
             <option value='parent'>Parent</option>
             <option value='grandparent'>Grandparent</option>
             <option value='sibling'>Sibling</option>

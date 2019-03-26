@@ -66,9 +66,6 @@ label {
   border: 2 !important;
   border-color: whitesmoke;
   color: white;
-  /* outline: 0 !important;
-  border-bottom: 1px solid white !important;
-  padding-bottom: 0.5rem !important; */
 }
 
 #signup-form input::placeholder {
