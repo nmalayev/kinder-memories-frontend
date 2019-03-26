@@ -236,12 +236,6 @@ class App extends Component {
     console.log('current user', this.state.currentUser);
     return (
       <div className='App'>
-        {/* <Navbar
-          handleSearch={this.handleSearch}
-          currentUser={this.state.currentUser}
-          logout={this.logout}
-        /> */}
-
         {this.props.location.pathname === '/' ? null : (
           <Navbar
             handleSearch={this.handleSearch}
@@ -250,8 +244,7 @@ class App extends Component {
           />
         )}
         {/* Only render the SortAndFilter component if the current path is
-        /timeline or /memories. Cleaner IMO than passing SortAndFilter component into both
-        Timeline and MemoryViewPage components, and then fixing props passing. */}
+        /timeline or /memories. */}
         {(this.props.location.pathname === '/timeline' &&
           this.state.currentUser) ||
         (this.props.location.pathname === '/memories' &&
@@ -265,7 +258,6 @@ class App extends Component {
             handleSidebarSortTypeSort={this.handleSidebarSortTypeSort}
           />
         ) : null}
-        {/* <Redirect from='/' to='/timeline' /> */}
         <Route
           path='/timeline'
           render={props =>
@@ -284,6 +276,7 @@ class App extends Component {
         />
         <Route
           path='/new-memory'
+          exact
           render={props =>
             this.state.currentUser ? (
               <MemoryForm
@@ -305,6 +298,7 @@ class App extends Component {
         />
         <Route
           path='/memories'
+          exact
           render={props =>
             this.state.currentUser ? (
               <MemoryViewPage {...props} memories={this.state.memories} />
@@ -313,28 +307,16 @@ class App extends Component {
             )
           }
         />
-        {/* <Route
-          path='/login'
-          render={props => (
-            <LoginForm {...props} setCurrentUser={this.setCurrentUser} />
-          )}
-        /> */}
-        {!this.state.currentUser ? (
-          <Route
-            path='/'
-            exact
-            render={props => (
-              <HomePage {...props} setCurrentUser={this.setCurrentUser} />
-            )}
-          />
-        ) : (
-          <Redirect from='/' to='/timeline' />
-        )}
         <Route
-          path='/sign-up'
-          render={props => (
-            <SignupForm {...props} setCurrentUser={this.setCurrentUser} />
-          )}
+          path='/'
+          exact
+          render={props =>
+            !this.state.currentUser ? (
+              <HomePage {...props} setCurrentUser={this.setCurrentUser} />
+            ) : (
+              <Redirect to='/timeline' />
+            )
+          }
         />
       </div>
     );

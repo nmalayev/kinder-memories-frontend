@@ -66,7 +66,7 @@ class Navbar extends Component {
             <Menu.Item
               name='sign-up'
               active={activeItem === 'sign-up'}
-              onClick={this.handleItemClick}
+              onClick={() => this.props.history.push('/')}
             />
           </Menu.Menu>
         )}
