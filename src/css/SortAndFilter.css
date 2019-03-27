@@ -6,11 +6,16 @@
   justify-content: space-around;
   border-radius: 8px;
   background-color: #00b5ad4f;
-  font-size: 20px;
+  font-size: 22px;
   color: rgb(138, 138, 138);
   padding: 1.5rem;
+  font-family: 'Handlee', cursive;
 }
 
 #sort-and-filter div[role='alert'] {
   text-decoration: underline;
+}
+
+.text {
+  font-size: 1.3rem;
 }

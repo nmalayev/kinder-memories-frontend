@@ -70,7 +70,7 @@ class SignupForm extends Component {
             transparent
           />
           <Form.Input
-            label='Username'
+            label='Username (email)'
             type='email'
             placeholder='Username'
             name='username'

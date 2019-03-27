@@ -71,9 +71,10 @@ class MemoryForm extends Component {
               ) : null}
               {this.props.newMemType === 'letter' ? (
                 <Form.TextArea
-                  label='Letter'
+                  label='Letter (max 500 characters)'
                   placeholder={`Write a note for ${this.props.childName}...`}
                   name='newMemLetter'
+                  maxlength='520'
                   onChange={this.props.handleChange}
                 />
               ) : null}

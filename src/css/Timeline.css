@@ -14,10 +14,10 @@ Primary style
 
 body {
   /* font-size: 1.6rem; */
-  /* font-family: 'Droid Serif', serif; */
+  font-family: 'Droid Serif', serif;
   color: #7f8c97;
   /* background-color: #e9f0f5; */
-  background-color: #ddfafdcb;
+  background-color: #d7f8fce8;
 }
 
 a {
@@ -59,19 +59,26 @@ i {
 }
 
 .timeline-card-letter {
-  background-image: url('../assets/letter-background.png');
+  background-image: url('../assets/letter-background3.png');
   height: 500px; /* You must set a specified height */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  background-size: contain; /* Resize the background image to cover the entire container */
 }
 
 .timeline-card-letter p.timeline-letter {
   font-family: 'Caveat', cursive;
   font-weight: 500;
-  margin-bottom: 2rem;
-  font-size: 26px;
+  /* margin-bottom: 2rem; */
+  font-size: 24px;
   /* background-color: white; */
+  transform: rotate(-4.5deg);
+  width: 380px;
+  margin-left: 2.5rem;
+  padding-top: 8rem;
+  color: rgba(0, 0, 0, 0.781);
+  line-height: 2rem;
+  text-align: left;
 }
 
 .card-footer {
@@ -357,6 +364,8 @@ header h1 {
     font-size: 1.6rem;
     font-weight: bold;
     font-family: 'Handlee', cursive;
+    margin: 0;
+    margin-bottom: 1rem;
   }
   .cd-timeline__read-more,
   .cd-timeline__date {
