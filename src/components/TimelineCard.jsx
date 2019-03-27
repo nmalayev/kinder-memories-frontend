@@ -14,7 +14,7 @@ function TimelineCard(props) {
     } else if (props.memory.post_type === 'letter') {
       return (
         <div className='timeline-card-letter'>
-          <p>{props.memory.letter}</p>
+          <p className='timeline-letter'>{props.memory.letter}</p>
         </div>
       );
     } else if (props.memory.post_type === 'video') {
@@ -39,24 +39,18 @@ function TimelineCard(props) {
     if (props.memory.post_type === 'photo') {
       return (
         <div className='cd-timeline__img cd-timeline__img--photo js-cd-img'>
-          {/* <img src={logo} alt='' /> */}
-          {/* <i class='camera retro icon' /> */}
           <Icon name='camera retro' inverted size='big' />
         </div>
       );
     } else if (props.memory.post_type === 'letter') {
       return (
         <div className='cd-timeline__img cd-timeline__img--letter js-cd-img'>
-          {/* <img src={logo} alt='' /> */}
-          {/* <i class='edit outline icon' /> */}
           <Icon name='edit outline icon' inverted size='big' />
         </div>
       );
     } else if (props.memory.post_type === 'video') {
       return (
         <div className='cd-timeline__img cd-timeline__img--video js-cd-img'>
-          {/* <img src={logo} alt='' /> */}
-          {/* <i class='video icon' /> */}
           <Icon name='video icon' inverted size='big' />
         </div>
       );

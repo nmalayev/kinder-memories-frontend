@@ -58,6 +58,22 @@ i {
   width: 100%;
 }
 
+.timeline-card-letter {
+  background-image: url('../assets/letter-background.png');
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.timeline-card-letter p.timeline-letter {
+  font-family: 'Caveat', cursive;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  font-size: 26px;
+  /* background-color: white; */
+}
+
 .card-footer {
   margin-left: 5rem;
   margin-right: 5rem;
@@ -298,23 +314,10 @@ header h1 {
   border-right: 7px solid white;
 }
 
-.cd-timeline__content h2.card-title {
-  color: #be1056;
-  font-family: 'Handlee', cursive;
-}
-
 .cd-timeline__content p,
 .cd-timeline__read-more,
 .cd-timeline__date {
   font-size: 1.3rem;
-}
-
-.cd-timeline__content p {
-  margin: 1em 0;
-  line-height: 1.6;
-  font-family: 'Shadows Into Light', cursive;
-  font-weight: bold;
-  font-size: 18px;
 }
 
 .cd-timeline__read-more,
@@ -345,10 +348,15 @@ header h1 {
 
 @media only screen and (min-width: 768px) {
   .cd-timeline__content h2 {
+    color: #be1056;
+    font-family: 'Handlee', cursive;
     font-size: 2rem;
   }
+
   .cd-timeline__content p {
     font-size: 1.6rem;
+    font-weight: bold;
+    font-family: 'Handlee', cursive;
   }
   .cd-timeline__read-more,
   .cd-timeline__date {
