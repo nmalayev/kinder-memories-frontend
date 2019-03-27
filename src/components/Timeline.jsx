@@ -93,9 +93,11 @@ export class Timeline extends Component {
 
   renderMemoryCards = () => {
     const { memories } = this.props;
-    return memories.map(mem => {
-      return <TimelineCard key={mem.id} memory={mem} />;
-    });
+    if (memories.length > 0) {
+      return memories.map(mem => {
+        return <TimelineCard key={mem.id} memory={mem} />;
+      });
+    }
   };
 
   render() {
@@ -103,6 +105,9 @@ export class Timeline extends Component {
     return (
       <Fragment>
         <h1 id='timeline-name'>{this.props.childName + "'s Timeline"}</h1>
+        {this.props.memories.length > 0 ? null : (
+          <h1 id='no-search-match'>No search matches, please try again...</h1>
+        )}
         <section className='cd-timeline js-cd-timeline'>
           <div className='cd-timeline__container'>
             {this.renderMemoryCards()}

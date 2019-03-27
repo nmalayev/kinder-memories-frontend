@@ -13,10 +13,7 @@ Primary style
 } */
 
 body {
-  /* font-size: 1.6rem; */
-  font-family: 'Droid Serif', serif;
   color: #7f8c97;
-  /* background-color: #e9f0f5; */
   background-color: #d7f8fce8;
 }
 
@@ -38,6 +35,10 @@ i {
   font-size: 64px;
   /* color: #00b5ad; */
   color: rgba(253, 183, 19, 0.808);
+}
+
+#no-search-match {
+  color: #00b5ad;
 }
 
 .timeline-card-video video {

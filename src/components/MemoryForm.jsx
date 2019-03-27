@@ -74,8 +74,9 @@ class MemoryForm extends Component {
                   label='Letter (max 500 characters)'
                   placeholder={`Write a note for ${this.props.childName}...`}
                   name='newMemLetter'
-                  maxlength='520'
+                  maxlength='500'
                   onChange={this.props.handleChange}
+                  id='newMemLetter'
                 />
               ) : null}
               {/* </Form.Group> */}
