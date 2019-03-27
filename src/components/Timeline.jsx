@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import '../css/Timeline.css';
 import TimelineCard from './TimelineCard';
+import { Button } from 'semantic-ui-react';
 
 export class Timeline extends Component {
   timelineFunctionality = () => {
@@ -109,7 +110,14 @@ export class Timeline extends Component {
             {this.renderMemoryCards()}
           </div>
         </section>
-        <button onClick={() => window.scrollTo(0, 0)}>Back to Top</button>
+        <Button
+          id='scroll-to-top-btn'
+          color='teal'
+          // inverted
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          Back to Top
+        </Button>
       </Fragment>
     );
   }
