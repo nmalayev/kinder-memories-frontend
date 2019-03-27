@@ -23,7 +23,7 @@ class Navbar extends Component {
         className='fixed'
         color='teal'
         inverted
-        size='large'
+        size='huge'
       >
         {this.props.currentUser ? (
           <Menu.Menu>

@@ -96,7 +96,7 @@ function TimelineCard(props) {
 
         {/* <div>{calcMemoryAge()}</div> */}
         {/* <hr /> */}
-        <h2>{props.memory.title}</h2>
+        <h2 className='card-title'>{props.memory.title}</h2>
         <p>{props.memory.description}</p>
 
         {memoryTypeRender()}

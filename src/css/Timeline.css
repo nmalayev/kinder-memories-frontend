@@ -17,7 +17,7 @@ body {
   /* font-family: 'Droid Serif', serif; */
   color: #7f8c97;
   /* background-color: #e9f0f5; */
-  background-color: #e8eff5;
+  background-color: #ddfafdcb;
 }
 
 a {
@@ -34,6 +34,10 @@ i {
 
 #timeline-name {
   margin-top: 2.5rem;
+  font-family: 'Handlee', cursive;
+  font-size: 64px;
+  /* color: #00b5ad; */
+  color: rgba(253, 183, 19, 0.808);
 }
 
 .timeline-card-video video {
@@ -62,7 +66,7 @@ i {
 .posted-date {
   margin-top: 0.5rem;
   font-style: italic;
-  color: whitesmoke;
+  color: white;
 }
 
 #scroll-to-top-btn {
@@ -294,8 +298,9 @@ header h1 {
   border-right: 7px solid white;
 }
 
-.cd-timeline__content h2 {
-  color: #303e49;
+.cd-timeline__content h2.card-title {
+  color: #be1056;
+  font-family: 'Handlee', cursive;
 }
 
 .cd-timeline__content p,
@@ -307,6 +312,9 @@ header h1 {
 .cd-timeline__content p {
   margin: 1em 0;
   line-height: 1.6;
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .cd-timeline__read-more,
@@ -331,6 +339,8 @@ header h1 {
   padding: 0.8em 0;
   opacity: 0.7;
   text-align: left;
+  font-family: 'Unkempt', cursive;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 768px) {
