@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Image, Modal, Form } from 'semantic-ui-react';
+import { Button, Header, Modal, Form } from 'semantic-ui-react';
 import '../css/MemoryForm.css';
 
 const options = [
@@ -9,32 +9,53 @@ const options = [
 ];
 
 class MemoryForm extends Component {
+  // formCompleted = () => {
+  //   const {
+  //     newMemTitle,
+  //     newMemDescription,
+  //     newMemType,
+  //     newMemDate,
+  //     newMemLetter
+  //   } = this.props;
+
+  //   if (
+  //     (newMemTitle && newMemDescription && newMemType && newMemDate) ||
+  //     (newMemTitle &&
+  //       newMemDescription &&
+  //       newMemType &&
+  //       newMemDate &&
+  //       newMemLetter)
+  //   ) {
+  //     return true;
+  //   } else {
+  //     false;
+  //   }
+  // };
+
   render() {
     return (
       <Modal open={this.props.showAddModal}>
         <Modal.Header>New Memory</Modal.Header>
-        <Button onClick={() => this.props.history.goBack()}>Go Back</Button>
-
-        <Modal.Content image>
-          {/* <Image
-            wrapped
-            size='medium'
-            src='https://react.semantic-ui.com/images/avatar/large/rachel.png'
-          /> */}
+        <Modal.Content>
           <Modal.Description>
             <Header>Add New Memory</Header>
+            <Button onClick={() => this.props.history.push('google.com')}>
+              Go Back
+            </Button>
 
-            <Form onSubmit={this.props.handleSubmit}>
+            <Form onSubmit={this.props.handleSubmit} id='new-memory-form'>
               {/* <Form.Group widths='equal'> */}
               <Form.Select
                 fluid
                 selection
                 label='Memory Type'
+                color='black'
                 name='newMemType'
                 options={options}
                 placeholder='Type'
                 onChange={this.props.handleSelectChange}
                 value={this.props.newMemType}
+                required
               />
               <Form.Input
                 label='Date of Memory'
@@ -42,6 +63,7 @@ class MemoryForm extends Component {
                 name='newMemDate'
                 min='2018-04-13'
                 onChange={this.props.handleChange}
+                required
               />
               <Form.Input
                 fluid
@@ -49,6 +71,7 @@ class MemoryForm extends Component {
                 placeholder='Title'
                 name='newMemTitle'
                 onChange={this.props.handleChange}
+                required
               />
               <Form.TextArea
                 label='Description'
@@ -57,6 +80,7 @@ class MemoryForm extends Component {
                 }...`}
                 name='newMemDescription'
                 onChange={this.props.handleChange}
+                required
               />
 
               {this.props.newMemType === 'photo' ||
@@ -68,6 +92,7 @@ class MemoryForm extends Component {
                   accept={
                     this.props.newMemType === 'photo' ? 'image/*' : 'video/*'
                   }
+                  required
                 />
               ) : null}
               {this.props.newMemType === 'letter' ? (
@@ -78,10 +103,13 @@ class MemoryForm extends Component {
                   maxlength='500'
                   onChange={this.props.handleChange}
                   id='newMemLetter'
+                  required
                 />
               ) : null}
               {/* </Form.Group> */}
-              <Form.Button>Submit</Form.Button>
+              <Form.Group>
+                <Form.Button>Submit</Form.Button>
+              </Form.Group>
             </Form>
           </Modal.Description>
         </Modal.Content>

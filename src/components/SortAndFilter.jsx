@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Dropdown, Select, Form } from 'semantic-ui-react';
+import { Dropdown } from 'semantic-ui-react';
 import '../css/SortAndFilter.css';
 
 const memoryPosterOptions = [

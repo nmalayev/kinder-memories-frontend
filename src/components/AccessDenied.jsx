@@ -2,8 +2,6 @@ import React from 'react';
 import '../css/AccessDenied.css';
 
 function AccessDenied(props) {
-  console.log(props.history.location.pathname);
-
   const errorMessage = () => {
     if (props.history.location.pathname === '/memories') {
       return 'view all memories.';
@@ -21,6 +19,7 @@ function AccessDenied(props) {
       <h1>Please log in to {errorMessage()}</h1>
       <br />
       <iframe
+        title='homepage-gif'
         src='https://giphy.com/embed/WAInq2ktLbAuQ'
         width='700'
         height='700'

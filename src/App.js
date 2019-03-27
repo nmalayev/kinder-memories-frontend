@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import Timeline from './components/Timeline';
 import MemoryForm from './components/MemoryForm';
@@ -8,8 +8,7 @@ import SortAndFilter from './components/SortAndFilter';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
 import './css/App.css';
-import LoginForm from './components/LoginForm';
-import SignupForm from './components/SignupForm';
+
 import HomePage from './components/HomePage';
 import AccessDenied from './components/AccessDenied';
 
@@ -246,7 +245,6 @@ class App extends Component {
   };
 
   render() {
-    console.log('current user', this.state.currentUser);
     return (
       <div className='App'>
         {this.props.location.pathname === '/' ? null : (
@@ -303,7 +301,8 @@ class App extends Component {
                 newMemTitle={this.state.newMemTitle}
                 newMemDescription={this.state.newMemDescription}
                 newMemType={this.state.newMemType}
-                newMemDate={this.state.newMemDat}
+                newMemDate={this.state.newMemDate}
+                newMemLetter={this.state.newMemLetter}
               />
             ) : (
               <AccessDenied {...props} />

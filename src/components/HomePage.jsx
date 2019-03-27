@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react';
+import { Button, Grid, Segment } from 'semantic-ui-react';
 
 import backgroundVideo from '../assets/baby_stock_video.mp4';
 import logo from '../assets/logo.png';
@@ -20,7 +20,7 @@ class HomePage extends Component {
   render() {
     return (
       <div className='homepage'>
-        <img src={logo} />
+        <img src={logo} alt='logo' />
         <Segment placeholder compact id='login-homepage'>
           <Grid relaxed='very' stackable>
             {!this.state.renderSignupForm ? (

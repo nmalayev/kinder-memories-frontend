@@ -10,3 +10,7 @@
 #navbar a {
   font-weight: bold;
 }
+
+#navbar a.active.item::after {
+  background: #f6c449 !important;
+}

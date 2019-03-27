@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import logo from '../assets/logo.png';
 import { Icon } from 'semantic-ui-react';
 
 function TimelineCard(props) {
@@ -45,13 +44,13 @@ function TimelineCard(props) {
     } else if (props.memory.post_type === 'letter') {
       return (
         <div className='cd-timeline__img cd-timeline__img--letter js-cd-img'>
-          <Icon name='edit outline icon' inverted size='big' />
+          <Icon name='edit outline' inverted size='big' />
         </div>
       );
     } else if (props.memory.post_type === 'video') {
       return (
         <div className='cd-timeline__img cd-timeline__img--video js-cd-img'>
-          <Icon name='video icon' inverted size='big' />
+          <Icon name='video' inverted size='big' />
         </div>
       );
     }

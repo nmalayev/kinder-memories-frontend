@@ -19,7 +19,8 @@ img {
   grid-area: img;
 }
 
-label {
+#signup-form label,
+#login-form label {
   color: whitesmoke !important;
   margin-bottom: 1rem !important;
   margin-top: 1.5rem !important;
@@ -30,17 +31,12 @@ label {
   text-transform: none;
 }
 
-#login-form button {
-  margin-top: 1.5rem;
-}
-
+#login-form button,
 #signup-form button {
   margin-top: 1.5rem;
 }
 
-#signup-btn {
-  margin-top: 1.5rem;
-}
+#signup-btn,
 #login-btn {
   margin-top: 1.5rem;
 }

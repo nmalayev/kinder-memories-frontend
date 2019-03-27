@@ -84,7 +84,7 @@ function MemoryCard(props) {
     // <Card raised>
     <div className='column'>
       <div
-        className='cd-timeline__content js-cd-content card'
+        // className='cd-timeline__content js-cd-content card'
         style={{ width: 'auto' }}
       >
         {/* <h4>{props.memory.post_type}</h4>
@@ -92,8 +92,7 @@ function MemoryCard(props) {
         <h2 className='card-title'>{props.memory.title}</h2>
         <p>{props.memory.description}</p>
 
-        {memoryTypeRender()}
-        {/* <hr /> */}
+        {/* {memoryTypeRender()} */}
         <div className='card-footer'>
           {calcMemoryAge()}
           <h4 className='posted-date'>

@@ -2,3 +2,19 @@
   margin: 2em;
   margin-top: 10em;
 }
+
+#new-memory-form label {
+  color: black;
+  margin-bottom: 1rem !important;
+  margin-top: 1.5rem !important;
+  display: block;
+  margin: 0 0 0.28571429rem 0;
+  font-size: 0.92857143em;
+  font-weight: 700;
+  text-transform: none;
+}
+
+/* Removes required asterisk */
+#new-memory-form label::after {
+  display: none;
+}

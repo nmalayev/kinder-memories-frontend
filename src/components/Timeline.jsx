@@ -6,14 +6,6 @@ import { Button } from 'semantic-ui-react';
 export class Timeline extends Component {
   timelineFunctionality = () => {
     // Vertical Timeline - by CodyHouse.co
-    function VerticalTimeline(element) {
-      this.element = element;
-      this.blocks = this.element.getElementsByClassName('js-cd-block');
-      this.images = this.element.getElementsByClassName('js-cd-img');
-      this.contents = this.element.getElementsByClassName('js-cd-content');
-      this.offset = 0.8;
-      this.hideBlocks();
-    }
 
     VerticalTimeline.prototype.hideBlocks = function() {
       //hide timeline blocks which are outside the viewport
@@ -34,6 +26,14 @@ export class Timeline extends Component {
       }
     };
 
+    function VerticalTimeline(element) {
+      this.element = element;
+      this.blocks = this.element.getElementsByClassName('js-cd-block');
+      this.images = this.element.getElementsByClassName('js-cd-img');
+      this.contents = this.element.getElementsByClassName('js-cd-content');
+      this.offset = 0.8;
+      this.hideBlocks();
+    }
     VerticalTimeline.prototype.showBlocks = function() {
       if (!'classList' in document.documentElement) {
         return;

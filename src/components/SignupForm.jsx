@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 
-const relationOptions = [
-  { key: 'parent', text: 'Parent', value: 'parent' },
-  { key: 'grandparent', text: 'Grandparent', value: 'grandparent' },
-  { key: 'sibling', text: 'Grandparent', value: 'sibling' },
-  { key: 'friend', text: 'Friend', value: 'friend' },
-  { key: 'cousin', text: 'Cousin', value: 'cousin' },
-  { key: 'uncle', text: 'Uncle', value: 'uncle' },
-  { key: 'aunt', text: 'Aunt', value: 'aunt' }
-];
-
 class SignupForm extends Component {
   state = {
     name: '',
