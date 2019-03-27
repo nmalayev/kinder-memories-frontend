@@ -17,7 +17,7 @@ body {
   /* font-family: 'Droid Serif', serif; */
   color: #7f8c97;
   /* background-color: #e9f0f5; */
-  background-color: white;
+  background-color: #e8eff5;
 }
 
 a {
@@ -25,7 +25,8 @@ a {
   text-decoration: none;
 }
 
-img {
+img,
+i {
   max-width: 100%;
 }
 
@@ -43,6 +44,7 @@ img {
 
 .timeline-card-video {
   border-radius: 1rem;
+  /* https://stackoverflow.com/questions/6238451/rounded-corners-on-html5-video */
   overflow: hidden;
 }
 
@@ -124,7 +126,7 @@ header h1 {
   left: 18px;
   height: 100%;
   width: 4px;
-  background: #d7e4ed;
+  background: #9fe3ec;
 }
 
 @media only screen and (min-width: 1170px) {
@@ -165,6 +167,9 @@ header h1 {
 }
 
 .cd-timeline__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -174,33 +179,34 @@ header h1 {
   -webkit-box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08),
     0 3px 0 4px rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08),
-    0 3px 0 4px rgba(0, 0, 0, 0.05);
+    0 3px 0 4px rgba(235, 200, 105, 0.473);
 }
 
 .cd-timeline__img i {
-  display: block;
-  width: 24px;
-  height: 24px;
-  position: relative;
-  left: 50%;
-  top: 50%;
-  margin-left: -12px;
-  margin-top: -12px;
+  /* display: block; */
+  width: 100%;
+  height: auto;
+  margin: 0 !important;
+  /* position: relative; */
+  /* left: 50%; */
+  /* top: 50%; */
+  /* margin-left: -12px; */
+  /* margin-top: -12px; */
 }
 
 .cd-timeline__img.cd-timeline__img--photo {
-  background: #75ce66;
+  background: #814374;
 }
 .cd-timeline__img.cd-timeline__img--photo i {
   display: block;
 }
 
 .cd-timeline__img.cd-timeline__img--video {
-  background: #c03b44;
+  background: #c84127;
 }
 
 .cd-timeline__img.cd-timeline__img--letter {
-  background: #f0ca45;
+  background: #06425c;
 }
 
 @media only screen and (min-width: 1170px) {
@@ -319,6 +325,7 @@ header h1 {
   float: left;
   padding: 0.8em 0;
   opacity: 0.7;
+  text-align: left;
 }
 
 @media only screen and (min-width: 768px) {
@@ -356,7 +363,7 @@ header h1 {
     position: absolute;
     width: 100%;
     left: 122%;
-    top: 6px;
+    top: 2px;
     font-size: 1.6rem;
   }
   .cd-timeline__block:nth-child(even) .cd-timeline__content {

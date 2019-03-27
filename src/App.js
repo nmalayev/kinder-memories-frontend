@@ -215,7 +215,8 @@ class App extends Component {
     fetch('http://localhost:3001/api/v1/posts', {
       method: 'POST',
       headers: {
-        Authorization: localStorage.getItem('token')
+        Authorization: localStorage.getItem('token'),
+        Accept: 'application/json'
       },
       body: formData
     }) // end of fetch
