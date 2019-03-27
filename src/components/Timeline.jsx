@@ -109,6 +109,7 @@ export class Timeline extends Component {
             {this.renderMemoryCards()}
           </div>
         </section>
+        <button onClick={() => window.scrollTo(0, 0)}>Back to Top</button>
       </Fragment>
     );
   }

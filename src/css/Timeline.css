@@ -131,7 +131,7 @@ header h1 {
 
 @media only screen and (min-width: 1170px) {
   .cd-timeline {
-    margin-top: 5em;
+    margin-top: 3em;
     margin-bottom: 3em;
   }
   .cd-timeline__container::before {
@@ -179,7 +179,7 @@ header h1 {
   -webkit-box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08),
     0 3px 0 4px rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08),
-    0 3px 0 4px rgba(235, 200, 105, 0.473);
+    0 3px 0 4px rgba(155, 160, 172, 0.288);
 }
 
 .cd-timeline__img i {
