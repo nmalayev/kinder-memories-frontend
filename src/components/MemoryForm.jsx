@@ -40,6 +40,7 @@ class MemoryForm extends Component {
                 label='Date of Memory'
                 type='date'
                 name='newMemDate'
+                min='2018-04-13'
                 onChange={this.props.handleChange}
               />
               <Form.Input

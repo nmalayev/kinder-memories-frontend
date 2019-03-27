@@ -23,11 +23,9 @@ function MemoryViewPage(props) {
   };
 
   return (
-    <div>
-      <Card.Group itemsPerRow={4} id='memoryCardContainer'>
-        {renderMemoryCards()}
-      </Card.Group>
-    </div>
+    <Card.Group itemsPerRow={4} id='memoryCardContainer'>
+      {renderMemoryCards()}
+    </Card.Group>
   );
 }
 
