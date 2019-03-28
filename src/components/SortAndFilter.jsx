@@ -73,8 +73,7 @@ export default class SortAndFilter extends Component {
             options={timeSortOptions}
             defaultValue={timeSortOptions[0].value}
             onChange={handleSidebarSortTimeSort}
-            // value={timeSort}
-            // placeholder='Select time order'
+            value={timeSort}
           />
         </div>
         <div className='dropdown-filter'>
@@ -84,8 +83,7 @@ export default class SortAndFilter extends Component {
             options={memoryPosterOptions}
             defaultValue={memoryPosterOptions[0].value}
             onChange={handleSidebarSortMemPoster}
-            // value={memPoster}
-            // placeholder='Choose relation'
+            value={memPoster}
           />
         </div>
 
@@ -96,8 +94,7 @@ export default class SortAndFilter extends Component {
             options={typeSortOptions}
             defaultValue={typeSortOptions[0].value}
             onChange={handleSidebarSortTypeSort}
-            // placeholder='Select memory type'
-            // value={memType}
+            value={memType}
           />
           memories
         </div>

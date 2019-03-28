@@ -101,12 +101,11 @@ export class Timeline extends Component {
   };
 
   render() {
-    console.log(this.timelineFunctionality);
     return (
       <Fragment>
         <h1 id='timeline-name'>{this.props.childName + "'s Timeline"}</h1>
         {this.props.memories.length > 0 ? null : (
-          <h1 id='no-search-match'>No search matches, please try again...</h1>
+          <h1 id='no-search-match'>No matches, please try again...</h1>
         )}
         <section className='cd-timeline js-cd-timeline'>
           <div className='cd-timeline__container'>

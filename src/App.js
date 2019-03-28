@@ -24,7 +24,7 @@ class App extends Component {
     newMemDate: '',
     newMemLetter: '',
     memPoster: 'everyone',
-    timeSort: '',
+    timeSort: 'chrono',
     memType: 'all',
     currentUser: null
   };

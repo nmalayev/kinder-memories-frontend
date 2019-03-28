@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Modal, Form } from 'semantic-ui-react';
+import { Button, Modal, Form } from 'semantic-ui-react';
 import '../css/MemoryForm.css';
 
 const options = [
@@ -9,37 +9,60 @@ const options = [
 ];
 
 class MemoryForm extends Component {
-  // formCompleted = () => {
-  //   const {
-  //     newMemTitle,
-  //     newMemDescription,
-  //     newMemType,
-  //     newMemDate,
-  //     newMemLetter
-  //   } = this.props;
+  // Function checks if all input fields are submitted in order to enable Submit button.
+  formCompleted = () => {
+    const {
+      newMemTitle,
+      newMemDescription,
+      newMemType,
+      newMemDate,
+      newMemLetter
+    } = this.props;
 
-  //   if (
-  //     (newMemTitle && newMemDescription && newMemType && newMemDate) ||
-  //     (newMemTitle &&
-  //       newMemDescription &&
-  //       newMemType &&
-  //       newMemDate &&
-  //       newMemLetter)
-  //   ) {
-  //     return true;
-  //   } else {
-  //     false;
-  //   }
-  // };
+    if (
+      newMemType === 'letter' &&
+      newMemTitle &&
+      newMemDescription &&
+      newMemType &&
+      newMemDate &&
+      newMemLetter
+    ) {
+      return true;
+    } else if (
+      newMemType !== 'letter' &&
+      newMemTitle &&
+      newMemDescription &&
+      newMemType &&
+      newMemDate
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   render() {
+    const {
+      newMemTitle,
+      newMemDescription,
+      newMemType,
+      newMemDate,
+      newMemLetter,
+      handleChange,
+      showAddModal,
+      handleSubmit,
+      handleSelectChange,
+      childName,
+      history
+    } = this.props;
+
     return (
-      <Modal open={this.props.showAddModal} size='tiny' id='modal-form'>
+      <Modal open={showAddModal} size='tiny' id='modal-form'>
         <Modal.Header id='modal-header'>
           Add New Memory to Timeline
         </Modal.Header>
         <Modal.Content>
-          <Form onSubmit={this.props.handleSubmit} id='new-memory-form'>
+          <Form onSubmit={handleSubmit} id='new-memory-form'>
             <Form.Select
               fluid
               selection
@@ -48,8 +71,8 @@ class MemoryForm extends Component {
               name='newMemType'
               options={options}
               placeholder='Type'
-              onChange={this.props.handleSelectChange}
-              value={this.props.newMemType}
+              onChange={handleSelectChange}
+              value={newMemType}
               required
             />
             <Form.Input
@@ -57,7 +80,9 @@ class MemoryForm extends Component {
               type='date'
               name='newMemDate'
               min='2018-04-13'
-              onChange={this.props.handleChange}
+              max='2050-04-13'
+              onChange={handleChange}
+              value={newMemDate}
               required
             />
             <Form.Input
@@ -65,47 +90,47 @@ class MemoryForm extends Component {
               label='Title'
               placeholder='Title'
               name='newMemTitle'
-              onChange={this.props.handleChange}
+              onChange={handleChange}
+              value={newMemTitle}
               required
             />
             <Form.TextArea
               label='Description'
-              placeholder={`Tell us more about your memory of ${
-                this.props.childName
-              }...`}
+              placeholder={`Tell us more about your memory of ${childName}...`}
               name='newMemDescription'
-              onChange={this.props.handleChange}
+              onChange={handleChange}
+              value={newMemDescription}
               required
             />
 
-            {this.props.newMemType === 'photo' ||
-            this.props.newMemType === 'video' ? (
+            {newMemType === 'photo' || newMemType === 'video' ? (
               <Form.Input
-                label={`Attach ${this.props.newMemType}`}
+                label={`Attach ${newMemType}`}
                 type='file'
                 name='file'
-                accept={
-                  this.props.newMemType === 'photo' ? 'image/*' : 'video/*'
-                }
+                accept={newMemType === 'photo' ? 'image/*' : 'video/*'}
                 required
               />
             ) : null}
-            {this.props.newMemType === 'letter' ? (
+            {newMemType === 'letter' ? (
               <Form.TextArea
                 label='Letter (max 500 characters)'
-                placeholder={`Write a note for ${this.props.childName}...`}
+                placeholder={`Write a note for ${childName}...`}
                 name='newMemLetter'
-                maxlength='500'
-                onChange={this.props.handleChange}
+                maxLength='500'
+                onChange={handleChange}
                 id='newMemLetter'
+                value={newMemLetter}
                 required
               />
             ) : null}
             <Form.Group id='new-form-buttons'>
-              <Button negative onClick={() => this.props.history.goBack()}>
+              <Button negative onClick={() => history.goBack()}>
                 Go Back
               </Button>
-              <Form.Button positive>Submit</Form.Button>
+              <Form.Button positive disabled={!this.formCompleted()}>
+                Submit
+              </Form.Button>
             </Form.Group>
           </Form>
         </Modal.Content>
