@@ -71,7 +71,7 @@ export default class SortAndFilter extends Component {
           <Dropdown
             inline
             options={timeSortOptions}
-            defaultValue={timeSortOptions[0].value}
+            // defaultValue={timeSortOptions[0].value}
             onChange={handleSidebarSortTimeSort}
             value={timeSort}
           />
@@ -81,7 +81,7 @@ export default class SortAndFilter extends Component {
           <Dropdown
             inline
             options={memoryPosterOptions}
-            defaultValue={memoryPosterOptions[0].value}
+            // // defaultValue={memoryPosterOptions[0].value}
             onChange={handleSidebarSortMemPoster}
             value={memPoster}
           />
@@ -92,7 +92,7 @@ export default class SortAndFilter extends Component {
           <Dropdown
             inline
             options={typeSortOptions}
-            defaultValue={typeSortOptions[0].value}
+            // defaultValue={typeSortOptions[0].value}
             onChange={handleSidebarSortTypeSort}
             value={memType}
           />
