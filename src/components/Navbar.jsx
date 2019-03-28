@@ -3,7 +3,7 @@ import { Input, Menu, Image } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 import '../css/Navbar.css';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo-nav.png';
 
 class Navbar extends Component {
   state = { activeItem: 'timeline' };
@@ -26,10 +26,12 @@ class Navbar extends Component {
         inverted
         size='huge'
       >
-        <Menu.Menu>
-          <Image src={logo} avatar />
-        </Menu.Menu>
-
+        <div id='nav-logo'>
+          <Image
+            src={logo}
+            onClick={() => this.props.history.push('/timeline')}
+          />
+        </div>
         {this.props.currentUser ? (
           <Menu.Menu>
             <Menu.Item

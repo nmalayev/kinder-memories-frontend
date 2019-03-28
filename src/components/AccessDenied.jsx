@@ -16,7 +16,7 @@ function AccessDenied(props) {
 
   return (
     <div id='access-denied'>
-      <h1>Please log in to {errorMessage()}</h1>
+      <h1 id='access-denied-msg'>Please log in to {errorMessage()}</h1>
       <br />
       <iframe
         title='homepage-gif'

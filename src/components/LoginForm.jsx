@@ -40,7 +40,7 @@ class LoginForm extends Component {
             icon='user'
             iconPosition='left'
             label='Username'
-            type='text'
+            type='email'
             placeholder='Username'
             name='username'
             onChange={this.handleChange}
