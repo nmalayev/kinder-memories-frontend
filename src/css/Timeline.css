@@ -323,17 +323,17 @@ header h1 {
 }
 
 .cd-timeline__content p,
-.cd-timeline__read-more,
+/* .cd-timeline__read-more, */
 .cd-timeline__date {
   font-size: 1.3rem;
 }
 
-.cd-timeline__read-more,
+/* .cd-timeline__read-more, */
 .cd-timeline__date {
   display: inline-block;
 }
 
-.cd-timeline__read-more {
+/* .cd-timeline__read-more {
   float: right;
   padding: 0.8em 1em;
   background: #acb7c0;
@@ -343,7 +343,7 @@ header h1 {
 
 .cd-timeline__read-more:hover {
   background-color: #bac4cb;
-}
+} */
 
 .cd-timeline__date {
   float: left;
@@ -368,7 +368,7 @@ header h1 {
     margin: 0;
     margin-bottom: 1rem;
   }
-  .cd-timeline__read-more,
+  /* .cd-timeline__read-more, */
   .cd-timeline__date {
     font-size: 1.4rem;
   }
@@ -389,9 +389,9 @@ header h1 {
     border-color: transparent;
     border-left-color: rgba(253, 183, 19, 0.58);
   }
-  .cd-timeline__read-more {
+  /* .cd-timeline__read-more {
     float: left;
-  }
+  } */
   .cd-timeline__date {
     position: absolute;
     width: 100%;
@@ -409,9 +409,9 @@ header h1 {
     border-color: transparent;
     border-right-color: rgba(253, 183, 19, 0.58);
   }
-  .cd-timeline__block:nth-child(even) .cd-timeline__read-more {
+  /* .cd-timeline__block:nth-child(even) .cd-timeline__read-more {
     float: right;
-  }
+  } */
   .cd-timeline__block:nth-child(even) .cd-timeline__date {
     left: auto;
     right: 122%;
