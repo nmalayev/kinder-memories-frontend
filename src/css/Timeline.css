@@ -45,6 +45,7 @@ i {
   height: auto;
   width: 100%;
   border-radius: 1em;
+  max-height: 450px;
 }
 
 .timeline-card-video {
@@ -86,6 +87,11 @@ i {
   margin-left: 5rem;
   margin-right: 5rem;
   margin-top: 1rem;
+}
+
+.card-footer h4 {
+  font-family: 'Unkempt', cursive;
+  font-size: 20px;
 }
 .posted-date {
   margin-top: 0.5rem;

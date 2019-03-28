@@ -4,7 +4,7 @@
 }
 
 #new-memory-form label {
-  color: black;
+  color: #814374;
   margin-bottom: 1rem !important;
   margin-top: 1.5rem !important;
   display: block;
@@ -17,4 +17,17 @@
 /* Removes required asterisk */
 #new-memory-form label::after {
   display: none;
+}
+
+#new-form-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#modal-header {
+  text-align: center;
+  font-family: 'Handlee', cursive;
+  font-size: 24px;
+  color: #814374;
 }
