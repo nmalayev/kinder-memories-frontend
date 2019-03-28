@@ -105,7 +105,7 @@ export class Timeline extends Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log(this.timelineFunctionality);
     return (
       <Fragment>
         <h1 id='timeline-name'>{this.props.childName + "'s Timeline"}</h1>

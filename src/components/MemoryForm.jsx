@@ -39,9 +39,7 @@ class MemoryForm extends Component {
         <Modal.Content>
           <Modal.Description>
             <Header>Add New Memory</Header>
-            <Button onClick={() => this.props.history.push('google.com')}>
-              Go Back
-            </Button>
+            <Button onClick={() => this.props.history.goBack()}>Go Back</Button>
 
             <Form onSubmit={this.props.handleSubmit} id='new-memory-form'>
               {/* <Form.Group widths='equal'> */}

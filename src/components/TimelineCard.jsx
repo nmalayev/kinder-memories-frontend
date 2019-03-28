@@ -36,23 +36,20 @@ function TimelineCard(props) {
 
   const timelineNodeIconRender = () => {
     if (props.memory.post_type === 'photo') {
-      return (
-        <div className='cd-timeline__img cd-timeline__img--photo js-cd-img'>
-          <Icon name='camera retro' inverted size='big' />
-        </div>
-      );
+      return <Icon name='camera retro' inverted size='big' />;
     } else if (props.memory.post_type === 'letter') {
-      return (
-        <div className='cd-timeline__img cd-timeline__img--letter js-cd-img'>
-          <Icon name='edit outline' inverted size='big' />
-        </div>
-      );
+      return <Icon name='edit outline' inverted size='big' />;
     } else if (props.memory.post_type === 'video') {
-      return (
-        <div className='cd-timeline__img cd-timeline__img--video js-cd-img'>
-          <Icon name='video' inverted size='big' />
-        </div>
-      );
+      return <Icon name='video' inverted size='big' />;
+    }
+  };
+  const timelineNodeIconColorRender = () => {
+    if (props.memory.post_type === 'photo') {
+      return 'cd-timeline__img--photo';
+    } else if (props.memory.post_type === 'letter') {
+      return 'cd-timeline__img--letter';
+    } else if (props.memory.post_type === 'video') {
+      return 'cd-timeline__img--video';
     }
   };
 
@@ -81,8 +78,11 @@ function TimelineCard(props) {
 
   return (
     <div className='cd-timeline__block js-cd-block' id={props.memory.id}>
-      {timelineNodeIconRender()}
-
+      <div
+        className={`cd-timeline__img ${timelineNodeIconColorRender()} js-cd-img`}
+      >
+        {timelineNodeIconRender()}
+      </div>
       <div className='cd-timeline__content js-cd-content'>
         {/* <h4>{props.memory.post_type}</h4>
         <h4>{props.memory.user.relation}</h4> */}
