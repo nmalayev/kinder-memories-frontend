@@ -78,14 +78,14 @@ function TimelineCard(props) {
 
   return (
     <div className='cd-timeline__block js-cd-block' id={props.memory.id}>
-      {/* <div
+      <div
         className={`cd-timeline__img ${timelineNodeIconColorRender()} js-cd-img`}
       >
         {timelineNodeIconRender()}
-      </div> */}
-      <div className='cd-timeline__img cd-timeline__img--photo js-cd-img'>
-        <Icon name='camera retro' inverted size='big' />
       </div>
+      {/* <div className='cd-timeline__img cd-timeline__img--photo js-cd-img'>
+        <Icon name='camera retro' inverted size='big' />
+      </div> */}
       <div className='cd-timeline__content js-cd-content'>
         {/* <h4>{props.memory.post_type}</h4>
         <h4>{props.memory.user.relation}</h4> */}

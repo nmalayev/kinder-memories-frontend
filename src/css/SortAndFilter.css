@@ -7,6 +7,7 @@
   border-radius: 8px;
   background-color: #00b5ad4f;
   font-size: 22px;
+  font-weight: bold;
   color: rgb(138, 138, 138);
   padding: 1.5rem;
   font-family: 'Handlee', cursive;
@@ -14,8 +15,9 @@
 
 #sort-and-filter div[role='alert'] {
   text-decoration: underline;
+  color: #814374;
 }
 
-#sort-and-filter.text {
+#sort-and-filter span.text {
   font-size: 1.3rem;
 }
