@@ -37,7 +37,7 @@ class LoginForm extends Component {
       <div>
         <Form onSubmit={this.handleSubmit} id='login-form'>
           <Form.Input
-            icon='user'
+            icon='user secret'
             iconPosition='left'
             label='Username'
             type='email'

@@ -51,6 +51,8 @@ class SignupForm extends Component {
       <div>
         <Form onSubmit={this.handleSubmit} id='signup-form'>
           <Form.Input
+            icon='user'
+            iconPosition='left'
             label='Name'
             type='text'
             placeholder='Name'
@@ -60,6 +62,8 @@ class SignupForm extends Component {
             transparent
           />
           <Form.Input
+            icon='user secret'
+            iconPosition='left'
             label='Username (email)'
             type='email'
             placeholder='Username'
@@ -69,6 +73,8 @@ class SignupForm extends Component {
             transparent
           />
           <Form.Input
+            icon='lock'
+            iconPosition='left'
             label='Password'
             type='password'
             placeholder='Password'
@@ -78,6 +84,8 @@ class SignupForm extends Component {
             transparent
           />
           <Form.Input
+            icon='lock'
+            iconPosition='left'
             label='Confirm Password'
             type='password'
             placeholder='Confirm Password'
