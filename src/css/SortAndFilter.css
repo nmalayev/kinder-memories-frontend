@@ -1,6 +1,7 @@
 #sort-and-filter {
   margin-left: 22rem;
   margin-right: 22rem;
+  margin-top: 8rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
