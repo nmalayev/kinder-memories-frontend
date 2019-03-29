@@ -100,15 +100,20 @@ class App extends Component {
   handleSearch = (e, { value }) => {
     // this.setState({ searchQuery: value });
     let sortedMemoriesByDescription = this.state.originalMemories.filter(mem =>
-      mem.description.toLowerCase().includes(value)
+      mem.description.toLowerCase().includes(value.toLowerCase())
     );
 
     let sortedMemoriesByTitle = this.state.originalMemories.filter(mem =>
-      mem.title.toLowerCase().includes(value)
+      mem.title.toLowerCase().includes(value.toLowerCase())
+    );
+
+    let sortedMemoriesByLetter = this.state.originalMemories.filter(mem =>
+      mem.letter.toLowerCase().includes(value.toLowerCase())
     );
 
     const searchResults = sortedMemoriesByDescription.concat(
-      sortedMemoriesByTitle
+      sortedMemoriesByTitle,
+      sortedMemoriesByLetter
     );
 
     // https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
