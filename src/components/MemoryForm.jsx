@@ -58,9 +58,7 @@ class MemoryForm extends Component {
 
     return (
       <Modal open={showAddModal} size='tiny' id='modal-form'>
-        <Modal.Header id='modal-header'>
-          Add New Memory to Timeline
-        </Modal.Header>
+        <Modal.Header id='modal-header'>Add New Memory</Modal.Header>
         <Modal.Content>
           <Form onSubmit={handleSubmit} id='new-memory-form'>
             <Form.Select
