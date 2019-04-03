@@ -319,6 +319,7 @@ class App extends Component {
                 newMemType={this.state.newMemType}
                 newMemDate={this.state.newMemDate}
                 newMemLetter={this.state.newMemLetter}
+                newMemFile={this.state.newMemFile}
               />
             ) : (
               <AccessDenied {...props} />

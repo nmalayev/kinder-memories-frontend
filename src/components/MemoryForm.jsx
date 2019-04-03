@@ -16,7 +16,8 @@ class MemoryForm extends Component {
       newMemDescription,
       newMemType,
       newMemDate,
-      newMemLetter
+      newMemLetter,
+      newMemFile
     } = this.props;
 
     if (
@@ -33,7 +34,8 @@ class MemoryForm extends Component {
       newMemTitle &&
       newMemDescription &&
       newMemType &&
-      newMemDate
+      newMemDate &&
+      newMemFile
     ) {
       return true;
     } else {
