@@ -139,7 +139,7 @@ class App extends Component {
   };
 
   handleAddFormSelectChange = (e, { value }) => {
-    this.setState({ newMemType: value });
+    this.setState({ newMemType: value, newMemFile: '' });
   };
 
   // FIX: fix handleSidebarSortMemPoster, handleSidebarSortTimeSort, handleSidebarSortTypeSort

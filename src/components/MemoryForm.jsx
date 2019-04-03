@@ -9,7 +9,7 @@ const options = [
 ];
 
 class MemoryForm extends Component {
-  // Function checks if all input fields are submitted in order to enable Submit button.
+  // Function checks if all input fields are filled in order to enable Submit button.
   formCompleted = () => {
     const {
       newMemTitle,
@@ -40,6 +40,29 @@ class MemoryForm extends Component {
       return true;
     } else {
       return false;
+    }
+  };
+
+  formFileUploadValidation = () => {
+    const {
+      newMemTitle,
+      newMemDescription,
+      newMemType,
+      newMemDate,
+      newMemFile
+    } = this.props;
+
+    if (
+      newMemType !== 'letter' &&
+      newMemTitle &&
+      newMemDescription &&
+      newMemType &&
+      newMemDate &&
+      newMemFile === ''
+    ) {
+      return 'Please attach file';
+    } else {
+      return 'Pleae complete form';
     }
   };
 
@@ -130,9 +153,15 @@ class MemoryForm extends Component {
               <Button negative onClick={() => history.goBack()}>
                 Go Back
               </Button>
-              <Form.Button positive disabled={!this.formCompleted()}>
-                Submit
-              </Form.Button>
+              <Form.Button
+                content={
+                  this.props.newMemFile
+                    ? 'Submit'
+                    : this.formFileUploadValidation()
+                }
+                positive
+                disabled={!this.formCompleted()}
+              />
             </Form.Group>
           </Form>
         </Modal.Content>
