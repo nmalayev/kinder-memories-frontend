@@ -52,6 +52,7 @@ class MemoryForm extends Component {
       showAddModal,
       handleSubmit,
       handleSelectChange,
+      handleFileUpload,
       childName,
       history
     } = this.props;
@@ -107,6 +108,7 @@ class MemoryForm extends Component {
                 type='file'
                 name='file'
                 accept={newMemType === 'photo' ? 'image/*' : 'video/*'}
+                onChange={handleFileUpload}
                 required
               />
             ) : null}

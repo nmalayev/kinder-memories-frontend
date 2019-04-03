@@ -23,6 +23,7 @@ class App extends Component {
     newMemType: '',
     newMemDate: '',
     newMemLetter: '',
+    newMemFile: '',
     memPoster: 'everyone',
     timeSort: 'chrono',
     memType: 'all',
@@ -126,6 +127,15 @@ class App extends Component {
 
   handleAddFormChange = (e, { value }) => {
     this.setState({ [e.target.name]: value });
+  };
+
+  handleAddFormFileUpload = (e, { value }) => {
+    this.setState(
+      {
+        newMemFile: e.target.files[0]
+      },
+      () => console.log('file upload', this.state.newMemFile)
+    );
   };
 
   handleAddFormSelectChange = (e, { value }) => {
@@ -301,6 +311,7 @@ class App extends Component {
                 showAddModal={this.state.showAddModal ? true : true} // Hacky way to always pass true, but flip false upon form submit
                 handleChange={this.handleAddFormChange}
                 handleSelectChange={this.handleAddFormSelectChange}
+                handleFileUpload={this.handleAddFormFileUpload}
                 handleSubmit={this.handleNewMemorySubmit}
                 childName={this.state.childName}
                 newMemTitle={this.state.newMemTitle}
