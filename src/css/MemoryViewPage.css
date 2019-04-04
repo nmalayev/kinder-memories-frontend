@@ -1,8 +1,52 @@
 #memoryCardContainer {
   margin: 2em;
-  margin-top: 4em;
+  margin-top: 2em;
 }
 
-/* div.ui.rasied.card {
+div.ui.rasied.card {
   border-radius: 5em;
-} */
+}
+
+.memory-card {
+  position: relative;
+  background: rgba(253, 183, 19, 0.58);
+  border-radius: 1em !important;
+  padding: 1em;
+
+  /* How to fit div inside parent: https://stackoverflow.com/questions/1098219/how-to-make-child-divs-always-fit-inside-parent-div */
+  height: 100%;
+  overflow: auto;
+}
+
+.memory-card h2 {
+  color: #be1056;
+  font-family: 'Handlee', cursive;
+  font-size: 2rem;
+}
+
+.memory-card p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: 'Handlee', cursive;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.memory-card-date p {
+  padding: 0.8em 0;
+  opacity: 0.7;
+  font-family: 'Unkempt', cursive;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.memory-card-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.memory-card-date p {
+  margin: 0;
+}

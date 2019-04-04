@@ -335,7 +335,11 @@ class App extends Component {
           exact
           render={props =>
             this.state.currentUser ? (
-              <MemoryViewPage {...props} memories={this.state.memories} />
+              <MemoryViewPage
+                {...props}
+                memories={this.state.memories}
+                childName={this.state.childName}
+              />
             ) : (
               <AccessDenied {...props} />
             )

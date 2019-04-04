@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import MemoryCard from './MemoryCard';
 import '../css/MemoryViewPage.css';
 
@@ -14,9 +14,12 @@ function MemoryViewPage(props) {
   };
 
   return (
-    <Card.Group itemsPerRow={4} id='memoryCardContainer'>
-      {renderMemoryCards()}
-    </Card.Group>
+    <Fragment>
+      <h1 id='timeline-name'>{props.childName + "'s Timeline Memories"}</h1>
+      <Card.Group itemsPerRow={3} id='memoryCardContainer'>
+        {renderMemoryCards()}
+      </Card.Group>
+    </Fragment>
   );
 }
 

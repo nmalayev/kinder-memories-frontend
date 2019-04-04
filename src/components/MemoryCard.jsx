@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon } from 'semantic-ui-react';
+import { Card, Icon, Image } from 'semantic-ui-react';
 import moment from 'moment';
 import 'moment-timezone';
 
@@ -13,7 +13,7 @@ function MemoryCard(props) {
       );
     } else if (props.memory.post_type === 'letter') {
       return (
-        <div className='timeline-card-letter'>
+        <div>
           <p className='timeline-letter'>{props.memory.letter}</p>
         </div>
       );
@@ -30,28 +30,6 @@ function MemoryCard(props) {
               type='video/ogg'
             />
           </video>
-        </div>
-      );
-    }
-  };
-
-  const timelineNodeIconRender = () => {
-    if (props.memory.post_type === 'photo') {
-      return (
-        <div className='cd-timeline__img cd-timeline__img--photo js-cd-img'>
-          <Icon name='camera retro' inverted size='big' />
-        </div>
-      );
-    } else if (props.memory.post_type === 'letter') {
-      return (
-        <div className='cd-timeline__img cd-timeline__img--letter js-cd-img'>
-          <Icon name='edit outline icon' inverted size='big' />
-        </div>
-      );
-    } else if (props.memory.post_type === 'video') {
-      return (
-        <div className='cd-timeline__img cd-timeline__img--video js-cd-img'>
-          <Icon name='video icon' inverted size='big' />
         </div>
       );
     }
@@ -80,32 +58,40 @@ function MemoryCard(props) {
     }
   };
 
+  const timelineNodeIconRender = () => {
+    if (props.memory.post_type === 'photo') {
+      return <Icon size='big' name='camera retro' color='teal' />;
+    } else if (props.memory.post_type === 'letter') {
+      return <Icon size='big' name='edit outline' color='teal' />;
+    } else if (props.memory.post_type === 'video') {
+      return <Icon size='big' name='video' color='teal' />;
+    }
+  };
+
   return (
-    // <Card raised>
-    <div className='column'>
-      <div
-        // className='cd-timeline__content js-cd-content card'
-        style={{ width: 'auto' }}
-      >
-        {/* <h4>{props.memory.post_type}</h4>
-        <h4>{props.memory.user.relation}</h4> */}
+    <Card raised>
+      <div className='memory-card'>
         <h2 className='card-title'>{props.memory.title}</h2>
         <p>{props.memory.description}</p>
-
-        {/* {memoryTypeRender()} */}
+        {memoryTypeRender()}
         <div className='card-footer'>
           {calcMemoryAge()}
           <h4 className='posted-date'>
             Posted by {props.memory.user.name} on{' '}
             {moment(props.memory.created_at).format('MMMM Do YYYY')}
           </h4>
-          {/* <a href='#0' className='cd-timeline__read-more'>
-            Read more
-          </a> */}
+        </div>
+        <div className='memory-card-date'>
+          <p>
+            {/* utcOffset below adds 1 hour to time that is sent to API because default is midnight, and moment.js parses it as day before on frontend. */}
+            {moment(props.memory.memory_date)
+              .utcOffset('+0100')
+              .format('MMM Do YYYY')}
+          </p>
+          {timelineNodeIconRender()}
         </div>
       </div>
-    </div>
-    // </Card>
+    </Card>
   );
 }
 
