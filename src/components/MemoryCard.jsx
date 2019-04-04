@@ -36,7 +36,7 @@ function MemoryCard(props) {
   };
 
   const calcMemoryAge = () => {
-    let memoryDate = moment(props.memory.memory_date);
+    let memoryDate = moment(props.memory.memory_date).add(1, 'days');
     let birthday = moment(props.memory.timeline.birthday);
 
     let years = memoryDate.diff(birthday, 'year');

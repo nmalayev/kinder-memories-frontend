@@ -54,7 +54,7 @@ function TimelineCard(props) {
   };
 
   const calcMemoryAge = () => {
-    let memoryDate = moment(props.memory.memory_date);
+    let memoryDate = moment(props.memory.memory_date).add(1, 'days');
     let birthday = moment(props.memory.timeline.birthday);
 
     let years = memoryDate.diff(birthday, 'year');
@@ -100,6 +100,12 @@ function TimelineCard(props) {
         </div>
         <span className='cd-timeline__date'>
           {/* utcOffset below adds 1 hour to time that is sent to API because default is midnight, and moment.js parses it as day before on frontend. */}
+          {console.log(
+            props.memory.memory_date,
+            moment(props.memory.memory_date)
+              .utcOffset('+0100')
+              .format('MMM Do YYYY')
+          )}
           {moment(props.memory.memory_date)
             .utcOffset('+0100')
             .format('MMM Do YYYY')}
