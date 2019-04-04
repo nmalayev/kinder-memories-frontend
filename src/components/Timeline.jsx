@@ -93,14 +93,13 @@ export class Timeline extends Component {
 
   renderMemoryCards = () => {
     const { memories } = this.props;
-    if (memories.length > 0) {
-      return memories.map(mem => {
-        return <TimelineCard key={mem.id} memory={mem} />;
-      });
-    }
+    return memories.map(mem => {
+      return <TimelineCard key={mem.id} memory={mem} />;
+    });
   };
 
   render() {
+    console.log('timeline', this.props.memories);
     return (
       <Fragment>
         <h1 id='timeline-name'>{this.props.childName + "'s Timeline"}</h1>
@@ -115,7 +114,6 @@ export class Timeline extends Component {
         <Button
           id='scroll-to-top-btn'
           color='teal'
-          // inverted
           onClick={() => window.scrollTo(0, 0)}
         >
           Back to Top
