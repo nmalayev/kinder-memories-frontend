@@ -61,15 +61,7 @@ class MemoryForm extends Component {
 
     return (
       <Modal open={showAddModal} size='tiny' id='modal-form'>
-        <Modal.Header id='modal-header'>
-          {/* <Button
-            negative
-            content='Go Back'
-            onClick={() => this.props.history.goBack()}
-          /> */}
-          Add New Memory
-        </Modal.Header>
-
+        <Modal.Header id='modal-header'>Add New Memory</Modal.Header>
         <Modal.Content>
           <Form onSubmit={handleSubmit} id='new-memory-form'>
             <Form.Select
@@ -135,18 +127,10 @@ class MemoryForm extends Component {
               />
             ) : null}
             <div id='new-form-buttons'>
-              {/* <button negative onClick={() => this.props.history.goBack()}>
-                Go Back
-              </button>
-
-              <button type='submit' positive disabled={!this.formCompleted()}>
-                {!newMemFile &&
-                (newMemType === 'photo' || newMemType === 'video')
-                  ? 'Please attach file'
-                  : 'Submit'}
-              </button> */}
               <Button
                 negative
+                // to prevent this button from triggering form submit, have to specify type='button'
+                // https://stackoverflow.com/questions/932653/how-to-prevent-buttons-from-submitting-forms
                 type='button'
                 content='Go Back'
                 onClick={() => this.props.history.goBack()}
