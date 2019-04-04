@@ -36,6 +36,7 @@ function MemoryCard(props) {
   };
 
   const calcMemoryAge = () => {
+    // .add(1, 'days') in order to fix age calculation, otherwise, it counts 4/13 - 5/13 as 0 month instead of 1 month.
     let memoryDate = moment(props.memory.memory_date).add(1, 'days');
     let birthday = moment(props.memory.timeline.birthday);
 
