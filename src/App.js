@@ -17,6 +17,7 @@ class App extends Component {
     originalMemories: [],
     memories: [],
     showAddModal: true,
+    searchQuery: '',
     childName: '',
     newMemTitle: '',
     newMemDescription: '',
@@ -37,11 +38,7 @@ class App extends Component {
 
   logout = () => {
     localStorage.removeItem('token');
-    this.setState(
-      { currentUser: null },
-      () => this.props.history.push('/')
-      // TODO: add callback function here to push to homepage/login screen after logout
-    );
+    this.setState({ currentUser: null }, () => this.props.history.push('/'));
   };
 
   sortMemories = memories => {
@@ -99,7 +96,8 @@ class App extends Component {
   }
 
   handleSearch = (e, { value }) => {
-    // this.setState({ searchQuery: value });
+    const { searchQuery } = this.state;
+    this.setState({ searchQuery: value });
     let sortedMemoriesByDescription = this.state.originalMemories.filter(mem =>
       mem.description.toLowerCase().includes(value.toLowerCase())
     );
@@ -263,12 +261,6 @@ class App extends Component {
 
     this.props.history.push('/timeline');
   };
-
-  // resetFileStateOnGoBackFn = () => {
-  //   // this.setState({ newMemFile: '' }, () =>
-  //   console.log(this.setCurrentUser.newMemFile);
-  //   // );
-  // };
 
   render() {
     return (
