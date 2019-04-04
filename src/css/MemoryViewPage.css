@@ -32,21 +32,30 @@ div.ui.rasied.card {
   margin-bottom: 1rem;
 }
 
-.memory-card-date p {
+p.memory-card-date {
   padding: 0.8em 0;
+  padding-top: 0;
   opacity: 0.7;
   font-family: 'Unkempt', cursive;
   font-weight: bold;
   font-size: 20px;
-}
-
-.memory-card-date {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   align-items: center;
-}
-
-.memory-card-date p {
   margin: 0;
 }
+
+.letter-container p.memory-card-letter {
+  font-family: 'Caveat', cursive;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  padding-top: 0;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.781);
+  line-height: 2rem;
+  text-align: left;
+}
+
+/* div.stick-to-bottom {
+  position: absolute;
+  bottom: 0;
+} */

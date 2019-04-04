@@ -13,8 +13,8 @@ function MemoryCard(props) {
       );
     } else if (props.memory.post_type === 'letter') {
       return (
-        <div>
-          <p className='timeline-letter'>{props.memory.letter}</p>
+        <div className='letter-container'>
+          <p className='memory-card-letter'>{props.memory.letter}</p>
         </div>
       );
     } else if (props.memory.post_type === 'video') {
@@ -46,15 +46,27 @@ function MemoryCard(props) {
     birthday.add(months, 'months');
 
     if (years === 1) {
-      return <h4>Age: {years + ' Year, ' + months + ' Months '}</h4>;
+      return (
+        <h4 className='age'>Age: {years + ' Year, ' + months + ' Months '}</h4>
+      );
     } else if (years > 1) {
-      return <h4>Age: {years + ' Years, ' + months + ' Months '}</h4>;
+      return (
+        <h4 className='age'>Age: {years + ' Years, ' + months + ' Months '}</h4>
+      );
     } else if (years < -1) {
-      return <h4>Age: {years + ' Years, ' + Math.abs(months) + ' Months '}</h4>;
+      return (
+        <h4 className='age'>
+          Age: {years + ' Years, ' + Math.abs(months) + ' Months '}
+        </h4>
+      );
     } else if (years === -1) {
-      return <h4>Age: {years + ' Year, ' + Math.abs(months) + ' Months '}</h4>;
+      return (
+        <h4 className='age'>
+          Age: {years + ' Year, ' + Math.abs(months) + ' Months '}
+        </h4>
+      );
     } else {
-      return <h4>Age: {months + ' Months '}</h4>;
+      return <h4 className='age'>Age: {months + ' Months '}</h4>;
     }
   };
 
@@ -69,20 +81,20 @@ function MemoryCard(props) {
   };
 
   return (
-    <Card raised>
+    <Card raised color='teal'>
       <div className='memory-card'>
-        <h2 className='card-title'>{props.memory.title}</h2>
-        <p>{props.memory.description}</p>
-        {memoryTypeRender()}
-        <div className='card-footer'>
+        <div className='card-content'>
+          <h2 className='card-title'>{props.memory.title}</h2>
+          <p>{props.memory.description}</p>
+          {memoryTypeRender()}
+        </div>
+        <div className='card-footer stick-to-bottom'>
           {calcMemoryAge()}
           <h4 className='posted-date'>
             Posted by {props.memory.user.name} on{' '}
             {moment(props.memory.created_at).format('MMMM Do YYYY')}
           </h4>
-        </div>
-        <div className='memory-card-date'>
-          <p>
+          <p className='memory-card-date'>
             {/* utcOffset below adds 1 hour to time that is sent to API because default is midnight, and moment.js parses it as day before on frontend. */}
             {moment(props.memory.memory_date)
               .utcOffset('+0100')
