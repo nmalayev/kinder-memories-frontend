@@ -252,12 +252,23 @@ class App extends Component {
           originalMemories: this.sortMemories([...this.state.memories, mem]),
           memories: this.sortMemories([...this.state.memories, mem]),
           showAddModal: !this.state.showAddModal,
-          newMemType: ''
+          newMemType: '',
+          newMemDate: '',
+          newMemDescription: '',
+          newMemFile: '',
+          newMemTitle: '',
+          newMemLetter: ''
         });
       });
 
     this.props.history.push('/timeline');
   };
+
+  // resetFileStateOnGoBackFn = () => {
+  //   // this.setState({ newMemFile: '' }, () =>
+  //   console.log(this.setCurrentUser.newMemFile);
+  //   // );
+  // };
 
   render() {
     return (
@@ -320,6 +331,7 @@ class App extends Component {
                 newMemDate={this.state.newMemDate}
                 newMemLetter={this.state.newMemLetter}
                 newMemFile={this.state.newMemFile}
+                resetFile={this.resetFileStateOnGoBackFn}
               />
             ) : (
               <AccessDenied {...props} />

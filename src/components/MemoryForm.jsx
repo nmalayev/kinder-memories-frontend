@@ -43,29 +43,6 @@ class MemoryForm extends Component {
     }
   };
 
-  formFileUploadValidation = () => {
-    const {
-      newMemTitle,
-      newMemDescription,
-      newMemType,
-      newMemDate,
-      newMemFile
-    } = this.props;
-
-    if (
-      newMemType !== 'letter' &&
-      newMemTitle &&
-      newMemDescription &&
-      newMemType &&
-      newMemDate &&
-      newMemFile === ''
-    ) {
-      return 'Please attach file';
-    } else {
-      return 'Pleae complete form';
-    }
-  };
-
   render() {
     const {
       newMemTitle,
@@ -73,18 +50,26 @@ class MemoryForm extends Component {
       newMemType,
       newMemDate,
       newMemLetter,
+      newMemFile,
       handleChange,
       showAddModal,
       handleSubmit,
       handleSelectChange,
       handleFileUpload,
-      childName,
-      history
+      childName
     } = this.props;
 
     return (
       <Modal open={showAddModal} size='tiny' id='modal-form'>
-        <Modal.Header id='modal-header'>Add New Memory</Modal.Header>
+        <Modal.Header id='modal-header'>
+          {/* <Button
+            negative
+            content='Go Back'
+            onClick={() => this.props.history.goBack()}
+          /> */}
+          Add New Memory
+        </Modal.Header>
+
         <Modal.Content>
           <Form onSubmit={handleSubmit} id='new-memory-form'>
             <Form.Select
@@ -149,20 +134,36 @@ class MemoryForm extends Component {
                 required
               />
             ) : null}
-            <Form.Group id='new-form-buttons'>
-              <Button negative onClick={() => history.goBack()}>
+            <div id='new-form-buttons'>
+              {/* <button negative onClick={() => this.props.history.goBack()}>
                 Go Back
-              </Button>
-              <Form.Button
+              </button>
+
+              <button type='submit' positive disabled={!this.formCompleted()}>
+                {!newMemFile &&
+                (newMemType === 'photo' || newMemType === 'video')
+                  ? 'Please attach file'
+                  : 'Submit'}
+              </button> */}
+              <Button
+                negative
+                type='button'
+                content='Go Back'
+                onClick={() => this.props.history.goBack()}
+              />
+
+              <Button
+                type='submit'
                 content={
-                  this.props.newMemFile
-                    ? 'Submit'
-                    : this.formFileUploadValidation()
+                  !newMemFile &&
+                  (newMemType === 'photo' || newMemType === 'video')
+                    ? 'Please attach file'
+                    : 'Submit'
                 }
                 positive
                 disabled={!this.formCompleted()}
               />
-            </Form.Group>
+            </div>
           </Form>
         </Modal.Content>
       </Modal>
