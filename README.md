@@ -44,7 +44,7 @@ Users can add a new memory in the form of a photo, video, or letter. Depending o
 - CodyHouse Library - inspired the design and functionality
 - MomentJS - to standardize between Ruby and HTML date formats for use in calculations
 - React-Router - for dynamic client-side routing and better UX
-- Semantic UI React - for styling
+- Semantic UI React and custom CSS - styling
 - JWT and Bcrypt - to build auth
 
 # Additional Notes
