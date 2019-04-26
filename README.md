@@ -1,4 +1,49 @@
-![alt text](https://github.com/nmala/kinder-memories-frontend/blob/master/src/assets/logo.png?raw=true)
-<img alt="logo" src="src/assets/logo.png">
+<img alt="logo" src="src/assets/logo.png" style="margin-left: -100px; margin-top: -100px; margin-bottom: -150px">
 
-## Available Scripts
+An interactive scrapbook timeline for parents to manage special memories of their children. Users post memories as photos, videos, or letters for a child to look back on, and provide their relation allowing for sorting by relation and memory type.
+
+Created by Nison Malayev.
+
+# Concept
+
+My wife and I had our first babyin 2018, and with the baby came hundreds of photos and videos of our special memories. We had no easy way to organize these memories - there are hashtags, tags in Google Photos, albums, scrapbooks, baby logs, etc. We also wanted to incorporate a way for our child to look back on these special memories as she gets older. Some brainstorming produced this project - Kinder Memories.
+
+Kinder Memories is a double entendre - 'kinder' as in loving and warm, and 'kinder' for the German word for children.
+
+# Features
+
+## Timeline
+
+The main feature is the timeline. It has alternating cards with the date of the memory and an icon denoting its memory type on the center timeline stalk. Each timeline card has a title, description, memory, age (calculated via the memory date), and a footer with who posted the memory and when.
+
+## Full auth with auto-login
+
+Users can sign up, login, and be auto-logged in upon returning to the web app.
+
+## Filter and Sort
+
+At the top of the timeline is a filter and sort bar. Users can the timeline by the relation of the poster, whether it be a grandparent, a sibling, or a cousin. Another layer of filtering is by type of memory post: photo, video, or letter.
+
+I've also implemented a way to swap whether the timeline posts load chronologically or reverse-chronologically.
+
+These three layers allow for fine tuning of how the timeline renders. For example, a user can view all video posts by grandparents in reverse chronological order.
+
+## Add New Memory
+
+Users can add a new memory in the form of a photo, video, or letter.
+
+# Stack
+
+- Ruby on Rails with Postgres - backend API
+- Active Storage - file uploads
+- React - for UI
+- Vanilla JavaScript - for some of the timeline card functionality
+- CodyHouse Library - inspired the design and functionality
+- MomentJS - to standardize between Ruby and HTML date formats for use in calculations
+- React-Router - for dynamic client-side routing and better UX
+- Semantic UI React - for styling
+- JWT and Bcrypt - to build auth
+
+# Additional Notes
+
+[Backend API Repo](https://github.com/kinder-memories-backend)
