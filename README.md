@@ -5,7 +5,7 @@
 An interactive scrapbook timeline for parents to manage special memories of their children. Users post memories as photos, videos, or letters for a child to look back on, and provide their relation allowing for sorting by relation and memory type.
 
 Created by Nison Malayev. </br>
-[Backend API Repo](https://github.com/kinder-memories-backend)
+[Backend API Repo](https://github.com/nmala/kinder-memories-backend)
 
 # Concept
 
@@ -49,4 +49,4 @@ Users can add a new memory in the form of a photo, video, or letter. Depending o
 
 # Additional Notes
 
-[Backend API Repo](https://github.com/kinder-memories-backend)
+[Backend API Repo](https://github.com/nmala/kinder-memories-backend)
