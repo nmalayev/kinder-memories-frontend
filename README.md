@@ -1,8 +1,11 @@
-<img alt="logo" src="src/assets/logo.png" style="margin-left: -100px; margin-top: -100px; margin-bottom: -150px">
+<!-- <img alt="logo" src="src/assets/logo.png" style="margin-left: -100px; margin-top: -100px; margin-bottom: -150px"> -->
+
+# Kinder Memories
 
 An interactive scrapbook timeline for parents to manage special memories of their children. Users post memories as photos, videos, or letters for a child to look back on, and provide their relation allowing for sorting by relation and memory type.
 
-Created by Nison Malayev.
+Created by Nison Malayev. </br>
+[Backend API Repo](https://github.com/kinder-memories-backend)
 
 # Concept
 
@@ -30,7 +33,7 @@ These three layers allow for fine tuning of how the timeline renders. For exampl
 
 ## Add New Memory
 
-Users can add a new memory in the form of a photo, video, or letter.
+Users can add a new memory in the form of a photo, video, or letter. Depending on the choice, the form renders a text area for the letter or a file upload button.
 
 # Stack
 
