@@ -16,9 +16,10 @@ function MemoryViewPage(props) {
   return (
     <Fragment>
       <h1 id='timeline-name'>{props.childName + "'s Timeline Memories"}</h1>
-      <Card.Group itemsPerRow={3} id='memoryCardContainer'>
+      {/* <Card.Group itemsPerRow={3} id='memoryCardContainer'>
         {renderMemoryCards()}
-      </Card.Group>
+      </Card.Group> */}
+      <div className='ui four column grid'>{renderMemoryCards()}</div>
     </Fragment>
   );
 }

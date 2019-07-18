@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 import moment from 'moment';
 import 'moment-timezone';
 
@@ -82,29 +82,31 @@ function MemoryCard(props) {
   };
 
   return (
-    <Card raised color='teal'>
-      <div className='memory-card'>
-        <div className='card-content'>
-          <h2 className='card-title'>{props.memory.title}</h2>
-          <p>{props.memory.description}</p>
-          {memoryTypeRender()}
-        </div>
-        <div className='card-footer stick-to-bottom'>
-          {calcMemoryAge()}
-          <h4 className='posted-date'>
-            Posted by {props.memory.user.name} on{' '}
-            {moment(props.memory.created_at).format('MMMM Do YYYY')}
-          </h4>
-          <p className='memory-card-date'>
-            {/* utcOffset below adds 1 hour to time that is sent to API because default is midnight, and moment.js parses it as day before on frontend. */}
-            {moment(props.memory.memory_date)
-              .utcOffset('+0100')
-              .format('MMM Do YYYY')}
-          </p>
-          {timelineNodeIconRender()}
+    <div className='column'>
+      <div className='ui fluid raised card'>
+        <div className='memory-card'>
+          <div className='card-content'>
+            <h2 className='card-title'>{props.memory.title}</h2>
+            <p>{props.memory.description}</p>
+            {memoryTypeRender()}
+          </div>
+          <div className='card-footer stick-to-bottom'>
+            {calcMemoryAge()}
+            <h4 className='posted-date'>
+              Posted by {props.memory.user.name} on{' '}
+              {moment(props.memory.created_at).format('MMMM Do YYYY')}
+            </h4>
+            <p className='memory-card-date'>
+              {/* utcOffset below adds 1 hour to time that is sent to API because default is midnight, and moment.js parses it as day before on frontend. */}
+              {moment(props.memory.memory_date)
+                .utcOffset('+0100')
+                .format('MMM Do YYYY')}
+            </p>
+            {timelineNodeIconRender()}
+          </div>
         </div>
       </div>
-    </Card>
+    </div>
   );
 }
 
