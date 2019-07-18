@@ -2,8 +2,6 @@ import React, { Fragment } from 'react';
 import MemoryCard from './MemoryCard';
 import '../css/MemoryViewPage.css';
 
-import { Card } from 'semantic-ui-react';
-
 function MemoryViewPage(props) {
   const { memories } = props;
 
@@ -16,9 +14,8 @@ function MemoryViewPage(props) {
   return (
     <Fragment>
       <h1 id='timeline-name'>{props.childName + "'s Timeline Memories"}</h1>
-      {/* <Card.Group itemsPerRow={3} id='memoryCardContainer'>
-        {renderMemoryCards()}
-      </Card.Group> */}
+
+      {/* reference code example of fluid cards here: https://semantic-ui.com/views/card.html#fluid-card */}
       <div className='ui four column grid'>{renderMemoryCards()}</div>
     </Fragment>
   );

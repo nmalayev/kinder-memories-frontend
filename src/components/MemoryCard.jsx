@@ -82,6 +82,8 @@ function MemoryCard(props) {
   };
 
   return (
+    // reference code example of fluid cards here:
+    // https://semantic-ui.com/views/card.html#fluid-card
     <div className='column'>
       <div className='ui fluid raised card'>
         <div className='memory-card'>
