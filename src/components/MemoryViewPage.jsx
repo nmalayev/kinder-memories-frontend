@@ -16,7 +16,9 @@ function MemoryViewPage(props) {
       <h1 id='timeline-name'>{props.childName + "'s Timeline Memories"}</h1>
 
       {/* reference code example of fluid cards here: https://semantic-ui.com/views/card.html#fluid-card */}
-      <div className='ui four column grid'>{renderMemoryCards()}</div>
+      <div className='ui four column grid' id='memoryCardContainer'>
+        {renderMemoryCards()}
+      </div>
     </Fragment>
   );
 }
