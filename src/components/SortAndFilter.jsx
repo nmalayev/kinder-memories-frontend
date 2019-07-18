@@ -81,7 +81,7 @@ export default class SortAndFilter extends Component {
           <Dropdown
             inline
             options={memoryPosterOptions}
-            // // defaultValue={memoryPosterOptions[0].value}
+            // defaultValue={memoryPosterOptions[0].value}
             onChange={handleSidebarSortMemPoster}
             value={memPoster}
           />

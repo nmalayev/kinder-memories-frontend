@@ -81,6 +81,8 @@ class App extends Component {
 
     const token = localStorage.getItem('token');
 
+    // Auto-login if user stored in localStorage
+
     if (token) {
       fetch('http://localhost:3001/api/v1/auto_login', {
         method: 'GET',
@@ -250,6 +252,7 @@ class App extends Component {
           originalMemories: this.sortMemories([...this.state.memories, mem]),
           memories: this.sortMemories([...this.state.memories, mem]),
           showAddModal: !this.state.showAddModal,
+          // clearing form data upon submission
           newMemType: '',
           newMemDate: '',
           newMemDescription: '',
