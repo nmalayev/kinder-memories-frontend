@@ -17,7 +17,6 @@ class App extends Component {
     originalMemories: [],
     memories: [],
     showAddModal: true,
-    searchQuery: '',
     childName: '',
     newMemTitle: '',
     newMemDescription: '',
@@ -98,8 +97,6 @@ class App extends Component {
   }
 
   handleSearch = (e, { value }) => {
-    const { searchQuery } = this.state;
-    this.setState({ searchQuery: value });
     let sortedMemoriesByDescription = this.state.originalMemories.filter(mem =>
       mem.description.toLowerCase().includes(value.toLowerCase())
     );

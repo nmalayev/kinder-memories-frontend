@@ -58,6 +58,7 @@ class Navbar extends Component {
             </Menu.Item>
             <Menu.Item>
               <Input
+                // not making a controlled React input because there is a lot of lag due to debounce.
                 onChange={_.debounce(this.props.handleSearch, 500)}
                 icon='search'
                 placeholder='Search...'
