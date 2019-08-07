@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import '../css/SortAndFilter.css';
 
@@ -53,52 +53,52 @@ const typeSortOptions = [
   }
 ];
 
-export default class SortAndFilter extends Component {
-  render() {
-    const {
-      memPoster,
-      timeSort,
-      memType,
-      handleSidebarSortMemPoster,
-      handleSidebarSortTimeSort,
-      handleSidebarSortTypeSort
-    } = this.props;
+function SortAndFilter(props) {
+  const {
+    memPoster,
+    timeSort,
+    memType,
+    handleSidebarSortMemPoster,
+    handleSidebarSortTimeSort,
+    handleSidebarSortTypeSort
+  } = props;
 
-    return (
-      <div id='sort-and-filter'>
-        <div className='dropdown-filter'>
-          Sort by{' '}
-          <Dropdown
-            inline
-            options={timeSortOptions}
-            // defaultValue={timeSortOptions[0].value}
-            onChange={handleSidebarSortTimeSort}
-            value={timeSort}
-          />
-        </div>
-        <div className='dropdown-filter'>
-          Show me memories by{' '}
-          <Dropdown
-            inline
-            options={memoryPosterOptions}
-            // defaultValue={memoryPosterOptions[0].value}
-            onChange={handleSidebarSortMemPoster}
-            value={memPoster}
-          />
-        </div>
-
-        <div className='dropdown-filter'>
-          Show{' '}
-          <Dropdown
-            inline
-            options={typeSortOptions}
-            // defaultValue={typeSortOptions[0].value}
-            onChange={handleSidebarSortTypeSort}
-            value={memType}
-          />
-          memories
-        </div>
+  return (
+    <div id='sort-and-filter'>
+      <div className='dropdown-filter'>
+        Sort by{' '}
+        <Dropdown
+          inline
+          options={timeSortOptions}
+          // defaultValue={timeSortOptions[0].value}
+          onChange={handleSidebarSortTimeSort}
+          value={timeSort}
+        />
       </div>
-    );
-  }
+      <div className='dropdown-filter'>
+        Show me memories by{' '}
+        <Dropdown
+          inline
+          options={memoryPosterOptions}
+          // defaultValue={memoryPosterOptions[0].value}
+          onChange={handleSidebarSortMemPoster}
+          value={memPoster}
+        />
+      </div>
+
+      <div className='dropdown-filter'>
+        Show{' '}
+        <Dropdown
+          inline
+          options={typeSortOptions}
+          // defaultValue={typeSortOptions[0].value}
+          onChange={handleSidebarSortTypeSort}
+          value={memType}
+        />
+        memories
+      </div>
+    </div>
+  );
 }
+
+export default SortAndFilter;
