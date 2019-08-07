@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, Modal, Form } from 'semantic-ui-react';
 import '../css/MemoryForm.css';
 
