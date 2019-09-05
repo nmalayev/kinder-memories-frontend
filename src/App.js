@@ -52,6 +52,7 @@ class App extends Component {
     });
   };
 
+  // Flips regular sort logic to sort reverse
   reverseTimeSortMemories = memories => {
     return memories.sort((memA, memB) => {
       if (memA.memory_date > memB.memory_date) {
@@ -69,7 +70,7 @@ class App extends Component {
       .then(r => r.json())
       .then(posts => {
         // Sorting the API data chronologically by memory date to place on timeline
-        let chronoSorted = this.sortMemories(posts);
+        const chronoSorted = this.sortMemories(posts);
 
         this.setState({
           originalMemories: chronoSorted,
@@ -97,15 +98,15 @@ class App extends Component {
   }
 
   handleSearch = (e, { value }) => {
-    let sortedMemoriesByDescription = this.state.originalMemories.filter(mem =>
-      mem.description.toLowerCase().includes(value.toLowerCase())
+    const sortedMemoriesByDescription = this.state.originalMemories.filter(
+      mem => mem.description.toLowerCase().includes(value.toLowerCase())
     );
 
-    let sortedMemoriesByTitle = this.state.originalMemories.filter(mem =>
+    const sortedMemoriesByTitle = this.state.originalMemories.filter(mem =>
       mem.title.toLowerCase().includes(value.toLowerCase())
     );
 
-    let sortedMemoriesByLetter = this.state.originalMemories.filter(mem =>
+    const sortedMemoriesByLetter = this.state.originalMemories.filter(mem =>
       mem.letter.toLowerCase().includes(value.toLowerCase())
     );
 
@@ -250,6 +251,7 @@ class App extends Component {
           memories: this.sortMemories([...this.state.memories, mem]),
           showAddModal: !this.state.showAddModal,
           // clearing form data upon submission
+          // FIX: abstract clearing form data to a Fn.
           newMemType: '',
           newMemDate: '',
           newMemDescription: '',

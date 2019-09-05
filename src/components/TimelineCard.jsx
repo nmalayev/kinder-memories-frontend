@@ -43,6 +43,7 @@ function TimelineCard(props) {
       return <Icon name='video' inverted size='big' />;
     }
   };
+
   const timelineNodeIconColorRender = () => {
     if (props.memory.post_type === 'photo') {
       return 'cd-timeline__img--photo';
@@ -95,9 +96,6 @@ function TimelineCard(props) {
             Posted by {props.memory.user.name} on{' '}
             {moment(props.memory.created_at).format('MMMM Do YYYY')}
           </h4>
-          {/* <a href='#0' className='cd-timeline__read-more'>
-            Read more
-          </a> */}
         </div>
         <span className='cd-timeline__date'>
           {/* utcOffset below adds 1 hour to time that is sent to API because default is midnight, and moment.js parses it as day before on frontend. */}

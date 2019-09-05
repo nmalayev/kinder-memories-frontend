@@ -17,6 +17,7 @@ class HomePage extends Component {
       renderSignupForm: !this.state.renderSignupForm
     });
   };
+
   render() {
     return (
       <div className='homepage'>
