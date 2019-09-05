@@ -17,7 +17,7 @@ export class Timeline extends Component {
 
     VerticalTimeline.prototype.hideBlocks = function() {
       //hide timeline blocks which are outside the viewport
-      if (!'classList' in document.documentElement) {
+      if ('classList' in document.documentElement === false) {
         return;
       }
       var self = this;
@@ -35,7 +35,7 @@ export class Timeline extends Component {
     };
 
     VerticalTimeline.prototype.showBlocks = function() {
-      if (!'classList' in document.documentElement) {
+      if ('classList' in document.documentElement === false) {
         return;
       }
       var self = this;
